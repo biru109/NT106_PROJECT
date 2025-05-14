@@ -60,7 +60,6 @@
             this.create_btn.TabIndex = 2;
             this.create_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.create_btn.UseVisualStyleBackColor = true;
-            this.create_btn.Click += new System.EventHandler(this.create_btn_Click_1);
             // 
             // CreateRoom
             // 
