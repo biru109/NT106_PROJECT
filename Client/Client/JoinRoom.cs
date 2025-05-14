@@ -16,5 +16,20 @@ namespace Client
         {
             InitializeComponent();
         }
+
+        private void name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void room_ip_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void join_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

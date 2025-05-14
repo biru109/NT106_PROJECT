@@ -23,15 +23,6 @@ namespace UNOServer
         private static bool TakeTurn = true;
         private static int RUT = 0;
         private static string MAU = "";
-
-
-
-
-
-
-
-
-
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;

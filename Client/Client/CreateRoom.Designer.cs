@@ -28,12 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.name = new System.Windows.Forms.TextBox();
+            this.room_ip = new System.Windows.Forms.TextBox();
+            this.create_btn = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // name
+            // 
+            this.name.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.Location = new System.Drawing.Point(373, 129);
+            this.name.Multiline = true;
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(274, 30);
+            this.name.TabIndex = 0;
+            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
+            // 
+            // room_ip
+            // 
+            this.room_ip.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.room_ip.Location = new System.Drawing.Point(405, 212);
+            this.room_ip.Multiline = true;
+            this.room_ip.Name = "room_ip";
+            this.room_ip.Size = new System.Drawing.Size(267, 34);
+            this.room_ip.TabIndex = 1;
+            this.room_ip.TextChanged += new System.EventHandler(this.room_ip_TextChanged);
+            // 
+            // create_btn
+            // 
+            this.create_btn.Image = global::Client.Properties.Resources.create_btn;
+            this.create_btn.Location = new System.Drawing.Point(456, 335);
+            this.create_btn.Name = "create_btn";
+            this.create_btn.Size = new System.Drawing.Size(243, 64);
+            this.create_btn.TabIndex = 2;
+            this.create_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.create_btn.UseVisualStyleBackColor = true;
+            this.create_btn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // CreateRoom
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Client.Properties.Resources.create;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.create_btn);
+            this.Controls.Add(this.room_ip);
+            this.Controls.Add(this.name);
+            this.DoubleBuffered = true;
+            this.Name = "CreateRoom";
             this.Text = "CreateRoom";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox room_ip;
+        private System.Windows.Forms.Button create_btn;
     }
 }

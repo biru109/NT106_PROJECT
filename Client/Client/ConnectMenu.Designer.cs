@@ -51,7 +51,7 @@
             this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Location = new System.Drawing.Point(358, 170);
+            this.btnCreate.Location = new System.Drawing.Point(358, 164);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(264, 70);
             this.btnCreate.TabIndex = 2;
