@@ -1,39 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Client
 {
     public partial class Form1 : Form
     {
+        private CreateRoom createRoomForm;   // 👈 Thêm dòng này
+        private JoinRoom joinRoomForm;       // 👈 Và dòng này
+
         public static WaitingRoom WaitingRoom;
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void btnRules_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            CreateRoom createRoomForm = new CreateRoom();
-            createRoomForm.Show();
+            if (createRoomForm == null || createRoomForm.IsDisposed)
+            {
+                createRoomForm = new CreateRoom();
+                createRoomForm.Show();
+            }
+            else
+            {
+                createRoomForm.BringToFront();
+            }
         }
 
         private void btnJoin_Click(object sender, EventArgs e)
         {
-            JoinRoom joinRoomForm = new JoinRoom();
-            joinRoomForm.Show();
+            if (joinRoomForm == null || joinRoomForm.IsDisposed)
+            {
+                joinRoomForm = new JoinRoom();
+                joinRoomForm.Show();
+            }
+            else
+            {
+                joinRoomForm.BringToFront();
+            }
+        }
+
+        private void btnRules_Click(object sender, EventArgs e)
+        {
+            // Show rules...
         }
     }
 }
