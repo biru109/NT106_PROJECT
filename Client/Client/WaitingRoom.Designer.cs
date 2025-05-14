@@ -61,7 +61,6 @@
             this.name_2.Name = "name_2";
             this.name_2.Size = new System.Drawing.Size(131, 30);
             this.name_2.TabIndex = 2;
-            this.name_2.TextChanged += new System.EventHandler(this.name_2_TextChanged);
             // 
             // name_3
             // 
@@ -70,7 +69,6 @@
             this.name_3.Name = "name_3";
             this.name_3.Size = new System.Drawing.Size(134, 30);
             this.name_3.TabIndex = 3;
-            this.name_3.TextChanged += new System.EventHandler(this.name_3_TextChanged);
             // 
             // name_4
             // 
@@ -79,7 +77,6 @@
             this.name_4.Name = "name_4";
             this.name_4.Size = new System.Drawing.Size(128, 30);
             this.name_4.TabIndex = 4;
-            this.name_4.TextChanged += new System.EventHandler(this.name_4_TextChanged);
             // 
             // back_btn
             // 

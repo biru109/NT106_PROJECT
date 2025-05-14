@@ -41,7 +41,6 @@
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(274, 30);
             this.name.TabIndex = 0;
-            this.name.TextChanged += new System.EventHandler(this.name_TextChanged);
             // 
             // room_ip
             // 
@@ -51,7 +50,6 @@
             this.room_ip.Name = "room_ip";
             this.room_ip.Size = new System.Drawing.Size(267, 34);
             this.room_ip.TabIndex = 1;
-            this.room_ip.TextChanged += new System.EventHandler(this.room_ip_TextChanged);
             // 
             // create_btn
             // 

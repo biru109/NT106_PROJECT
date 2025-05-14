@@ -32,7 +32,8 @@ namespace Client
 
         private void btnJoin_Click(object sender, EventArgs e)
         {
-
+            JoinRoom joinRoomForm = new JoinRoom();
+            joinRoomForm.Show();
         }
     }
 }
