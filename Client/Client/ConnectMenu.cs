@@ -16,5 +16,20 @@ namespace Client
         {
             InitializeComponent();
         }
+
+        private void btnRules_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnJoin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
