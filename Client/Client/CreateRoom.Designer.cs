@@ -62,13 +62,14 @@
             this.create_btn.TabIndex = 2;
             this.create_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.create_btn.UseVisualStyleBackColor = true;
-            this.create_btn.Click += new System.EventHandler(this.button1_Click);
+            this.create_btn.Click += new System.EventHandler(this.create_btn_Click_1);
             // 
             // CreateRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Client.Properties.Resources.create;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.create_btn);
             this.Controls.Add(this.room_ip);
