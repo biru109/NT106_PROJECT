@@ -1,7 +1,7 @@
 ﻿
 namespace CLIENT
 {
-    partial class WaitingRoom
+    partial class WAITINGROOM
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CLIENT
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WaitingRoom));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WAITINGROOM));
             this.btnStart = new System.Windows.Forms.Button();
             this.groupBoxP1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxP1 = new System.Windows.Forms.PictureBox();

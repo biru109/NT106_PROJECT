@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UNOClient
 {
-    public partial class Loser : Form
+    public partial class Form2_Lose : Form
     {
-        public Loser()
+        public Form2_Lose()
         {
             InitializeComponent();
         }
