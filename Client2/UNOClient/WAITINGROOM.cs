@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace CLIENT
 {
-    public partial class WAITINGROOM : Form
+    public partial class WaitingRoom : Form
     {
-        public WAITINGROOM lobby;
+        public WaitingRoom lobby;
         public List<Label> PlayerName = new List<Label>();
         public List<PictureBox> PlayerIcon = new List<PictureBox>();
         public int connectedPlayer = 0;
-        public WAITINGROOM()
+        public WaitingRoom()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
