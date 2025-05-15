@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{962CEAEE-B540-4CC2-A1FA-A6585D4192CF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>UNOClient</RootNamespace>
-    <AssemblyName>UNOClient</AssemblyName>
+    <RootNamespace>CLIENT</RootNamespace>
+    <AssemblyName>CLIENT</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -124,6 +124,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ys.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\b0.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -175,9 +178,6 @@
     <None Include="Resources\gd2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\grv.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\gs.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -206,9 +206,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rs.jpg" />
+    <None Include="Resources\grv.jpg" />
+    <Content Include="Resources\uno.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\uno.jpg" />
+    <None Include="Resources\uno.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\wd.jpg" />
@@ -238,13 +240,10 @@
     <None Include="Resources\yrv.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ys.jpg" />
+    <Content Include="Resources\Menu_copy.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Menu_copy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Waiting room %281%29.png" />
+    <Content Include="Resources\Waiting room %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
