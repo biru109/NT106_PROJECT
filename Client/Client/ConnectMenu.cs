@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Client
@@ -7,6 +8,9 @@ namespace Client
     {
         private CreateRoom createRoomForm;   // 👈 Thêm dòng này
         private JoinRoom joinRoomForm;       // 👈 Và dòng này
+        private List<JoinRoom> joinRoomForms = new List<JoinRoom>();
+        private const int MaxJoinWindows = 3;
+
 
         public static WaitingRoom WaitingRoom;
 
@@ -30,14 +34,17 @@ namespace Client
 
         private void btnJoin_Click(object sender, EventArgs e)
         {
-            if (joinRoomForm == null || joinRoomForm.IsDisposed)
+            joinRoomForms.RemoveAll(f => f == null || f.IsDisposed);
+
+            if (joinRoomForms.Count < MaxJoinWindows)
             {
-                joinRoomForm = new JoinRoom();
-                joinRoomForm.Show();
+                JoinRoom newJoinForm = new JoinRoom();
+                joinRoomForms.Add(newJoinForm);
+                newJoinForm.Show();
             }
             else
             {
-                joinRoomForm.BringToFront();
+                MessageBox.Show("You can only open up to 3 Join windows.", "Limit Reached", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

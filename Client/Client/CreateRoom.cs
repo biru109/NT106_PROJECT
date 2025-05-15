@@ -5,12 +5,15 @@ namespace Client
 {
     public partial class CreateRoom : Form
     {
+        private ProcessSocket processSocket;
+
         public CreateRoom()
         {
             InitializeComponent();
+            processSocket = new ProcessSocket();
         }
 
-        private void create_btn_Click_1(object sender, EventArgs e)
+        private async void btnCreate_Click(object sender, EventArgs e)
         {
             string playerName = name.Text;
             string roomIP = room_ip.Text;
@@ -21,8 +24,12 @@ namespace Client
                 return;
             }
 
-            // Sau khi kết nối thành công, chuyển tới WaitingRoom
-            WaitingRoom waitingRoomForm = new WaitingRoom(playerName, roomIP);
+            // Bắt đầu server với IP và port
+            await processSocket.StartServerAsync(roomIP, 12345); // 12345 là port mẫu
+            MessageBox.Show("Room created successfully!");
+
+            // Sau khi tạo phòng xong, chuyển đến WaitingRoom
+            WaitingRoom waitingRoomForm = new WaitingRoom(playerName, roomIP, processSocket);
             this.Hide(); // Ẩn CreateRoom
             waitingRoomForm.Show();
         }

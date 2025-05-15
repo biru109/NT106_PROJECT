@@ -59,7 +59,6 @@
             this.join_btn.TabIndex = 2;
             this.join_btn.Text = "Join";
             this.join_btn.UseVisualStyleBackColor = true;
-            this.join_btn.Click += new System.EventHandler(this.join_btn_Click);
             // 
             // JoinRoom
             // 

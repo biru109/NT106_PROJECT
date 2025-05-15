@@ -43,7 +43,6 @@
             this.room_ip.Name = "room_ip";
             this.room_ip.Size = new System.Drawing.Size(194, 22);
             this.room_ip.TabIndex = 0;
-            this.room_ip.TextChanged += new System.EventHandler(this.room_ip_TextChanged);
             // 
             // name_1
             // 
@@ -52,7 +51,6 @@
             this.name_1.Name = "name_1";
             this.name_1.Size = new System.Drawing.Size(134, 30);
             this.name_1.TabIndex = 1;
-            this.name_1.TextChanged += new System.EventHandler(this.name_1_TextChanged);
             // 
             // name_2
             // 
@@ -86,7 +84,6 @@
             this.back_btn.TabIndex = 5;
             this.back_btn.Text = "back";
             this.back_btn.UseVisualStyleBackColor = true;
-            this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
             // 
             // play_btn
             // 

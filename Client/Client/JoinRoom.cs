@@ -5,12 +5,15 @@ namespace Client
 {
     public partial class JoinRoom : Form
     {
+        private ProcessSocket processSocket;
+
         public JoinRoom()
         {
             InitializeComponent();
+            processSocket = new ProcessSocket();
         }
 
-        private void join_btn_Click(object sender, EventArgs e)
+        private async void btnJoin_Click(object sender, EventArgs e)
         {
             string playerName = name.Text;
             string roomIP = room_ip.Text;
@@ -21,9 +24,13 @@ namespace Client
                 return;
             }
 
-            // Chuyển sang WaitingRoom và truyền thông tin
-            WaitingRoom waitingRoomForm = new WaitingRoom(playerName, roomIP);
-            this.Hide();
+            // Tham gia phòng với IP và port đã nhập
+            await processSocket.StartClientAsync(roomIP, 12345, playerName); // 12345 là port mẫu
+            MessageBox.Show("Joined room successfully!");
+
+            // Sau khi tham gia phòng xong, chuyển đến WaitingRoom
+            WaitingRoom waitingRoomForm = new WaitingRoom(playerName, roomIP, processSocket);
+            this.Hide(); // Ẩn JoinRoom
             waitingRoomForm.Show();
         }
     }
