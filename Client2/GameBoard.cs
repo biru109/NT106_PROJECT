@@ -399,8 +399,9 @@ namespace CLIENT
             CardButton THEBAI = new CardButton();
             THEBAI.id = cd;
             THEBAI.btn.Tag = cd;
-            THEBAI.btn.FlatStyle = FlatStyle.Flat;
+
             THEBAI.btn.FlatAppearance.BorderSize = 2;
+            THEBAI.btn.FlatStyle = FlatStyle.Flat;
             THEBAI.btn.BackgroundImageLayout = ImageLayout.Stretch;
             THEBAI.btn.Size = new Size(80, 120);
             LoadCard(THEBAI.btn, cd);
