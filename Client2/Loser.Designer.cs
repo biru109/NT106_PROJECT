@@ -1,6 +1,6 @@
 ﻿namespace UNOClient
 {
-    partial class Form2_Lose
+    partial class Loser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2_Lose));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loser));
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 

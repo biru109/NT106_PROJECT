@@ -53,23 +53,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Winner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Winner.Designer.cs">
+      <DependentUpon>Winner.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2_Lose.cs">
+    <Compile Include="Loser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2_Lose.Designer.cs">
-      <DependentUpon>Form2_Lose.cs</DependentUpon>
+    <Compile Include="Loser.Designer.cs">
+      <DependentUpon>Loser.cs</DependentUpon>
     </Compile>
-    <Compile Include="GAMEROOM.cs">
+    <Compile Include="GameBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GAMEROOM.Designer.cs">
-      <DependentUpon>GAMEROOM.cs</DependentUpon>
+    <Compile Include="GameBoard.Designer.cs">
+      <DependentUpon>GameBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="ProcessSocket.cs" />
     <Compile Include="ConnectMenu.cs">
@@ -88,14 +88,14 @@
     <EmbeddedResource Include="ConnectMenu.resx">
       <DependentUpon>ConnectMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Winner.resx">
+      <DependentUpon>Winner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2_Lose.resx">
-      <DependentUpon>Form2_Lose.cs</DependentUpon>
+    <EmbeddedResource Include="Loser.resx">
+      <DependentUpon>Loser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GAMEROOM.resx">
-      <DependentUpon>GAMEROOM.cs</DependentUpon>
+    <EmbeddedResource Include="GameBoard.resx">
+      <DependentUpon>GameBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WAITINGROOM.resx">
       <DependentUpon>WAITINGROOM.cs</DependentUpon>
