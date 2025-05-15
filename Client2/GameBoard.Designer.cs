@@ -40,8 +40,8 @@ namespace CLIENT
             this.btnDiscardPileCard = new System.Windows.Forms.Button();
             this.panelColors = new System.Windows.Forms.Panel();
             this.panelPlayerL = new System.Windows.Forms.Panel();
-            this.textBoxNumL = new System.Windows.Forms.TextBox();
             this.labelNameL = new System.Windows.Forms.Label();
+            this.textBoxNumL = new System.Windows.Forms.TextBox();
             this.panelPlayerR = new System.Windows.Forms.Panel();
             this.textBoxNumR = new System.Windows.Forms.TextBox();
             this.labelNameR = new System.Windows.Forms.Label();
@@ -59,10 +59,10 @@ namespace CLIENT
             // 
             // textBoxDisplayTest
             // 
-            this.textBoxDisplayTest.Location = new System.Drawing.Point(635, 445);
+            this.textBoxDisplayTest.Location = new System.Drawing.Point(844, 42);
             this.textBoxDisplayTest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDisplayTest.Name = "textBoxDisplayTest";
-            this.textBoxDisplayTest.Size = new System.Drawing.Size(220, 22);
+            this.textBoxDisplayTest.Size = new System.Drawing.Size(201, 22);
             this.textBoxDisplayTest.TabIndex = 0;
             // 
             // btnDanhBai
@@ -97,7 +97,7 @@ namespace CLIENT
             // btnRed
             // 
             this.btnRed.BackColor = System.Drawing.Color.Red;
-            this.btnRed.Location = new System.Drawing.Point(62, 49);
+            this.btnRed.Location = new System.Drawing.Point(65, 62);
             this.btnRed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRed.Name = "btnRed";
             this.btnRed.Size = new System.Drawing.Size(69, 64);
@@ -108,7 +108,7 @@ namespace CLIENT
             // btnYellow
             // 
             this.btnYellow.BackColor = System.Drawing.Color.Yellow;
-            this.btnYellow.Location = new System.Drawing.Point(129, 49);
+            this.btnYellow.Location = new System.Drawing.Point(129, 62);
             this.btnYellow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYellow.Name = "btnYellow";
             this.btnYellow.Size = new System.Drawing.Size(66, 64);
@@ -119,7 +119,7 @@ namespace CLIENT
             // btnGreen
             // 
             this.btnGreen.BackColor = System.Drawing.Color.Lime;
-            this.btnGreen.Location = new System.Drawing.Point(62, 108);
+            this.btnGreen.Location = new System.Drawing.Point(62, 117);
             this.btnGreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGreen.Name = "btnGreen";
             this.btnGreen.Size = new System.Drawing.Size(69, 57);
@@ -130,7 +130,7 @@ namespace CLIENT
             // btnBlue
             // 
             this.btnBlue.BackColor = System.Drawing.Color.Blue;
-            this.btnBlue.Location = new System.Drawing.Point(129, 108);
+            this.btnBlue.Location = new System.Drawing.Point(129, 117);
             this.btnBlue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBlue.Name = "btnBlue";
             this.btnBlue.Size = new System.Drawing.Size(66, 57);
@@ -156,10 +156,10 @@ namespace CLIENT
             this.panelColors.Controls.Add(this.btnYellow);
             this.panelColors.Controls.Add(this.btnBlue);
             this.panelColors.Controls.Add(this.btnGreen);
-            this.panelColors.Location = new System.Drawing.Point(57, 141);
+            this.panelColors.Location = new System.Drawing.Point(98, 47);
             this.panelColors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelColors.Name = "panelColors";
-            this.panelColors.Size = new System.Drawing.Size(319, 277);
+            this.panelColors.Size = new System.Drawing.Size(633, 585);
             this.panelColors.TabIndex = 8;
             // 
             // panelPlayerL
@@ -174,18 +174,6 @@ namespace CLIENT
             this.panelPlayerL.Size = new System.Drawing.Size(171, 338);
             this.panelPlayerL.TabIndex = 24;
             // 
-            // textBoxNumL
-            // 
-            this.textBoxNumL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBoxNumL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumL.Location = new System.Drawing.Point(136, 2);
-            this.textBoxNumL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxNumL.Name = "textBoxNumL";
-            this.textBoxNumL.Size = new System.Drawing.Size(32, 30);
-            this.textBoxNumL.TabIndex = 22;
-            this.textBoxNumL.Text = "0";
-            this.textBoxNumL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // labelNameL
             // 
             this.labelNameL.AutoSize = true;
@@ -198,6 +186,18 @@ namespace CLIENT
             this.labelNameL.TabIndex = 21;
             this.labelNameL.Text = "Name";
             this.labelNameL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxNumL
+            // 
+            this.textBoxNumL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.textBoxNumL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNumL.Location = new System.Drawing.Point(136, 2);
+            this.textBoxNumL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNumL.Name = "textBoxNumL";
+            this.textBoxNumL.Size = new System.Drawing.Size(32, 30);
+            this.textBoxNumL.TabIndex = 22;
+            this.textBoxNumL.Text = "0";
+            this.textBoxNumL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelPlayerR
             // 
@@ -241,7 +241,6 @@ namespace CLIENT
             this.panelPlayerU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelPlayerU.Controls.Add(this.textBoxNumU);
             this.panelPlayerU.Controls.Add(this.labelNameU);
-            this.panelPlayerU.Controls.Add(this.panelColors);
             this.panelPlayerU.Location = new System.Drawing.Point(214, 0);
             this.panelPlayerU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerU.Name = "panelPlayerU";
@@ -314,6 +313,8 @@ namespace CLIENT
             this.ClientSize = new System.Drawing.Size(834, 706);
             this.Controls.Add(this.labelTurnOf);
             this.Controls.Add(this.textBoxNum);
+            this.Controls.Add(this.panelColors);
+            this.Controls.Add(this.textBoxDisplayTest);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.panelPlayerU);
             this.Controls.Add(this.panelPlayerR);
@@ -321,7 +322,6 @@ namespace CLIENT
             this.Controls.Add(this.btnDiscardPileCard);
             this.Controls.Add(this.btnBocBai);
             this.Controls.Add(this.btnDanhBai);
-            this.Controls.Add(this.textBoxDisplayTest);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
