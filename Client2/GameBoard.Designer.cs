@@ -1,7 +1,7 @@
 ﻿
 namespace CLIENT
 {
-    partial class GAMEROOM
+    partial class GameBoard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CLIENT
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GAMEROOM));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameBoard));
             this.textBoxDisplayTest = new System.Windows.Forms.TextBox();
             this.btnDanhBai = new System.Windows.Forms.Button();
             this.btnBocBai = new System.Windows.Forms.Button();

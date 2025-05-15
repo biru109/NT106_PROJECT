@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CLIENT
 {
-    public partial class GAMEROOM : Form
+    public partial class GameBoard : Form
     {
         public int soluongbaicanrut=0;
         public string currentCard = "";
@@ -27,7 +27,7 @@ namespace CLIENT
             public Button btn = new Button();
         }
 
-        public GAMEROOM()
+        public GameBoard()
         {
 
             InitializeComponent();
