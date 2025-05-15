@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Xml;
 using System.ComponentModel.Design;
+using UNOClient;
 
 namespace CLIENT
 {
@@ -51,7 +52,7 @@ namespace CLIENT
             Thread = new Thread(() => ANALYZE());
             Thread.Start();
         }
-        public static GameBoard room;
+        public static GameRoom room;
         public static List<USER2> otheruser;
         
         // Xử lý tin nhắn khởi tạo
@@ -64,7 +65,7 @@ namespace CLIENT
                 User.BAI.Add(payload[i]);
             }
 
-            room = new GameBoard();
+            room = new GameRoom();
             otheruser = new List<USER2>();
             ConnectMenu.WaitingRoom.Invoke((MethodInvoker)delegate ()
             {
@@ -126,13 +127,15 @@ namespace CLIENT
             if (User.ID == playerId)
             {
                
-                    MessageBox.Show("You win!");
+               EndForm endForm = new EndForm();
+               endForm.Show();
                 
               
             }
             else
             {
-              MessageBox.Show(playerId + " has won the game ");
+             Loser form2_Lose = new Loser();
+                form2_Lose.Show();
             }
 
          
@@ -179,49 +182,7 @@ namespace CLIENT
             {
                 foreach (var bt in row)
                 {
-                    /*// Lấy số hoặc loại thẻ cờ từ ID của nút
-                    string getnum = new String(bt.id.Where(Char.IsDigit).ToArray());
-                    string getType = new String(bt.id.Where(Char.IsLetter).ToArray());
-
-                    // Neu la la chuc nang
-                    if ((bt.id.Contains("dt") || bt.id.Contains("rv") || bt.id.Contains("s")) && room.currentCard.Contains(getType))
-                    {
-                        bt.btn.FlatAppearance.BorderColor = Color.Chartreuse;
-                        bt.btn.Enabled = true;
-                        continue;
-                    }
-
-                    // Nếu thẻ cờ trên bàn khớp với thẻ mở trên bàn
-                    if (room.currentCard.Contains(getType) || room.currentCard.Contains(getnum))
-                    {
-                        bt.btn.FlatAppearance.BorderColor = Color.Chartreuse;
-                        bt.btn.Enabled = true;
-                        continue;
-                    }
-
-                    // Nếu là thẻ màu Wild Draw Four
-                    if (bt.id.Contains("wd"))
-                    {
-                        // Nếu không có thẻ Draw Two hoặc Draw Four trên bàn
-                        if (!room.currentCard.Contains("dt") && !room.currentCard.Contains("df"))
-                        {
-                            bt.btn.FlatAppearance.BorderColor = Color.Chartreuse;
-                            bt.btn.Enabled = true;
-                            continue;
-                        }
-                    }
-
-                    // Nếu là thẻ màu Draw Four
-                    if (bt.id.Contains("df"))
-                    {
-                        // Nếu không có thẻ Draw Two trên bàn
-                        if (!room.currentCard.Contains("dt"))
-                        {
-                            bt.btn.FlatAppearance.BorderColor = Color.Chartreuse;
-                            bt.btn.Enabled = true;
-                            continue;
-                        }
-                    }*/
+       
 
                     string checknum = new String(room.currentCard.Where(Char.IsDigit).ToArray());
                     string getnum = new String(bt.id.Where(Char.IsDigit).ToArray());

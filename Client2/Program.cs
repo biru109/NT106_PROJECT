@@ -16,7 +16,7 @@ namespace UNOClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ConnectMenu());
+            Application.Run(new Form1());
         }
     }
 }

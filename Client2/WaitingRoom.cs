@@ -22,12 +22,12 @@ namespace CLIENT
             CheckForIllegalCrossThreadCalls = false;
             lobby = this;
             btnStart.Visible = false;
-            //// Add player name to list
+            //// thêm tên người chơi
             PlayerName.Add(labelP1);
             PlayerName.Add(labelP2);
             PlayerName.Add(labelP3);
             PlayerName.Add(labelP4);
-            // Add player icon to list
+            // thêm icon
             PlayerIcon.Add(pictureBoxP1);
             PlayerIcon.Add(pictureBoxP2);
             PlayerIcon.Add(pictureBoxP3);
@@ -39,7 +39,7 @@ namespace CLIENT
             btnStart.Visible = true;
         }
 
-        // Just a test - to be removed later !
+       
       
 
         public void ShowCurrentUser(string ID)

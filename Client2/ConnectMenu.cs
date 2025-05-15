@@ -14,8 +14,8 @@ namespace CLIENT
 {
     public partial class ConnectMenu : Form
     {
-        //no static at first 
-        public static WaitingRoom WaitingRoom;
+      
+        public static WAITINGROOM WaitingRoom;
         public ConnectMenu()
         {
             InitializeComponent();
@@ -23,11 +23,11 @@ namespace CLIENT
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            // TODO: Adding checking for texbox's emptyness, legal values ...
+           
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(textBoxIP.Text), 11000);
             ProcessSocket.Data = "CONNECT";
             ProcessSocket.LINK(serverEP);
-            WaitingRoom = new WaitingRoom();
+            WaitingRoom = new WAITINGROOM();
             ProcessSocket.SENDER(textBoxName.Text);
 
             User.ID = textBoxName.Text;
@@ -49,11 +49,12 @@ namespace CLIENT
 
         private void btnJoin_Click(object sender, EventArgs e)
         {
-            // TODO: Adding checking for texbox's emptyness, legal values ...
+            
+          
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(textBoxIP.Text), 11000);
             ProcessSocket.Data = "CONNECT";
             ProcessSocket.LINK(serverEP);
-            WaitingRoom = new WaitingRoom();
+            WaitingRoom = new WAITINGROOM();
             ProcessSocket.SENDER(textBoxName.Text);
 
             User.ID = textBoxName.Text;
@@ -65,6 +66,12 @@ namespace CLIENT
 
         private void btnRules_Click(object sender, EventArgs e)
         {           
+            System.Diagnostics.Process.Start("https://www.unorules.com/");
+        }
+
+        private void textBoxName_MouseClick(object sender, MouseEventArgs e)
+        {
+           textBoxName.Text = "";
         }
     }
 }
