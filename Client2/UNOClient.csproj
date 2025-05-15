@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{962CEAEE-B540-4CC2-A1FA-A6585D4192CF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UNOClient</RootNamespace>
+    <AssemblyName>UNOClient</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GAMEROOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GAMEROOM.Designer.cs">
+      <DependentUpon>GAMEROOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessSocket.cs" />
+    <Compile Include="ConnectMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectMenu.Designer.cs">
+      <DependentUpon>ConnectMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitingRoom.Designer.cs">
+      <DependentUpon>WaitingRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConnectMenu.resx">
+      <DependentUpon>ConnectMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GAMEROOM.resx">
+      <DependentUpon>GAMEROOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitingRoom.resx">
+      <DependentUpon>WaitingRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Picture\Blue\b0.png" />
+    <Content Include="Picture\Blue\b1.png" />
+    <Content Include="Picture\Blue\b2.png" />
+    <Content Include="Picture\Blue\b3.png" />
+    <Content Include="Picture\Blue\b4.png" />
+    <Content Include="Picture\Blue\b5.png" />
+    <Content Include="Picture\Blue\b6.png" />
+    <Content Include="Picture\Blue\b7.png" />
+    <Content Include="Picture\Blue\b8.png" />
+    <Content Include="Picture\Blue\b9.png" />
+    <Content Include="Resources\1g.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\3d Notification Reminder Cute Abstract Geometric Instagram Post.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Exit_btn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\B4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\B6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Background%40.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Background_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Draw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Draw2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Player_Menu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Player_Menu_v2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\UNO_Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Picture\Red\r0.png" />
+    <Content Include="Picture\Red\r1.png" />
+    <Content Include="Picture\Red\r2.png" />
+    <Content Include="Picture\Red\r3.png" />
+    <Content Include="Picture\Red\r4.png" />
+    <Content Include="Picture\Red\r5.png" />
+    <Content Include="Picture\Red\r6.png" />
+    <Content Include="Picture\Red\r7.png" />
+    <Content Include="Picture\Red\r8.png" />
+    <Content Include="Picture\Red\r9.png" />
+    <Content Include="Picture\Resources\b0.jpg" />
+    <Content Include="Picture\Resources\b1.jpg" />
+    <Content Include="Picture\Resources\b2.jpg" />
+    <Content Include="Picture\Resources\b3.jpg" />
+    <Content Include="Picture\Resources\b4.jpg" />
+    <Content Include="Picture\Resources\b5.jpg" />
+    <Content Include="Picture\Resources\bd2.jpg" />
+    <Content Include="Picture\Resources\brv.jpg" />
+    <Content Include="Picture\Resources\bs.jpg" />
+    <Content Include="Picture\Resources\d4.jpg" />
+    <Content Include="Picture\Resources\g0.jpg" />
+    <Content Include="Picture\Resources\g1.jpg" />
+    <Content Include="Picture\Resources\g2.jpg" />
+    <Content Include="Picture\Resources\g3.jpg" />
+    <Content Include="Picture\Resources\g4.jpg" />
+    <Content Include="Picture\Resources\g5.jpg" />
+    <Content Include="Picture\Resources\gd2.jpg" />
+    <Content Include="Picture\Resources\grv.jpg" />
+    <Content Include="Picture\Resources\gs.jpg" />
+    <Content Include="Picture\Resources\r0.jpg" />
+    <Content Include="Picture\Resources\r1.jpg" />
+    <Content Include="Picture\Resources\r2.jpg" />
+    <Content Include="Picture\Resources\r3.jpg" />
+    <Content Include="Picture\Resources\r4.jpg" />
+    <Content Include="Picture\Resources\r5.jpg" />
+    <Content Include="Picture\Resources\rd2.jpg" />
+    <Content Include="Picture\Resources\rrv.jpg" />
+    <Content Include="Picture\Resources\rs.jpg" />
+    <Content Include="Picture\Resources\uno.png" />
+    <Content Include="Picture\Resources\wd.jpg" />
+    <Content Include="Picture\Resources\y0.jpg" />
+    <Content Include="Picture\Resources\y1.jpg" />
+    <Content Include="Picture\Resources\y2.jpg" />
+    <Content Include="Picture\Resources\y3.jpg" />
+    <Content Include="Picture\Resources\y4.jpg" />
+    <Content Include="Picture\Resources\y5.jpg" />
+    <Content Include="Picture\Resources\yd2.jpg" />
+    <Content Include="Picture\Resources\yrv.jpg" />
+    <Content Include="Picture\Resources\ys.jpg" />
+    <Content Include="Picture\Reverse\2.png" />
+    <Content Include="Picture\Reverse\3.png" />
+    <Content Include="Picture\Reverse\4.png" />
+    <Content Include="Picture\Reverse\5.png" />
+    <Content Include="Picture\Yellow\y0.png" />
+    <Content Include="Picture\Yellow\y1.png" />
+    <Content Include="Picture\Yellow\y2.png" />
+    <Content Include="Picture\Yellow\y3.png" />
+    <Content Include="Picture\Yellow\y4.png" />
+    <Content Include="Picture\Yellow\y5.png" />
+    <Content Include="Picture\Yellow\y6.png" />
+    <Content Include="Picture\Yellow\y7.png" />
+    <Content Include="Picture\Yellow\y8.png" />
+    <Content Include="Picture\Yellow\y9.png" />
+    <Content Include="Resources\b0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\b1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\b2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\b3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\b4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\b5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\bd2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\brv.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\bs.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\d4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\g0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\g1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\g2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\g3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\g4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\g5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gd2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\grv.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gs.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\r0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\r1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\r2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\r3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\r4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\r5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\rd2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\rrv.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\rs.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\uno.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\wd.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\y0.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\y1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\y2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\y3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\y4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\y5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\yd2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\yrv.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ys.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Picture\Connect_Menu\" />
+    <Folder Include="Picture\Form1\" />
+    <Folder Include="Picture\GameRoom\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
