@@ -1,7 +1,7 @@
 ﻿
 namespace CLIENT
 {
-    partial class GAMEROOM
+    partial class GameBoard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CLIENT
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GAMEROOM));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameBoard));
             this.textBoxDisplayTest = new System.Windows.Forms.TextBox();
             this.btnDanhBai = new System.Windows.Forms.Button();
             this.btnBocBai = new System.Windows.Forms.Button();
@@ -72,18 +72,18 @@ namespace CLIENT
             // 
             // textBoxDisplayTest
             // 
-            this.textBoxDisplayTest.Location = new System.Drawing.Point(370, 330);
-            this.textBoxDisplayTest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDisplayTest.Location = new System.Drawing.Point(493, 406);
+            this.textBoxDisplayTest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDisplayTest.Name = "textBoxDisplayTest";
-            this.textBoxDisplayTest.Size = new System.Drawing.Size(166, 20);
+            this.textBoxDisplayTest.Size = new System.Drawing.Size(220, 22);
             this.textBoxDisplayTest.TabIndex = 0;
             // 
             // btnDanhBai
             // 
-            this.btnDanhBai.Location = new System.Drawing.Point(346, 292);
-            this.btnDanhBai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDanhBai.Location = new System.Drawing.Point(461, 359);
+            this.btnDanhBai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDanhBai.Name = "btnDanhBai";
-            this.btnDanhBai.Size = new System.Drawing.Size(76, 33);
+            this.btnDanhBai.Size = new System.Drawing.Size(101, 41);
             this.btnDanhBai.TabIndex = 1;
             this.btnDanhBai.Text = "Discard";
             this.btnDanhBai.UseVisualStyleBackColor = true;
@@ -91,10 +91,10 @@ namespace CLIENT
             // 
             // btnBocBai
             // 
-            this.btnBocBai.Location = new System.Drawing.Point(427, 292);
-            this.btnBocBai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBocBai.Location = new System.Drawing.Point(569, 359);
+            this.btnBocBai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBocBai.Name = "btnBocBai";
-            this.btnBocBai.Size = new System.Drawing.Size(76, 33);
+            this.btnBocBai.Size = new System.Drawing.Size(101, 41);
             this.btnBocBai.TabIndex = 2;
             this.btnBocBai.Text = "Draw";
             this.btnBocBai.UseVisualStyleBackColor = true;
@@ -103,10 +103,10 @@ namespace CLIENT
             // btnRed
             // 
             this.btnRed.BackColor = System.Drawing.Color.Red;
-            this.btnRed.Location = new System.Drawing.Point(9, 11);
-            this.btnRed.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRed.Location = new System.Drawing.Point(12, 14);
+            this.btnRed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRed.Name = "btnRed";
-            this.btnRed.Size = new System.Drawing.Size(28, 25);
+            this.btnRed.Size = new System.Drawing.Size(37, 31);
             this.btnRed.TabIndex = 3;
             this.btnRed.UseVisualStyleBackColor = false;
             this.btnRed.Click += new System.EventHandler(this.btnRed_Click);
@@ -114,10 +114,10 @@ namespace CLIENT
             // btnYellow
             // 
             this.btnYellow.BackColor = System.Drawing.Color.Yellow;
-            this.btnYellow.Location = new System.Drawing.Point(42, 11);
-            this.btnYellow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnYellow.Location = new System.Drawing.Point(56, 14);
+            this.btnYellow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYellow.Name = "btnYellow";
-            this.btnYellow.Size = new System.Drawing.Size(29, 25);
+            this.btnYellow.Size = new System.Drawing.Size(39, 31);
             this.btnYellow.TabIndex = 4;
             this.btnYellow.UseVisualStyleBackColor = false;
             this.btnYellow.Click += new System.EventHandler(this.btnYellow_Click);
@@ -125,10 +125,10 @@ namespace CLIENT
             // btnGreen
             // 
             this.btnGreen.BackColor = System.Drawing.Color.Lime;
-            this.btnGreen.Location = new System.Drawing.Point(9, 41);
-            this.btnGreen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGreen.Location = new System.Drawing.Point(12, 50);
+            this.btnGreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGreen.Name = "btnGreen";
-            this.btnGreen.Size = new System.Drawing.Size(28, 25);
+            this.btnGreen.Size = new System.Drawing.Size(37, 31);
             this.btnGreen.TabIndex = 5;
             this.btnGreen.UseVisualStyleBackColor = false;
             this.btnGreen.Click += new System.EventHandler(this.btnGreen_Click);
@@ -136,20 +136,20 @@ namespace CLIENT
             // btnBlue
             // 
             this.btnBlue.BackColor = System.Drawing.Color.Blue;
-            this.btnBlue.Location = new System.Drawing.Point(42, 41);
-            this.btnBlue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBlue.Location = new System.Drawing.Point(56, 50);
+            this.btnBlue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBlue.Name = "btnBlue";
-            this.btnBlue.Size = new System.Drawing.Size(29, 25);
+            this.btnBlue.Size = new System.Drawing.Size(39, 31);
             this.btnBlue.TabIndex = 6;
             this.btnBlue.UseVisualStyleBackColor = false;
             this.btnBlue.Click += new System.EventHandler(this.btnBlue_Click);
             // 
             // btnDiscardPileCard
             // 
-            this.btnDiscardPileCard.Location = new System.Drawing.Point(394, 177);
-            this.btnDiscardPileCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDiscardPileCard.Location = new System.Drawing.Point(525, 218);
+            this.btnDiscardPileCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDiscardPileCard.Name = "btnDiscardPileCard";
-            this.btnDiscardPileCard.Size = new System.Drawing.Size(58, 95);
+            this.btnDiscardPileCard.Size = new System.Drawing.Size(77, 117);
             this.btnDiscardPileCard.TabIndex = 7;
             this.btnDiscardPileCard.UseVisualStyleBackColor = true;
             // 
@@ -159,20 +159,20 @@ namespace CLIENT
             this.panelColors.Controls.Add(this.btnYellow);
             this.panelColors.Controls.Add(this.btnBlue);
             this.panelColors.Controls.Add(this.btnGreen);
-            this.panelColors.Location = new System.Drawing.Point(457, 190);
-            this.panelColors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelColors.Location = new System.Drawing.Point(609, 234);
+            this.panelColors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelColors.Name = "panelColors";
-            this.panelColors.Size = new System.Drawing.Size(78, 76);
+            this.panelColors.Size = new System.Drawing.Size(104, 94);
             this.panelColors.TabIndex = 8;
             // 
             // button8
             // 
             this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.Location = new System.Drawing.Point(2, 80);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button8.Location = new System.Drawing.Point(3, 98);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(46, 72);
+            this.button8.Size = new System.Drawing.Size(61, 89);
             this.button8.TabIndex = 16;
             this.button8.UseVisualStyleBackColor = true;
             // 
@@ -180,10 +180,10 @@ namespace CLIENT
             // 
             this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button9.Location = new System.Drawing.Point(86, 2);
-            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button9.Location = new System.Drawing.Point(115, 2);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(46, 72);
+            this.button9.Size = new System.Drawing.Size(61, 89);
             this.button9.TabIndex = 17;
             this.button9.UseVisualStyleBackColor = true;
             // 
@@ -191,10 +191,10 @@ namespace CLIENT
             // 
             this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button10.Location = new System.Drawing.Point(2, 62);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Location = new System.Drawing.Point(3, 76);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(46, 72);
+            this.button10.Size = new System.Drawing.Size(61, 89);
             this.button10.TabIndex = 18;
             this.button10.UseVisualStyleBackColor = true;
             // 
@@ -202,10 +202,10 @@ namespace CLIENT
             // 
             this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button11.Location = new System.Drawing.Point(2, 24);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Location = new System.Drawing.Point(3, 30);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(46, 72);
+            this.button11.Size = new System.Drawing.Size(61, 89);
             this.button11.TabIndex = 19;
             this.button11.UseVisualStyleBackColor = true;
             // 
@@ -213,10 +213,10 @@ namespace CLIENT
             // 
             this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
             this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button12.Location = new System.Drawing.Point(2, 42);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button12.Location = new System.Drawing.Point(3, 52);
+            this.button12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(46, 72);
+            this.button12.Size = new System.Drawing.Size(61, 89);
             this.button12.TabIndex = 20;
             this.button12.UseVisualStyleBackColor = true;
             // 
@@ -224,10 +224,10 @@ namespace CLIENT
             // 
             this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
             this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button13.Location = new System.Drawing.Point(109, 2);
-            this.button13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button13.Location = new System.Drawing.Point(145, 2);
+            this.button13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(46, 72);
+            this.button13.Size = new System.Drawing.Size(61, 89);
             this.button13.TabIndex = 21;
             this.button13.UseVisualStyleBackColor = true;
             // 
@@ -235,10 +235,10 @@ namespace CLIENT
             // 
             this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
             this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button14.Location = new System.Drawing.Point(132, 2);
-            this.button14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button14.Location = new System.Drawing.Point(176, 2);
+            this.button14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(46, 72);
+            this.button14.Size = new System.Drawing.Size(61, 89);
             this.button14.TabIndex = 22;
             this.button14.UseVisualStyleBackColor = true;
             // 
@@ -246,10 +246,10 @@ namespace CLIENT
             // 
             this.button15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button15.BackgroundImage")));
             this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button15.Location = new System.Drawing.Point(158, 2);
-            this.button15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button15.Location = new System.Drawing.Point(211, 2);
+            this.button15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(46, 72);
+            this.button15.Size = new System.Drawing.Size(61, 89);
             this.button15.TabIndex = 23;
             this.button15.UseVisualStyleBackColor = true;
             // 
@@ -261,19 +261,19 @@ namespace CLIENT
             this.panelPlayerL.Controls.Add(this.button10);
             this.panelPlayerL.Controls.Add(this.button12);
             this.panelPlayerL.Controls.Add(this.button11);
-            this.panelPlayerL.Location = new System.Drawing.Point(121, 118);
-            this.panelPlayerL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPlayerL.Location = new System.Drawing.Point(2, 144);
+            this.panelPlayerL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerL.Name = "panelPlayerL";
-            this.panelPlayerL.Size = new System.Drawing.Size(190, 192);
+            this.panelPlayerL.Size = new System.Drawing.Size(168, 236);
             this.panelPlayerL.TabIndex = 24;
             // 
             // textBoxNumL
             // 
             this.textBoxNumL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumL.Location = new System.Drawing.Point(71, 83);
-            this.textBoxNumL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNumL.Location = new System.Drawing.Point(95, 102);
+            this.textBoxNumL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumL.Name = "textBoxNumL";
-            this.textBoxNumL.Size = new System.Drawing.Size(25, 26);
+            this.textBoxNumL.Size = new System.Drawing.Size(32, 30);
             this.textBoxNumL.TabIndex = 22;
             this.textBoxNumL.Text = "0";
             this.textBoxNumL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -281,10 +281,9 @@ namespace CLIENT
             // labelNameL
             // 
             this.labelNameL.AutoSize = true;
-            this.labelNameL.Location = new System.Drawing.Point(67, 62);
-            this.labelNameL.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNameL.Location = new System.Drawing.Point(89, 76);
             this.labelNameL.Name = "labelNameL";
-            this.labelNameL.Size = new System.Drawing.Size(35, 13);
+            this.labelNameL.Size = new System.Drawing.Size(44, 16);
             this.labelNameL.TabIndex = 21;
             this.labelNameL.Text = "Name";
             this.labelNameL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -293,10 +292,10 @@ namespace CLIENT
             // 
             this.button16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button16.BackgroundImage")));
             this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button16.Location = new System.Drawing.Point(135, 59);
-            this.button16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button16.Location = new System.Drawing.Point(180, 73);
+            this.button16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(46, 72);
+            this.button16.Size = new System.Drawing.Size(61, 89);
             this.button16.TabIndex = 28;
             this.button16.UseVisualStyleBackColor = true;
             // 
@@ -304,10 +303,10 @@ namespace CLIENT
             // 
             this.button17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button17.BackgroundImage")));
             this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button17.Location = new System.Drawing.Point(135, 98);
-            this.button17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button17.Location = new System.Drawing.Point(180, 121);
+            this.button17.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(46, 72);
+            this.button17.Size = new System.Drawing.Size(61, 89);
             this.button17.TabIndex = 27;
             this.button17.UseVisualStyleBackColor = true;
             // 
@@ -315,10 +314,10 @@ namespace CLIENT
             // 
             this.button18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button18.BackgroundImage")));
             this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button18.Location = new System.Drawing.Point(135, 117);
-            this.button18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button18.Location = new System.Drawing.Point(180, 144);
+            this.button18.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(46, 72);
+            this.button18.Size = new System.Drawing.Size(61, 89);
             this.button18.TabIndex = 26;
             this.button18.UseVisualStyleBackColor = true;
             // 
@@ -326,10 +325,10 @@ namespace CLIENT
             // 
             this.button19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button19.BackgroundImage")));
             this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button19.Location = new System.Drawing.Point(135, 80);
-            this.button19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button19.Location = new System.Drawing.Point(180, 98);
+            this.button19.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(46, 72);
+            this.button19.Size = new System.Drawing.Size(61, 89);
             this.button19.TabIndex = 25;
             this.button19.UseVisualStyleBackColor = true;
             // 
@@ -341,19 +340,19 @@ namespace CLIENT
             this.panelPlayerR.Controls.Add(this.button19);
             this.panelPlayerR.Controls.Add(this.button17);
             this.panelPlayerR.Controls.Add(this.button18);
-            this.panelPlayerR.Location = new System.Drawing.Point(540, 80);
-            this.panelPlayerR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPlayerR.Location = new System.Drawing.Point(720, 98);
+            this.panelPlayerR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerR.Name = "panelPlayerR";
-            this.panelPlayerR.Size = new System.Drawing.Size(183, 229);
+            this.panelPlayerR.Size = new System.Drawing.Size(244, 282);
             this.panelPlayerR.TabIndex = 29;
             // 
             // textBoxNumR
             // 
             this.textBoxNumR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumR.Location = new System.Drawing.Point(89, 115);
-            this.textBoxNumR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNumR.Location = new System.Drawing.Point(119, 142);
+            this.textBoxNumR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumR.Name = "textBoxNumR";
-            this.textBoxNumR.Size = new System.Drawing.Size(25, 26);
+            this.textBoxNumR.Size = new System.Drawing.Size(32, 30);
             this.textBoxNumR.TabIndex = 30;
             this.textBoxNumR.Text = "0";
             this.textBoxNumR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -361,10 +360,9 @@ namespace CLIENT
             // labelNameR
             // 
             this.labelNameR.AutoSize = true;
-            this.labelNameR.Location = new System.Drawing.Point(84, 97);
-            this.labelNameR.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNameR.Location = new System.Drawing.Point(112, 119);
             this.labelNameR.Name = "labelNameR";
-            this.labelNameR.Size = new System.Drawing.Size(35, 13);
+            this.labelNameR.Size = new System.Drawing.Size(44, 16);
             this.labelNameR.TabIndex = 29;
             this.labelNameR.Text = "Name";
             this.labelNameR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -377,19 +375,19 @@ namespace CLIENT
             this.panelPlayerU.Controls.Add(this.button13);
             this.panelPlayerU.Controls.Add(this.button14);
             this.panelPlayerU.Controls.Add(this.button15);
-            this.panelPlayerU.Location = new System.Drawing.Point(280, 10);
-            this.panelPlayerU.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelPlayerU.Location = new System.Drawing.Point(373, 12);
+            this.panelPlayerU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerU.Name = "panelPlayerU";
-            this.panelPlayerU.Size = new System.Drawing.Size(310, 162);
+            this.panelPlayerU.Size = new System.Drawing.Size(413, 199);
             this.panelPlayerU.TabIndex = 30;
             // 
             // textBoxNumU
             // 
             this.textBoxNumU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumU.Location = new System.Drawing.Point(134, 93);
-            this.textBoxNumU.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNumU.Location = new System.Drawing.Point(179, 114);
+            this.textBoxNumU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumU.Name = "textBoxNumU";
-            this.textBoxNumU.Size = new System.Drawing.Size(25, 26);
+            this.textBoxNumU.Size = new System.Drawing.Size(32, 30);
             this.textBoxNumU.TabIndex = 25;
             this.textBoxNumU.Text = "0";
             this.textBoxNumU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -397,10 +395,9 @@ namespace CLIENT
             // labelNameU
             // 
             this.labelNameU.AutoSize = true;
-            this.labelNameU.Location = new System.Drawing.Point(130, 76);
-            this.labelNameU.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNameU.Location = new System.Drawing.Point(173, 94);
             this.labelNameU.Name = "labelNameU";
-            this.labelNameU.Size = new System.Drawing.Size(35, 13);
+            this.labelNameU.Size = new System.Drawing.Size(44, 16);
             this.labelNameU.TabIndex = 24;
             this.labelNameU.Text = "Name";
             this.labelNameU.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -408,20 +405,18 @@ namespace CLIENT
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(138, 70);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(184, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.Size = new System.Drawing.Size(37, 16);
             this.label1.TabIndex = 33;
             this.label1.Text = "Turn:";
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(303, 333);
-            this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelName.Location = new System.Drawing.Point(34, 635);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(35, 13);
+            this.labelName.Size = new System.Drawing.Size(44, 16);
             this.labelName.TabIndex = 34;
             this.labelName.Text = "Name";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -429,10 +424,10 @@ namespace CLIENT
             // textBoxNum
             // 
             this.textBoxNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNum.Location = new System.Drawing.Point(342, 327);
-            this.textBoxNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNum.Location = new System.Drawing.Point(456, 402);
+            this.textBoxNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNum.Name = "textBoxNum";
-            this.textBoxNum.Size = new System.Drawing.Size(25, 26);
+            this.textBoxNum.Size = new System.Drawing.Size(32, 30);
             this.textBoxNum.TabIndex = 35;
             this.textBoxNum.Text = "0";
             this.textBoxNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -440,18 +435,19 @@ namespace CLIENT
             // labelTurnOf
             // 
             this.labelTurnOf.AutoSize = true;
-            this.labelTurnOf.Location = new System.Drawing.Point(174, 70);
-            this.labelTurnOf.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTurnOf.Location = new System.Drawing.Point(232, 86);
             this.labelTurnOf.Name = "labelTurnOf";
-            this.labelTurnOf.Size = new System.Drawing.Size(0, 13);
+            this.labelTurnOf.Size = new System.Drawing.Size(0, 16);
             this.labelTurnOf.TabIndex = 36;
             this.labelTurnOf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // GAMEROOM
+            // GameBoard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 639);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(943, 660);
             this.Controls.Add(this.labelTurnOf);
             this.Controls.Add(this.textBoxNum);
             this.Controls.Add(this.labelName);
@@ -464,8 +460,9 @@ namespace CLIENT
             this.Controls.Add(this.btnBocBai);
             this.Controls.Add(this.btnDanhBai);
             this.Controls.Add(this.textBoxDisplayTest);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "GAMEROOM";
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "GameBoard";
             this.Text = "Game Table";
             this.Load += new System.EventHandler(this.GAMEROOM_Load);
             this.panelColors.ResumeLayout(false);

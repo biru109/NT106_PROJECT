@@ -51,7 +51,7 @@ namespace CLIENT
             Thread = new Thread(() => ANALYZE());
             Thread.Start();
         }
-        public static GAMEROOM room;
+        public static GameBoard room;
         public static List<USER2> otheruser;
         
         // Xử lý tin nhắn khởi tạo
@@ -64,7 +64,7 @@ namespace CLIENT
                 User.BAI.Add(payload[i]);
             }
 
-            room = new GAMEROOM();
+            room = new GameBoard();
             otheruser = new List<USER2>();
             ConnectMenu.WaitingRoom.Invoke((MethodInvoker)delegate ()
             {
