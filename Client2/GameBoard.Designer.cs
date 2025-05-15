@@ -60,7 +60,7 @@ namespace CLIENT
             // 
             // textBoxDisplayTest
             // 
-            this.textBoxDisplayTest.Location = new System.Drawing.Point(166, 395);
+            this.textBoxDisplayTest.Location = new System.Drawing.Point(162, 434);
             this.textBoxDisplayTest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDisplayTest.Name = "textBoxDisplayTest";
             this.textBoxDisplayTest.Size = new System.Drawing.Size(220, 22);
@@ -71,7 +71,7 @@ namespace CLIENT
             this.btnDanhBai.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDanhBai.BackgroundImage")));
             this.btnDanhBai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDanhBai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDanhBai.Location = new System.Drawing.Point(532, 302);
+            this.btnDanhBai.Location = new System.Drawing.Point(519, 273);
             this.btnDanhBai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDanhBai.Name = "btnDanhBai";
             this.btnDanhBai.Size = new System.Drawing.Size(70, 62);
@@ -87,7 +87,7 @@ namespace CLIENT
             this.btnBocBai.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnBocBai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnBocBai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBocBai.Location = new System.Drawing.Point(235, 183);
+            this.btnBocBai.Location = new System.Drawing.Point(235, 225);
             this.btnBocBai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBocBai.Name = "btnBocBai";
             this.btnBocBai.Size = new System.Drawing.Size(125, 152);
@@ -141,7 +141,7 @@ namespace CLIENT
             // 
             // btnDiscardPileCard
             // 
-            this.btnDiscardPileCard.Location = new System.Drawing.Point(377, 183);
+            this.btnDiscardPileCard.Location = new System.Drawing.Point(384, 227);
             this.btnDiscardPileCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDiscardPileCard.Name = "btnDiscardPileCard";
             this.btnDiscardPileCard.Size = new System.Drawing.Size(107, 154);
@@ -190,7 +190,7 @@ namespace CLIENT
             this.panelPlayerL.Controls.Add(this.textBoxNumL);
             this.panelPlayerL.Controls.Add(this.button12);
             this.panelPlayerL.Controls.Add(this.button11);
-            this.panelPlayerL.Location = new System.Drawing.Point(1, 39);
+            this.panelPlayerL.Location = new System.Drawing.Point(2, 118);
             this.panelPlayerL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerL.Name = "panelPlayerL";
             this.panelPlayerL.Size = new System.Drawing.Size(171, 338);
@@ -212,7 +212,7 @@ namespace CLIENT
             this.labelNameL.AutoSize = true;
             this.labelNameL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelNameL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameL.Location = new System.Drawing.Point(21, 12);
+            this.labelNameL.Location = new System.Drawing.Point(12, 86);
             this.labelNameL.Name = "labelNameL";
             this.labelNameL.Size = new System.Drawing.Size(68, 25);
             this.labelNameL.TabIndex = 21;
@@ -223,7 +223,7 @@ namespace CLIENT
             // 
             this.panelPlayerR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelPlayerR.BackgroundImage")));
             this.panelPlayerR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelPlayerR.Location = new System.Drawing.Point(689, 51);
+            this.panelPlayerR.Location = new System.Drawing.Point(671, 118);
             this.panelPlayerR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerR.Name = "panelPlayerR";
             this.panelPlayerR.Size = new System.Drawing.Size(166, 326);
@@ -232,7 +232,7 @@ namespace CLIENT
             // textBoxNumR
             // 
             this.textBoxNumR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumR.Location = new System.Drawing.Point(717, 21);
+            this.textBoxNumR.Location = new System.Drawing.Point(687, 83);
             this.textBoxNumR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumR.Name = "textBoxNumR";
             this.textBoxNumR.Size = new System.Drawing.Size(32, 30);
@@ -244,7 +244,7 @@ namespace CLIENT
             // 
             this.labelNameR.AutoSize = true;
             this.labelNameR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameR.Location = new System.Drawing.Point(755, 24);
+            this.labelNameR.Location = new System.Drawing.Point(725, 88);
             this.labelNameR.Name = "labelNameR";
             this.labelNameR.Size = new System.Drawing.Size(68, 25);
             this.labelNameR.TabIndex = 29;
@@ -257,10 +257,10 @@ namespace CLIENT
             this.panelPlayerU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelPlayerU.Controls.Add(this.textBoxNumU);
             this.panelPlayerU.Controls.Add(this.labelNameU);
-            this.panelPlayerU.Location = new System.Drawing.Point(249, 0);
+            this.panelPlayerU.Location = new System.Drawing.Point(214, 0);
             this.panelPlayerU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerU.Name = "panelPlayerU";
-            this.panelPlayerU.Size = new System.Drawing.Size(375, 121);
+            this.panelPlayerU.Size = new System.Drawing.Size(410, 139);
             this.panelPlayerU.TabIndex = 30;
             // 
             // textBoxNumU
@@ -298,7 +298,7 @@ namespace CLIENT
             // textBoxNum
             // 
             this.textBoxNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNum.Location = new System.Drawing.Point(104, 422);
+            this.textBoxNum.Location = new System.Drawing.Point(114, 482);
             this.textBoxNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNum.Name = "textBoxNum";
             this.textBoxNum.Size = new System.Drawing.Size(32, 30);
@@ -321,7 +321,7 @@ namespace CLIENT
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1048, 737);
+            this.ClientSize = new System.Drawing.Size(834, 706);
             this.Controls.Add(this.textBoxNumR);
             this.Controls.Add(this.labelNameL);
             this.Controls.Add(this.labelNameR);

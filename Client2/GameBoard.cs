@@ -351,10 +351,10 @@ namespace CLIENT
                 }
             }
         }
-        static int X = 56;
+        static int X = 162;
         static int Y = 450;
         static int i = 0;
-        static int maxPerRow = 10; // Số lượng tối đa các nút trên mỗi hàng
+        static int maxPerRow = 7; // Số lượng tối đa các nút trên mỗi hàng
         static int btnCountInRow = 0; // Biến đếm số lượng nút trên hàng hiện tại
 
         public void SettingUpCard()
@@ -378,8 +378,8 @@ namespace CLIENT
                     btnCountInRow = 0; // Đặt lại số lượng nút trên hàng mới
                 }
 
-                cardbtn.btn.Location = new Point(X + i * 84, Y);
-                cardbtn.X = X + i * 84;
+                cardbtn.btn.Location = new Point(X + i * 80, Y);
+                cardbtn.X = X + i * 80;
                 cardbtn.Y = Y;
                 cardbtn.btn.Click += new EventHandler(cardBtn_Click);
                 LoadCard(cardbtn.btn, cd);
