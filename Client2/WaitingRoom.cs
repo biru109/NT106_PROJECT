@@ -76,5 +76,10 @@ namespace CLIENT
             
             this.Close();
         }
+
+        private void labelP1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

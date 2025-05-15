@@ -53,6 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Winner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +93,10 @@
     <EmbeddedResource Include="ConnectMenu.resx">
       <DependentUpon>ConnectMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Winner.resx">
       <DependentUpon>Winner.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,16 +109,6 @@
     <EmbeddedResource Include="WAITINGROOM.resx">
       <DependentUpon>WAITINGROOM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -240,6 +239,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ys.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Waiting room %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
