@@ -39,7 +39,8 @@ namespace CLIENT
             // 
             // textBoxName
             // 
-            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.textBoxName.ForeColor = System.Drawing.SystemColors.Desktop;
             this.textBoxName.Location = new System.Drawing.Point(471, 138);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -53,11 +54,12 @@ namespace CLIENT
             // textBoxIP
             // 
             this.textBoxIP.BackColor = System.Drawing.Color.White;
-            this.textBoxIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.textBoxIP.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.textBoxIP.Location = new System.Drawing.Point(471, 202);
             this.textBoxIP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxIP.Name = "textBoxIP";
-            this.textBoxIP.Size = new System.Drawing.Size(252, 27);
+            this.textBoxIP.Size = new System.Drawing.Size(252, 23);
             this.textBoxIP.TabIndex = 1;
             this.textBoxIP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

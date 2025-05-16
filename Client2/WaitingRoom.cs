@@ -12,6 +12,7 @@ namespace CLIENT
 {
     public partial class WAITINGROOM : Form
     {
+        public string ServerIP { get; set; }
         public WAITINGROOM lobby;
         public List<Label> PlayerName = new List<Label>();
         public List<PictureBox> PlayerIcon = new List<PictureBox>();
@@ -19,6 +20,7 @@ namespace CLIENT
         public WAITINGROOM()
         {
             InitializeComponent();
+            this.Load += WAITINGROOM_Load;
             CheckForIllegalCrossThreadCalls = false;
             lobby = this;
             btnStart.Visible = false;
@@ -80,6 +82,21 @@ namespace CLIENT
         private void labelP1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void labelP4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roomip_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WAITINGROOM_Load(object sender, EventArgs e)
+        {
+            roomip.Text = ServerIP;
         }
     }
 }

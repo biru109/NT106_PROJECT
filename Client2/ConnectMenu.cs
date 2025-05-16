@@ -23,11 +23,13 @@ namespace CLIENT
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            string ipAddress = textBoxIP.Text;
 
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(textBoxIP.Text), 11000);
             ProcessSocket.Data = "CONNECT";
             ProcessSocket.LINK(serverEP);
             WaitingRoom = new WAITINGROOM();
+            WaitingRoom.ServerIP = ipAddress;
             ProcessSocket.SENDER(textBoxName.Text);
 
             User.ID = textBoxName.Text;
@@ -36,6 +38,7 @@ namespace CLIENT
             WaitingRoom.ShowStartButton();
             this.Hide();
             WaitingRoom.Show();
+          
         }
 
         void lobby_FormClosed(object sender, EventArgs e)
@@ -50,18 +53,21 @@ namespace CLIENT
         private void btnJoin_Click(object sender, EventArgs e)
         {
 
-
+            string ipAddress = textBoxIP.Text;
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(textBoxIP.Text), 11000);
             ProcessSocket.Data = "CONNECT";
             ProcessSocket.LINK(serverEP);
             WaitingRoom = new WAITINGROOM();
+            this.Hide();
+
             ProcessSocket.SENDER(textBoxName.Text);
 
             User.ID = textBoxName.Text;
 
             WaitingRoom.FormClosed += new FormClosedEventHandler(lobby_FormClosed);
-            this.Hide();
+            WaitingRoom.ServerIP = ipAddress;
             WaitingRoom.Show();
+            
         }
 
         private void btnRules_Click(object sender, EventArgs e)

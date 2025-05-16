@@ -89,7 +89,7 @@ namespace CLIENT
             this.labelP1.AutoSize = true;
             this.labelP1.BackColor = System.Drawing.Color.Transparent;
             this.labelP1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP1.Location = new System.Drawing.Point(74, 229);
+            this.labelP1.Location = new System.Drawing.Point(72, 219);
             this.labelP1.Name = "labelP1";
             this.labelP1.Size = new System.Drawing.Size(27, 28);
             this.labelP1.TabIndex = 0;
@@ -125,7 +125,7 @@ namespace CLIENT
             this.labelP2.AutoSize = true;
             this.labelP2.BackColor = System.Drawing.Color.Transparent;
             this.labelP2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP2.Location = new System.Drawing.Point(78, 212);
+            this.labelP2.Location = new System.Drawing.Point(77, 202);
             this.labelP2.Name = "labelP2";
             this.labelP2.Size = new System.Drawing.Size(27, 28);
             this.labelP2.TabIndex = 3;
@@ -171,7 +171,7 @@ namespace CLIENT
             this.labelP3.AutoSize = true;
             this.labelP3.BackColor = System.Drawing.Color.Transparent;
             this.labelP3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP3.Location = new System.Drawing.Point(78, 212);
+            this.labelP3.Location = new System.Drawing.Point(78, 202);
             this.labelP3.Name = "labelP3";
             this.labelP3.Size = new System.Drawing.Size(27, 28);
             this.labelP3.TabIndex = 1;
@@ -182,11 +182,12 @@ namespace CLIENT
             this.labelP4.AutoSize = true;
             this.labelP4.BackColor = System.Drawing.Color.Transparent;
             this.labelP4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP4.Location = new System.Drawing.Point(81, 229);
+            this.labelP4.Location = new System.Drawing.Point(81, 219);
             this.labelP4.Name = "labelP4";
             this.labelP4.Size = new System.Drawing.Size(27, 28);
             this.labelP4.TabIndex = 1;
             this.labelP4.Text = "...";
+            this.labelP4.Click += new System.EventHandler(this.labelP4_Click);
             // 
             // groupBoxP3
             // 
@@ -243,10 +244,11 @@ namespace CLIENT
             | System.Windows.Forms.AnchorStyles.Right)));
             this.roomip.BackColor = System.Drawing.Color.Transparent;
             this.roomip.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomip.Location = new System.Drawing.Point(426, 80);
+            this.roomip.Location = new System.Drawing.Point(427, 74);
             this.roomip.Name = "roomip";
             this.roomip.Size = new System.Drawing.Size(201, 23);
             this.roomip.TabIndex = 6;
+            this.roomip.Click += new System.EventHandler(this.roomip_Click);
             // 
             // WAITINGROOM
             // 
@@ -268,6 +270,7 @@ namespace CLIENT
             this.MaximizeBox = false;
             this.Name = "WAITINGROOM";
             this.Text = "Game Lobby - Pending start ...";
+            this.Load += new System.EventHandler(this.WAITINGROOM_Load);
             this.groupBoxP1.ResumeLayout(false);
             this.groupBoxP1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxP1)).EndInit();
