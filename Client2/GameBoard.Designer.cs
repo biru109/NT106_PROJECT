@@ -39,6 +39,7 @@ namespace CLIENT
             this.btnBlue = new System.Windows.Forms.Button();
             this.btnDiscardPileCard = new System.Windows.Forms.Button();
             this.panelColors = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelPlayerL = new System.Windows.Forms.Panel();
             this.labelNameL = new System.Windows.Forms.Label();
             this.textBoxNumL = new System.Windows.Forms.TextBox();
@@ -70,10 +71,10 @@ namespace CLIENT
             this.btnDanhBai.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDanhBai.BackgroundImage")));
             this.btnDanhBai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDanhBai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDanhBai.Location = new System.Drawing.Point(539, 301);
+            this.btnDanhBai.Location = new System.Drawing.Point(539, 296);
             this.btnDanhBai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDanhBai.Name = "btnDanhBai";
-            this.btnDanhBai.Size = new System.Drawing.Size(70, 64);
+            this.btnDanhBai.Size = new System.Drawing.Size(70, 69);
             this.btnDanhBai.TabIndex = 1;
             this.btnDanhBai.UseVisualStyleBackColor = true;
             this.btnDanhBai.Click += new System.EventHandler(this.btnDanhBai_Click);
@@ -97,10 +98,10 @@ namespace CLIENT
             // btnRed
             // 
             this.btnRed.BackColor = System.Drawing.Color.Red;
-            this.btnRed.Location = new System.Drawing.Point(65, 62);
+            this.btnRed.Location = new System.Drawing.Point(46, 167);
             this.btnRed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRed.Name = "btnRed";
-            this.btnRed.Size = new System.Drawing.Size(69, 64);
+            this.btnRed.Size = new System.Drawing.Size(91, 83);
             this.btnRed.TabIndex = 3;
             this.btnRed.UseVisualStyleBackColor = false;
             this.btnRed.Click += new System.EventHandler(this.btnRed_Click);
@@ -108,10 +109,10 @@ namespace CLIENT
             // btnYellow
             // 
             this.btnYellow.BackColor = System.Drawing.Color.Yellow;
-            this.btnYellow.Location = new System.Drawing.Point(129, 62);
+            this.btnYellow.Location = new System.Drawing.Point(178, 154);
             this.btnYellow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYellow.Name = "btnYellow";
-            this.btnYellow.Size = new System.Drawing.Size(66, 64);
+            this.btnYellow.Size = new System.Drawing.Size(94, 83);
             this.btnYellow.TabIndex = 4;
             this.btnYellow.UseVisualStyleBackColor = false;
             this.btnYellow.Click += new System.EventHandler(this.btnYellow_Click);
@@ -119,10 +120,10 @@ namespace CLIENT
             // btnGreen
             // 
             this.btnGreen.BackColor = System.Drawing.Color.Lime;
-            this.btnGreen.Location = new System.Drawing.Point(62, 117);
+            this.btnGreen.Location = new System.Drawing.Point(306, 154);
             this.btnGreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGreen.Name = "btnGreen";
-            this.btnGreen.Size = new System.Drawing.Size(69, 57);
+            this.btnGreen.Size = new System.Drawing.Size(64, 83);
             this.btnGreen.TabIndex = 5;
             this.btnGreen.UseVisualStyleBackColor = false;
             this.btnGreen.Click += new System.EventHandler(this.btnGreen_Click);
@@ -130,10 +131,10 @@ namespace CLIENT
             // btnBlue
             // 
             this.btnBlue.BackColor = System.Drawing.Color.Blue;
-            this.btnBlue.Location = new System.Drawing.Point(129, 117);
+            this.btnBlue.Location = new System.Drawing.Point(436, 179);
             this.btnBlue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBlue.Name = "btnBlue";
-            this.btnBlue.Size = new System.Drawing.Size(66, 57);
+            this.btnBlue.Size = new System.Drawing.Size(73, 58);
             this.btnBlue.TabIndex = 6;
             this.btnBlue.UseVisualStyleBackColor = false;
             this.btnBlue.Click += new System.EventHandler(this.btnBlue_Click);
@@ -152,15 +153,27 @@ namespace CLIENT
             this.panelColors.BackColor = System.Drawing.Color.Transparent;
             this.panelColors.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelColors.BackgroundImage")));
             this.panelColors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelColors.Controls.Add(this.label2);
             this.panelColors.Controls.Add(this.btnRed);
             this.panelColors.Controls.Add(this.btnYellow);
             this.panelColors.Controls.Add(this.btnBlue);
             this.panelColors.Controls.Add(this.btnGreen);
-            this.panelColors.Location = new System.Drawing.Point(98, 47);
+            this.panelColors.Location = new System.Drawing.Point(117, 57);
             this.panelColors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelColors.Name = "panelColors";
-            this.panelColors.Size = new System.Drawing.Size(633, 585);
+            this.panelColors.Size = new System.Drawing.Size(586, 376);
             this.panelColors.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(41, 276);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(513, 26);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "You played a WILD CARD! Choose your color!";
             // 
             // panelPlayerL
             // 
@@ -329,6 +342,7 @@ namespace CLIENT
             this.Text = "Game Table";
             this.Load += new System.EventHandler(this.GAMEROOM_Load);
             this.panelColors.ResumeLayout(false);
+            this.panelColors.PerformLayout();
             this.panelPlayerL.ResumeLayout(false);
             this.panelPlayerL.PerformLayout();
             this.panelPlayerR.ResumeLayout(false);
@@ -363,5 +377,6 @@ namespace CLIENT
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBoxNum;
         private System.Windows.Forms.Label labelTurnOf;
+        private System.Windows.Forms.Label label2;
     }
 }
