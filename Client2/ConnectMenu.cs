@@ -14,7 +14,7 @@ namespace CLIENT
 {
     public partial class ConnectMenu : Form
     {
-      
+
         public static WAITINGROOM WaitingRoom;
         public ConnectMenu()
         {
@@ -23,18 +23,18 @@ namespace CLIENT
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-           
+
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(textBoxIP.Text), 11000);
             ProcessSocket.Data = "CONNECT";
             ProcessSocket.LINK(serverEP);
-
-            WaitingRoom = new WAITINGROOM(textBoxIP.Text);
+            WaitingRoom = new WAITINGROOM();
             ProcessSocket.SENDER(textBoxName.Text);
 
             User.ID = textBoxName.Text;
 
             WaitingRoom.FormClosed += new FormClosedEventHandler(lobby_FormClosed);
             WaitingRoom.ShowStartButton();
+            this.Hide();
             WaitingRoom.Show();
         }
 
@@ -49,28 +49,29 @@ namespace CLIENT
 
         private void btnJoin_Click(object sender, EventArgs e)
         {
-            
-          
+
+
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(textBoxIP.Text), 11000);
             ProcessSocket.Data = "CONNECT";
             ProcessSocket.LINK(serverEP);
-            WaitingRoom = new WAITINGROOM(textBoxIP.Text);
+            WaitingRoom = new WAITINGROOM();
             ProcessSocket.SENDER(textBoxName.Text);
 
             User.ID = textBoxName.Text;
 
             WaitingRoom.FormClosed += new FormClosedEventHandler(lobby_FormClosed);
+            this.Hide();
             WaitingRoom.Show();
         }
 
         private void btnRules_Click(object sender, EventArgs e)
-        {           
+        {
             System.Diagnostics.Process.Start("https://www.unorules.com/");
         }
 
         private void textBoxName_MouseClick(object sender, MouseEventArgs e)
         {
-           textBoxName.Text = "";
+            textBoxName.Text = "";
         }
     }
 }

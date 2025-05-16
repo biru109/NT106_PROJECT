@@ -490,47 +490,43 @@ namespace CLIENT
         }
 
         private void btnBocBai_Click(object sender, EventArgs e)
-        { 
-
+        {
+            // Xác định số lượng bài cần rút dựa vào lá bài hiện tại
             if (currentCard.Contains("dt"))
             {
                 soluongbaicanrut = 2;
-                User.SOLUONGBAI+=2;
-                string colormessage = User.ID + ";" + User.SOLUONGBAI;
-                ProcessSocket.Data = "AddNewCard";
-                ProcessSocket.SENDER(colormessage);
             }
-            else if(currentCard.Contains("df"))
+            else if (currentCard.Contains("df"))
             {
                 soluongbaicanrut = 4;
-                User.SOLUONGBAI+=4;
-                string colormessage = User.ID + ";" + User.SOLUONGBAI;
-                ProcessSocket.Data = "AddNewCard";
-                ProcessSocket.SENDER(colormessage);
             }
             else
             {
                 soluongbaicanrut = 1;
-                User.SOLUONGBAI++;
-                string colormessage = User.ID + ";" + User.SOLUONGBAI;
-                ProcessSocket.Data = "AddNewCard";
-                ProcessSocket.SENDER(colormessage);
             }
 
-            foreach(var tb in IDNUMS)
+            // Cập nhật số lượng bài và gửi thông điệp cho server
+            User.SOLUONGBAI += soluongbaicanrut;
+            string colormessage = User.ID + ";" + User.SOLUONGBAI;
+            ProcessSocket.Data = "AddNewCard";
+            ProcessSocket.SENDER(colormessage);
+
+            // Cập nhật lại giao diện số lượng bài
+            foreach (var tb in IDNUMS)
             {
-                if(tb.Tag.ToString() == User.ID)
+                if (tb.Tag.ToString() == User.ID)
                 {
                     tb.Text = User.SOLUONGBAI.ToString();
                     break;
                 }
             }
-   
 
+            // Vô hiệu hóa nút và kết thúc lượt
             btnBocBai.Enabled = false;
             STOPPLAYING();
         }
-        
+
+
         private void btnRed_Click(object sender, EventArgs e)
         {
             string colormessage = User.ID + ";" + User.SOLUONGBAI;
@@ -591,6 +587,16 @@ namespace CLIENT
         }
 
         private void GAMEROOM_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

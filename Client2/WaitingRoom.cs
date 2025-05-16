@@ -16,17 +16,12 @@ namespace CLIENT
         public List<Label> PlayerName = new List<Label>();
         public List<PictureBox> PlayerIcon = new List<PictureBox>();
         public int connectedPlayer = 0;
-        public string RoomIP { get; set; }
-
-        public WAITINGROOM(string roomIP)
+        public WAITINGROOM()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
             lobby = this;
             btnStart.Visible = false;
-
-            RoomIP = roomIP; // Lưu IP lại
-
             //// thêm tên người chơi
             PlayerName.Add(labelP1);
             PlayerName.Add(labelP2);
@@ -37,8 +32,6 @@ namespace CLIENT
             PlayerIcon.Add(pictureBoxP2);
             PlayerIcon.Add(pictureBoxP3);
             PlayerIcon.Add(pictureBoxP4);
-
-            roomip.Text = RoomIP;
         }
 
         public void ShowStartButton()
@@ -46,14 +39,14 @@ namespace CLIENT
             btnStart.Visible = true;
         }
 
-       
-      
+
+
 
         public void ShowCurrentUser(string ID)
         {
             connectedPlayer++;
-            
-            switch(connectedPlayer)
+
+            switch (connectedPlayer)
             {
                 case 1:
                     labelP1.Text = ID;
@@ -75,36 +68,16 @@ namespace CLIENT
         private void btnStart_Click(object sender, EventArgs e)
         {
             ProcessSocket.Data = "START";
-            ProcessSocket.SENDER("");        
+            ProcessSocket.SENDER("");
         }
 
         private void btnLeave_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
         }
 
         private void labelP1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBoxP2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelP2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WAITINGROOM_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roomip_Click(object sender, EventArgs e)
         {
 
         }

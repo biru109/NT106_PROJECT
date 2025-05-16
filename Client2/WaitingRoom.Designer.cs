@@ -130,7 +130,6 @@ namespace CLIENT
             this.labelP2.Size = new System.Drawing.Size(27, 28);
             this.labelP2.TabIndex = 3;
             this.labelP2.Text = "...";
-            this.labelP2.Click += new System.EventHandler(this.labelP2_Click);
             // 
             // pictureBoxP2
             // 
@@ -142,7 +141,6 @@ namespace CLIENT
             this.pictureBoxP2.Size = new System.Drawing.Size(151, 162);
             this.pictureBoxP2.TabIndex = 2;
             this.pictureBoxP2.TabStop = false;
-            this.pictureBoxP2.Click += new System.EventHandler(this.pictureBoxP2_Click);
             // 
             // groupBoxP4
             // 
@@ -249,7 +247,6 @@ namespace CLIENT
             this.roomip.Name = "roomip";
             this.roomip.Size = new System.Drawing.Size(201, 23);
             this.roomip.TabIndex = 6;
-            this.roomip.Click += new System.EventHandler(this.roomip_Click);
             // 
             // WAITINGROOM
             // 
@@ -271,7 +268,6 @@ namespace CLIENT
             this.MaximizeBox = false;
             this.Name = "WAITINGROOM";
             this.Text = "Game Lobby - Pending start ...";
-            this.Load += new System.EventHandler(this.WAITINGROOM_Load);
             this.groupBoxP1.ResumeLayout(false);
             this.groupBoxP1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxP1)).EndInit();

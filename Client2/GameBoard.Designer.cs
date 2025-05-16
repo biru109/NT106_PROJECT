@@ -52,6 +52,7 @@ namespace CLIENT
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxNum = new System.Windows.Forms.TextBox();
             this.labelTurnOf = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelColors.SuspendLayout();
             this.panelPlayerL.SuspendLayout();
             this.panelPlayerR.SuspendLayout();
@@ -98,10 +99,10 @@ namespace CLIENT
             // btnRed
             // 
             this.btnRed.BackColor = System.Drawing.Color.Red;
-            this.btnRed.Location = new System.Drawing.Point(46, 167);
+            this.btnRed.Location = new System.Drawing.Point(40, 94);
             this.btnRed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRed.Name = "btnRed";
-            this.btnRed.Size = new System.Drawing.Size(91, 83);
+            this.btnRed.Size = new System.Drawing.Size(79, 56);
             this.btnRed.TabIndex = 3;
             this.btnRed.UseVisualStyleBackColor = false;
             this.btnRed.Click += new System.EventHandler(this.btnRed_Click);
@@ -109,10 +110,10 @@ namespace CLIENT
             // btnYellow
             // 
             this.btnYellow.BackColor = System.Drawing.Color.Yellow;
-            this.btnYellow.Location = new System.Drawing.Point(178, 154);
+            this.btnYellow.Location = new System.Drawing.Point(138, 94);
             this.btnYellow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYellow.Name = "btnYellow";
-            this.btnYellow.Size = new System.Drawing.Size(94, 83);
+            this.btnYellow.Size = new System.Drawing.Size(75, 56);
             this.btnYellow.TabIndex = 4;
             this.btnYellow.UseVisualStyleBackColor = false;
             this.btnYellow.Click += new System.EventHandler(this.btnYellow_Click);
@@ -120,10 +121,10 @@ namespace CLIENT
             // btnGreen
             // 
             this.btnGreen.BackColor = System.Drawing.Color.Lime;
-            this.btnGreen.Location = new System.Drawing.Point(306, 154);
+            this.btnGreen.Location = new System.Drawing.Point(236, 94);
             this.btnGreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGreen.Name = "btnGreen";
-            this.btnGreen.Size = new System.Drawing.Size(64, 83);
+            this.btnGreen.Size = new System.Drawing.Size(79, 56);
             this.btnGreen.TabIndex = 5;
             this.btnGreen.UseVisualStyleBackColor = false;
             this.btnGreen.Click += new System.EventHandler(this.btnGreen_Click);
@@ -131,10 +132,10 @@ namespace CLIENT
             // btnBlue
             // 
             this.btnBlue.BackColor = System.Drawing.Color.Blue;
-            this.btnBlue.Location = new System.Drawing.Point(436, 179);
+            this.btnBlue.Location = new System.Drawing.Point(342, 94);
             this.btnBlue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBlue.Name = "btnBlue";
-            this.btnBlue.Size = new System.Drawing.Size(73, 58);
+            this.btnBlue.Size = new System.Drawing.Size(70, 56);
             this.btnBlue.TabIndex = 6;
             this.btnBlue.UseVisualStyleBackColor = false;
             this.btnBlue.Click += new System.EventHandler(this.btnBlue_Click);
@@ -153,27 +154,29 @@ namespace CLIENT
             this.panelColors.BackColor = System.Drawing.Color.Transparent;
             this.panelColors.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelColors.BackgroundImage")));
             this.panelColors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelColors.Controls.Add(this.label1);
             this.panelColors.Controls.Add(this.label2);
             this.panelColors.Controls.Add(this.btnRed);
             this.panelColors.Controls.Add(this.btnYellow);
             this.panelColors.Controls.Add(this.btnBlue);
             this.panelColors.Controls.Add(this.btnGreen);
-            this.panelColors.Location = new System.Drawing.Point(117, 57);
+            this.panelColors.Location = new System.Drawing.Point(197, 150);
             this.panelColors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelColors.Name = "panelColors";
-            this.panelColors.Size = new System.Drawing.Size(586, 376);
+            this.panelColors.Size = new System.Drawing.Size(468, 262);
             this.panelColors.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Showcard Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(41, 276);
+            this.label2.Location = new System.Drawing.Point(107, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(513, 26);
+            this.label2.Size = new System.Drawing.Size(269, 23);
             this.label2.TabIndex = 8;
-            this.label2.Text = "You played a WILD CARD! Choose your color!";
+            this.label2.Text = "You played a WILD CARD!";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panelPlayerL
             // 
@@ -317,6 +320,18 @@ namespace CLIENT
             this.labelTurnOf.TabIndex = 36;
             this.labelTurnOf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 10.8F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(118, 193);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(241, 23);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "CHOOSE YOUR COLOR!!!";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -378,5 +393,6 @@ namespace CLIENT
         private System.Windows.Forms.TextBox textBoxNum;
         private System.Windows.Forms.Label labelTurnOf;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
