@@ -72,7 +72,8 @@ namespace CLIENT
 
         private void btnRules_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.unorules.com/");
+            var howToPlayForm = new HowToPlay();
+            howToPlayForm.ShowDialog();
         }
 
         private void textBoxName_MouseClick(object sender, MouseEventArgs e)
