@@ -45,6 +45,7 @@ namespace CLIENT
             this.pictureBoxP3 = new System.Windows.Forms.PictureBox();
             this.btnLeave = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.roomip = new System.Windows.Forms.Label();
             this.groupBoxP1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxP1)).BeginInit();
             this.groupBoxP2.SuspendLayout();
@@ -62,7 +63,7 @@ namespace CLIENT
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.Location = new System.Drawing.Point(162, 438);
+            this.btnStart.Location = new System.Drawing.Point(503, 441);
             this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(246, 42);
@@ -75,23 +76,22 @@ namespace CLIENT
             this.groupBoxP1.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxP1.Controls.Add(this.labelP1);
             this.groupBoxP1.Controls.Add(this.pictureBoxP1);
-            this.groupBoxP1.Location = new System.Drawing.Point(41, 110);
+            this.groupBoxP1.Location = new System.Drawing.Point(52, 110);
             this.groupBoxP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxP1.Name = "groupBoxP1";
             this.groupBoxP1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxP1.Size = new System.Drawing.Size(199, 290);
+            this.groupBoxP1.Size = new System.Drawing.Size(187, 290);
             this.groupBoxP1.TabIndex = 1;
             this.groupBoxP1.TabStop = false;
-            this.groupBoxP1.Text = "PLAYER 1";
             // 
             // labelP1
             // 
             this.labelP1.AutoSize = true;
             this.labelP1.BackColor = System.Drawing.Color.Transparent;
-            this.labelP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP1.Location = new System.Drawing.Point(120, 302);
+            this.labelP1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP1.Location = new System.Drawing.Point(74, 229);
             this.labelP1.Name = "labelP1";
-            this.labelP1.Size = new System.Drawing.Size(25, 22);
+            this.labelP1.Size = new System.Drawing.Size(27, 28);
             this.labelP1.TabIndex = 0;
             this.labelP1.Text = "...";
             this.labelP1.Click += new System.EventHandler(this.labelP1_Click);
@@ -103,7 +103,7 @@ namespace CLIENT
             this.pictureBoxP1.Location = new System.Drawing.Point(6, 17);
             this.pictureBoxP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxP1.Name = "pictureBoxP1";
-            this.pictureBoxP1.Size = new System.Drawing.Size(184, 181);
+            this.pictureBoxP1.Size = new System.Drawing.Size(175, 181);
             this.pictureBoxP1.TabIndex = 1;
             this.pictureBoxP1.TabStop = false;
             // 
@@ -119,18 +119,18 @@ namespace CLIENT
             this.groupBoxP2.Size = new System.Drawing.Size(193, 273);
             this.groupBoxP2.TabIndex = 2;
             this.groupBoxP2.TabStop = false;
-            this.groupBoxP2.Text = "PLAYER 2";
             // 
             // labelP2
             // 
             this.labelP2.AutoSize = true;
             this.labelP2.BackColor = System.Drawing.Color.Transparent;
-            this.labelP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelP2.Location = new System.Drawing.Point(78, 212);
             this.labelP2.Name = "labelP2";
-            this.labelP2.Size = new System.Drawing.Size(25, 22);
+            this.labelP2.Size = new System.Drawing.Size(27, 28);
             this.labelP2.TabIndex = 3;
             this.labelP2.Text = "...";
+            this.labelP2.Click += new System.EventHandler(this.labelP2_Click);
             // 
             // pictureBoxP2
             // 
@@ -142,6 +142,7 @@ namespace CLIENT
             this.pictureBoxP2.Size = new System.Drawing.Size(151, 162);
             this.pictureBoxP2.TabIndex = 2;
             this.pictureBoxP2.TabStop = false;
+            this.pictureBoxP2.Click += new System.EventHandler(this.pictureBoxP2_Click);
             // 
             // groupBoxP4
             // 
@@ -155,7 +156,6 @@ namespace CLIENT
             this.groupBoxP4.Size = new System.Drawing.Size(184, 273);
             this.groupBoxP4.TabIndex = 3;
             this.groupBoxP4.TabStop = false;
-            this.groupBoxP4.Text = "PLAYER 4";
             // 
             // pictureBoxP4
             // 
@@ -172,10 +172,10 @@ namespace CLIENT
             // 
             this.labelP3.AutoSize = true;
             this.labelP3.BackColor = System.Drawing.Color.Transparent;
-            this.labelP3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelP3.Location = new System.Drawing.Point(78, 212);
             this.labelP3.Name = "labelP3";
-            this.labelP3.Size = new System.Drawing.Size(25, 22);
+            this.labelP3.Size = new System.Drawing.Size(27, 28);
             this.labelP3.TabIndex = 1;
             this.labelP3.Text = "...";
             // 
@@ -183,10 +183,10 @@ namespace CLIENT
             // 
             this.labelP4.AutoSize = true;
             this.labelP4.BackColor = System.Drawing.Color.Transparent;
-            this.labelP4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelP4.Location = new System.Drawing.Point(81, 229);
             this.labelP4.Name = "labelP4";
-            this.labelP4.Size = new System.Drawing.Size(25, 22);
+            this.labelP4.Size = new System.Drawing.Size(27, 28);
             this.labelP4.TabIndex = 1;
             this.labelP4.Text = "...";
             // 
@@ -202,7 +202,6 @@ namespace CLIENT
             this.groupBoxP3.Size = new System.Drawing.Size(187, 290);
             this.groupBoxP3.TabIndex = 2;
             this.groupBoxP3.TabStop = false;
-            this.groupBoxP3.Text = "PLAYER 3";
             // 
             // pictureBoxP3
             // 
@@ -221,7 +220,7 @@ namespace CLIENT
             this.btnLeave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLeave.FlatAppearance.BorderSize = 0;
             this.btnLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeave.Location = new System.Drawing.Point(501, 438);
+            this.btnLeave.Location = new System.Drawing.Point(166, 441);
             this.btnLeave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeave.Name = "btnLeave";
             this.btnLeave.Size = new System.Drawing.Size(243, 39);
@@ -239,6 +238,19 @@ namespace CLIENT
             this.richTextBox1.Text = "";
             this.richTextBox1.Visible = false;
             // 
+            // roomip
+            // 
+            this.roomip.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.roomip.BackColor = System.Drawing.Color.Transparent;
+            this.roomip.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomip.Location = new System.Drawing.Point(426, 80);
+            this.roomip.Name = "roomip";
+            this.roomip.Size = new System.Drawing.Size(201, 23);
+            this.roomip.TabIndex = 6;
+            this.roomip.Click += new System.EventHandler(this.roomip_Click);
+            // 
             // WAITINGROOM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -246,6 +258,7 @@ namespace CLIENT
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(921, 521);
+            this.Controls.Add(this.roomip);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnLeave);
             this.Controls.Add(this.btnStart);
@@ -258,6 +271,7 @@ namespace CLIENT
             this.MaximizeBox = false;
             this.Name = "WAITINGROOM";
             this.Text = "Game Lobby - Pending start ...";
+            this.Load += new System.EventHandler(this.WAITINGROOM_Load);
             this.groupBoxP1.ResumeLayout(false);
             this.groupBoxP1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxP1)).EndInit();
@@ -291,5 +305,6 @@ namespace CLIENT
         private System.Windows.Forms.Button btnLeave;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox pictureBoxP1;
+        private System.Windows.Forms.Label roomip;
     }
 }

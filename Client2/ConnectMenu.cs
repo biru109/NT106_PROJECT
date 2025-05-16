@@ -27,14 +27,14 @@ namespace CLIENT
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(textBoxIP.Text), 11000);
             ProcessSocket.Data = "CONNECT";
             ProcessSocket.LINK(serverEP);
-            WaitingRoom = new WAITINGROOM();
+
+            WaitingRoom = new WAITINGROOM(textBoxIP.Text);
             ProcessSocket.SENDER(textBoxName.Text);
 
             User.ID = textBoxName.Text;
 
             WaitingRoom.FormClosed += new FormClosedEventHandler(lobby_FormClosed);
             WaitingRoom.ShowStartButton();
-            this.Hide();
             WaitingRoom.Show();
         }
 
@@ -54,13 +54,12 @@ namespace CLIENT
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(textBoxIP.Text), 11000);
             ProcessSocket.Data = "CONNECT";
             ProcessSocket.LINK(serverEP);
-            WaitingRoom = new WAITINGROOM();
+            WaitingRoom = new WAITINGROOM(textBoxIP.Text);
             ProcessSocket.SENDER(textBoxName.Text);
 
             User.ID = textBoxName.Text;
 
             WaitingRoom.FormClosed += new FormClosedEventHandler(lobby_FormClosed);
-            this.Hide();
             WaitingRoom.Show();
         }
 
