@@ -216,6 +216,13 @@
   <ItemGroup>
     <None Include="Resources\rs.jpg" />
     <None Include="Resources\grv.jpg" />
+    <None Include="Resources\Howtoplay1.png" />
+    <None Include="Resources\Howtoplay2.png" />
+    <None Include="Resources\Howtoplay3.png" />
+    <None Include="Resources\Howtoplay4.png" />
+    <None Include="Resources\Howtoplay5.png" />
+    <None Include="Resources\Howtoplay6.png" />
+    <None Include="Resources\Howtoplay7.png" />
     <Content Include="Resources\uno.jpg" />
   </ItemGroup>
   <ItemGroup>

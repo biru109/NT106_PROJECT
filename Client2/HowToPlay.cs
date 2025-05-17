@@ -17,13 +17,14 @@ namespace CLIENT
         public HowToPlay()
         {
             InitializeComponent();
-            guideImages.Add(Image.FromFile("How to play 1.png"));
-            guideImages.Add(Image.FromFile("How to play 2.png"));
-            guideImages.Add(Image.FromFile("How to play 3.png"));
-            guideImages.Add(Image.FromFile("How to play 4.png"));
-            guideImages.Add(Image.FromFile("How to play 5.png"));
-            guideImages.Add(Image.FromFile("How to play 6.png"));
-            guideImages.Add(Image.FromFile("How to play 7.png"));
+            guideImages.Add(Properties.Resources.Howtoplay1);
+            guideImages.Add(Properties.Resources.Howtoplay2);
+            guideImages.Add(Properties.Resources.Howtoplay3);
+            guideImages.Add(Properties.Resources.Howtoplay4);
+            guideImages.Add(Properties.Resources.Howtoplay5);
+            guideImages.Add(Properties.Resources.Howtoplay6);
+            guideImages.Add(Properties.Resources.Howtoplay7);
+
 
             ShowImage();
 
@@ -31,6 +32,12 @@ namespace CLIENT
         private void ShowImage()
         {
             pictureBoxGuide.Image = guideImages[currentIndex];
+
+            // Hiện/ẩn nút Prev
+            btnPrev.Visible = currentIndex > 0;
+
+            // Hiện/ẩn nút Next
+            btnNext.Visible = currentIndex < guideImages.Count - 1;
         }
 
 
@@ -50,6 +57,16 @@ namespace CLIENT
                 currentIndex++;
                 ShowImage();
             }
+        }
+
+        private void pictureBoxGuide_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
