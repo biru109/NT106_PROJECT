@@ -70,7 +70,7 @@ namespace CLIENT
             this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreate.FlatAppearance.BorderSize = 0;
             this.btnCreate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnCreate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnCreate.Location = new System.Drawing.Point(316, 254);
@@ -88,7 +88,7 @@ namespace CLIENT
             this.btnJoin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnJoin.FlatAppearance.BorderSize = 0;
             this.btnJoin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnJoin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnJoin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnJoin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJoin.Location = new System.Drawing.Point(316, 322);
             this.btnJoin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -105,7 +105,7 @@ namespace CLIENT
             this.btnRules.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRules.FlatAppearance.BorderSize = 0;
             this.btnRules.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnRules.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
+            this.btnRules.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnRules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRules.Location = new System.Drawing.Point(316, 380);
             this.btnRules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HowToPlay));
             this.pictureBoxGuide = new System.Windows.Forms.PictureBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrev = new System.Windows.Forms.Button();
@@ -37,7 +38,7 @@
             // 
             // pictureBoxGuide
             // 
-            this.pictureBoxGuide.Location = new System.Drawing.Point(1, 0);
+            this.pictureBoxGuide.Location = new System.Drawing.Point(-2, -7);
             this.pictureBoxGuide.Name = "pictureBoxGuide";
             this.pictureBoxGuide.Size = new System.Drawing.Size(785, 480);
             this.pictureBoxGuide.TabIndex = 0;
@@ -47,13 +48,16 @@
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNext.BackgroundImage")));
+            this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Location = new System.Drawing.Point(687, 220);
+            this.btnNext.Location = new System.Drawing.Point(696, 226);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(42, 51);
+            this.btnNext.Size = new System.Drawing.Size(24, 34);
             this.btnNext.TabIndex = 1;
             this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -61,14 +65,17 @@
             // btnPrev
             // 
             this.btnPrev.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrev.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrev.BackgroundImage")));
+            this.btnPrev.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrev.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrev.FlatAppearance.BorderSize = 0;
             this.btnPrev.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnPrev.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrev.ForeColor = System.Drawing.Color.Transparent;
-            this.btnPrev.Location = new System.Drawing.Point(61, 206);
+            this.btnPrev.Location = new System.Drawing.Point(72, 216);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(44, 48);
+            this.btnPrev.Size = new System.Drawing.Size(23, 44);
             this.btnPrev.TabIndex = 2;
             this.btnPrev.UseVisualStyleBackColor = false;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
@@ -76,6 +83,9 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -93,6 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CLIENT.Properties.Resources.Howtoplay6;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(782, 475);
             this.Controls.Add(this.btnExit);
