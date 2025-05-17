@@ -46,18 +46,18 @@ namespace CLIENT
             // 
             // btnQuit
             // 
-            this.btnQuit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQuit.BackgroundImage")));
-            this.btnQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuit.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnQuit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQuit.FlatAppearance.BorderSize = 0;
             this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuit.Location = new System.Drawing.Point(163, 407);
+            this.btnQuit.Location = new System.Drawing.Point(438, 441);
             this.btnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(209, 61);
+            this.btnQuit.Size = new System.Drawing.Size(74, 69);
             this.btnQuit.TabIndex = 1;
-            this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // EndForm
@@ -65,8 +65,8 @@ namespace CLIENT
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(536, 535);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(952, 535);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
