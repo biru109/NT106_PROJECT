@@ -98,5 +98,10 @@ namespace CLIENT
         {
             roomip.Text = ServerIP;
         }
+
+        private void groupBoxP1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

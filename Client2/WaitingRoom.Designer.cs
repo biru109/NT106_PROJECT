@@ -59,14 +59,15 @@ namespace CLIENT
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStart.BackgroundImage")));
             this.btnStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.Location = new System.Drawing.Point(503, 441);
+            this.btnStart.Location = new System.Drawing.Point(516, 433);
             this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(246, 42);
+            this.btnStart.Size = new System.Drawing.Size(233, 55);
             this.btnStart.TabIndex = 0;
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -76,6 +77,8 @@ namespace CLIENT
             this.groupBoxP1.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxP1.Controls.Add(this.labelP1);
             this.groupBoxP1.Controls.Add(this.pictureBoxP1);
+            this.groupBoxP1.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.groupBoxP1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxP1.Location = new System.Drawing.Point(52, 110);
             this.groupBoxP1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxP1.Name = "groupBoxP1";
@@ -83,6 +86,7 @@ namespace CLIENT
             this.groupBoxP1.Size = new System.Drawing.Size(187, 290);
             this.groupBoxP1.TabIndex = 1;
             this.groupBoxP1.TabStop = false;
+            this.groupBoxP1.Enter += new System.EventHandler(this.groupBoxP1_Enter);
             // 
             // labelP1
             // 
@@ -112,11 +116,11 @@ namespace CLIENT
             this.groupBoxP2.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxP2.Controls.Add(this.labelP2);
             this.groupBoxP2.Controls.Add(this.pictureBoxP2);
-            this.groupBoxP2.Location = new System.Drawing.Point(257, 127);
+            this.groupBoxP2.Location = new System.Drawing.Point(257, 110);
             this.groupBoxP2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxP2.Name = "groupBoxP2";
             this.groupBoxP2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxP2.Size = new System.Drawing.Size(193, 273);
+            this.groupBoxP2.Size = new System.Drawing.Size(193, 290);
             this.groupBoxP2.TabIndex = 2;
             this.groupBoxP2.TabStop = false;
             // 
@@ -125,7 +129,7 @@ namespace CLIENT
             this.labelP2.AutoSize = true;
             this.labelP2.BackColor = System.Drawing.Color.Transparent;
             this.labelP2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP2.Location = new System.Drawing.Point(77, 202);
+            this.labelP2.Location = new System.Drawing.Point(84, 219);
             this.labelP2.Name = "labelP2";
             this.labelP2.Size = new System.Drawing.Size(27, 28);
             this.labelP2.TabIndex = 3;
@@ -145,13 +149,13 @@ namespace CLIENT
             // groupBoxP4
             // 
             this.groupBoxP4.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxP4.Controls.Add(this.labelP4);
             this.groupBoxP4.Controls.Add(this.pictureBoxP4);
-            this.groupBoxP4.Controls.Add(this.labelP3);
-            this.groupBoxP4.Location = new System.Drawing.Point(681, 127);
+            this.groupBoxP4.Location = new System.Drawing.Point(681, 110);
             this.groupBoxP4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxP4.Name = "groupBoxP4";
             this.groupBoxP4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxP4.Size = new System.Drawing.Size(184, 273);
+            this.groupBoxP4.Size = new System.Drawing.Size(184, 290);
             this.groupBoxP4.TabIndex = 3;
             this.groupBoxP4.TabStop = false;
             // 
@@ -171,7 +175,7 @@ namespace CLIENT
             this.labelP3.AutoSize = true;
             this.labelP3.BackColor = System.Drawing.Color.Transparent;
             this.labelP3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP3.Location = new System.Drawing.Point(78, 202);
+            this.labelP3.Location = new System.Drawing.Point(75, 219);
             this.labelP3.Name = "labelP3";
             this.labelP3.Size = new System.Drawing.Size(27, 28);
             this.labelP3.TabIndex = 1;
@@ -182,7 +186,7 @@ namespace CLIENT
             this.labelP4.AutoSize = true;
             this.labelP4.BackColor = System.Drawing.Color.Transparent;
             this.labelP4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP4.Location = new System.Drawing.Point(81, 219);
+            this.labelP4.Location = new System.Drawing.Point(77, 219);
             this.labelP4.Name = "labelP4";
             this.labelP4.Size = new System.Drawing.Size(27, 28);
             this.labelP4.TabIndex = 1;
@@ -192,8 +196,9 @@ namespace CLIENT
             // groupBoxP3
             // 
             this.groupBoxP3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBoxP3.Controls.Add(this.labelP4);
+            this.groupBoxP3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.groupBoxP3.Controls.Add(this.pictureBoxP3);
+            this.groupBoxP3.Controls.Add(this.labelP3);
             this.groupBoxP3.Location = new System.Drawing.Point(472, 110);
             this.groupBoxP3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxP3.Name = "groupBoxP3";
@@ -215,14 +220,17 @@ namespace CLIENT
             // btnLeave
             // 
             this.btnLeave.BackColor = System.Drawing.Color.Transparent;
+            this.btnLeave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLeave.BackgroundImage")));
             this.btnLeave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLeave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLeave.FlatAppearance.BorderSize = 0;
+            this.btnLeave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLeave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeave.Location = new System.Drawing.Point(166, 441);
+            this.btnLeave.Location = new System.Drawing.Point(168, 433);
             this.btnLeave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLeave.Name = "btnLeave";
-            this.btnLeave.Size = new System.Drawing.Size(243, 39);
+            this.btnLeave.Size = new System.Drawing.Size(233, 55);
             this.btnLeave.TabIndex = 4;
             this.btnLeave.UseVisualStyleBackColor = false;
             this.btnLeave.Click += new System.EventHandler(this.btnLeave_Click);
