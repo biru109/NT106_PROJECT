@@ -37,41 +37,44 @@
             // 
             // pictureBoxGuide
             // 
-            this.pictureBoxGuide.Location = new System.Drawing.Point(-3, 1);
+            this.pictureBoxGuide.Location = new System.Drawing.Point(1, 0);
             this.pictureBoxGuide.Name = "pictureBoxGuide";
-            this.pictureBoxGuide.Size = new System.Drawing.Size(787, 476);
+            this.pictureBoxGuide.Size = new System.Drawing.Size(785, 480);
             this.pictureBoxGuide.TabIndex = 0;
             this.pictureBoxGuide.TabStop = false;
             this.pictureBoxGuide.Click += new System.EventHandler(this.pictureBoxGuide_Click);
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(714, 159);
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.Location = new System.Drawing.Point(687, 220);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(70, 62);
+            this.btnNext.Size = new System.Drawing.Size(42, 51);
             this.btnNext.TabIndex = 1;
-            this.btnNext.Text = "button1";
-            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.UseVisualStyleBackColor = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrev
             // 
-            this.btnPrev.Location = new System.Drawing.Point(151, 159);
+            this.btnPrev.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrev.ForeColor = System.Drawing.Color.Transparent;
+            this.btnPrev.Location = new System.Drawing.Point(61, 206);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(75, 65);
+            this.btnPrev.Size = new System.Drawing.Size(44, 48);
             this.btnPrev.TabIndex = 2;
-            this.btnPrev.Text = "button1";
-            this.btnPrev.UseVisualStyleBackColor = true;
+            this.btnPrev.UseVisualStyleBackColor = false;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(584, 344);
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.Location = new System.Drawing.Point(673, 386);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(88, 47);
+            this.btnExit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnExit.Size = new System.Drawing.Size(47, 47);
             this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "button1";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // HowToPlay

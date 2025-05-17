@@ -38,6 +38,8 @@ namespace CLIENT
 
             // Hiện/ẩn nút Next
             btnNext.Visible = currentIndex < guideImages.Count - 1;
+
+            btnExit.Visible = currentIndex == guideImages.Count - 1;
         }
 
 
