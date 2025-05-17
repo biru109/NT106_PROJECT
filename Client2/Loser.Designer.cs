@@ -34,28 +34,26 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(213, 304);
+            this.button1.Location = new System.Drawing.Point(440, 432);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 85);
+            this.button1.Size = new System.Drawing.Size(71, 77);
             this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // Form2_Lose
+            // Loser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(518, 536);
+            this.ClientSize = new System.Drawing.Size(951, 536);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
-            this.Name = "Form2_Lose";
+            this.Name = "Loser";
             this.Text = "Form2_Lose";
             this.ResumeLayout(false);
 
