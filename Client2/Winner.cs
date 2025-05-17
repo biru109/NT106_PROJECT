@@ -20,7 +20,9 @@ namespace CLIENT
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            ConnectMenu menu = new ConnectMenu();
+            menu.Show();
+            this.Close();
         }
     }
 }

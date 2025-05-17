@@ -39,6 +39,7 @@ namespace CLIENT
             this.btnBlue = new System.Windows.Forms.Button();
             this.btnDiscardPileCard = new System.Windows.Forms.Button();
             this.panelColors = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelPlayerL = new System.Windows.Forms.Panel();
             this.labelNameL = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@ namespace CLIENT
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxNum = new System.Windows.Forms.TextBox();
             this.labelTurnOf = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelColors.SuspendLayout();
             this.panelPlayerL.SuspendLayout();
             this.panelPlayerR.SuspendLayout();
@@ -165,6 +165,18 @@ namespace CLIENT
             this.panelColors.Name = "panelColors";
             this.panelColors.Size = new System.Drawing.Size(468, 262);
             this.panelColors.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 10.8F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(118, 193);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(241, 23);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "CHOOSE YOUR COLOR!!!";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -320,25 +332,13 @@ namespace CLIENT
             this.labelTurnOf.TabIndex = 36;
             this.labelTurnOf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(118, 193);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 23);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "CHOOSE YOUR COLOR!!!";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(834, 706);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(830, 730);
             this.Controls.Add(this.labelTurnOf);
             this.Controls.Add(this.textBoxNum);
             this.Controls.Add(this.panelColors);
