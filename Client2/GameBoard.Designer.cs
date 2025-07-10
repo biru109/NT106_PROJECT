@@ -53,6 +53,7 @@ namespace CLIENT
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxNum = new System.Windows.Forms.TextBox();
             this.labelTurnOf = new System.Windows.Forms.Label();
+            this.flowLayoutCards = new System.Windows.Forms.FlowLayoutPanel();
             this.panelColors.SuspendLayout();
             this.panelPlayerL.SuspendLayout();
             this.panelPlayerR.SuspendLayout();
@@ -71,11 +72,14 @@ namespace CLIENT
             // 
             this.btnDanhBai.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDanhBai.BackgroundImage")));
             this.btnDanhBai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDanhBai.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDanhBai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnDanhBai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDanhBai.Location = new System.Drawing.Point(539, 296);
+            this.btnDanhBai.ForeColor = System.Drawing.Color.Transparent;
+            this.btnDanhBai.Location = new System.Drawing.Point(483, 371);
             this.btnDanhBai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDanhBai.Name = "btnDanhBai";
-            this.btnDanhBai.Size = new System.Drawing.Size(70, 69);
+            this.btnDanhBai.Size = new System.Drawing.Size(128, 115);
             this.btnDanhBai.TabIndex = 1;
             this.btnDanhBai.UseVisualStyleBackColor = true;
             this.btnDanhBai.Click += new System.EventHandler(this.btnDanhBai_Click);
@@ -88,10 +92,10 @@ namespace CLIENT
             this.btnBocBai.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnBocBai.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnBocBai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBocBai.Location = new System.Drawing.Point(237, 213);
+            this.btnBocBai.Location = new System.Drawing.Point(209, 186);
             this.btnBocBai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBocBai.Name = "btnBocBai";
-            this.btnBocBai.Size = new System.Drawing.Size(125, 152);
+            this.btnBocBai.Size = new System.Drawing.Size(110, 130);
             this.btnBocBai.TabIndex = 2;
             this.btnBocBai.UseVisualStyleBackColor = true;
             this.btnBocBai.Click += new System.EventHandler(this.btnBocBai_Click);
@@ -102,7 +106,7 @@ namespace CLIENT
             this.btnRed.Location = new System.Drawing.Point(40, 94);
             this.btnRed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRed.Name = "btnRed";
-            this.btnRed.Size = new System.Drawing.Size(79, 56);
+            this.btnRed.Size = new System.Drawing.Size(59, 56);
             this.btnRed.TabIndex = 3;
             this.btnRed.UseVisualStyleBackColor = false;
             this.btnRed.Click += new System.EventHandler(this.btnRed_Click);
@@ -110,10 +114,10 @@ namespace CLIENT
             // btnYellow
             // 
             this.btnYellow.BackColor = System.Drawing.Color.Yellow;
-            this.btnYellow.Location = new System.Drawing.Point(138, 94);
+            this.btnYellow.Location = new System.Drawing.Point(131, 94);
             this.btnYellow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYellow.Name = "btnYellow";
-            this.btnYellow.Size = new System.Drawing.Size(75, 56);
+            this.btnYellow.Size = new System.Drawing.Size(59, 56);
             this.btnYellow.TabIndex = 4;
             this.btnYellow.UseVisualStyleBackColor = false;
             this.btnYellow.Click += new System.EventHandler(this.btnYellow_Click);
@@ -121,10 +125,10 @@ namespace CLIENT
             // btnGreen
             // 
             this.btnGreen.BackColor = System.Drawing.Color.Lime;
-            this.btnGreen.Location = new System.Drawing.Point(236, 94);
+            this.btnGreen.Location = new System.Drawing.Point(217, 94);
             this.btnGreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGreen.Name = "btnGreen";
-            this.btnGreen.Size = new System.Drawing.Size(79, 56);
+            this.btnGreen.Size = new System.Drawing.Size(59, 56);
             this.btnGreen.TabIndex = 5;
             this.btnGreen.UseVisualStyleBackColor = false;
             this.btnGreen.Click += new System.EventHandler(this.btnGreen_Click);
@@ -132,20 +136,20 @@ namespace CLIENT
             // btnBlue
             // 
             this.btnBlue.BackColor = System.Drawing.Color.Blue;
-            this.btnBlue.Location = new System.Drawing.Point(342, 94);
+            this.btnBlue.Location = new System.Drawing.Point(313, 94);
             this.btnBlue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBlue.Name = "btnBlue";
-            this.btnBlue.Size = new System.Drawing.Size(70, 56);
+            this.btnBlue.Size = new System.Drawing.Size(59, 56);
             this.btnBlue.TabIndex = 6;
             this.btnBlue.UseVisualStyleBackColor = false;
             this.btnBlue.Click += new System.EventHandler(this.btnBlue_Click);
             // 
             // btnDiscardPileCard
             // 
-            this.btnDiscardPileCard.Location = new System.Drawing.Point(395, 212);
+            this.btnDiscardPileCard.Location = new System.Drawing.Point(335, 186);
             this.btnDiscardPileCard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDiscardPileCard.Name = "btnDiscardPileCard";
-            this.btnDiscardPileCard.Size = new System.Drawing.Size(107, 154);
+            this.btnDiscardPileCard.Size = new System.Drawing.Size(103, 130);
             this.btnDiscardPileCard.TabIndex = 7;
             this.btnDiscardPileCard.UseVisualStyleBackColor = true;
             // 
@@ -160,10 +164,10 @@ namespace CLIENT
             this.panelColors.Controls.Add(this.btnYellow);
             this.panelColors.Controls.Add(this.btnBlue);
             this.panelColors.Controls.Add(this.btnGreen);
-            this.panelColors.Location = new System.Drawing.Point(197, 150);
+            this.panelColors.Location = new System.Drawing.Point(152, 118);
             this.panelColors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelColors.Name = "panelColors";
-            this.panelColors.Size = new System.Drawing.Size(468, 262);
+            this.panelColors.Size = new System.Drawing.Size(420, 251);
             this.panelColors.TabIndex = 8;
             // 
             // label1
@@ -171,7 +175,7 @@ namespace CLIENT
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 10.8F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(118, 193);
+            this.label1.Location = new System.Drawing.Point(93, 193);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(241, 23);
             this.label1.TabIndex = 9;
@@ -183,7 +187,7 @@ namespace CLIENT
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Showcard Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(107, 166);
+            this.label2.Location = new System.Drawing.Point(75, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(269, 23);
             this.label2.TabIndex = 8;
@@ -196,10 +200,10 @@ namespace CLIENT
             this.panelPlayerL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelPlayerL.Controls.Add(this.labelNameL);
             this.panelPlayerL.Controls.Add(this.textBoxNumL);
-            this.panelPlayerL.Location = new System.Drawing.Point(2, 68);
+            this.panelPlayerL.Location = new System.Drawing.Point(12, 141);
             this.panelPlayerL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerL.Name = "panelPlayerL";
-            this.panelPlayerL.Size = new System.Drawing.Size(171, 338);
+            this.panelPlayerL.Size = new System.Drawing.Size(137, 165);
             this.panelPlayerL.TabIndex = 24;
             // 
             // labelNameL
@@ -208,7 +212,7 @@ namespace CLIENT
             this.labelNameL.BackColor = System.Drawing.Color.Transparent;
             this.labelNameL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelNameL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameL.Location = new System.Drawing.Point(22, 7);
+            this.labelNameL.Location = new System.Drawing.Point(37, 121);
             this.labelNameL.Name = "labelNameL";
             this.labelNameL.Size = new System.Drawing.Size(68, 25);
             this.labelNameL.TabIndex = 21;
@@ -217,12 +221,13 @@ namespace CLIENT
             // 
             // textBoxNumL
             // 
-            this.textBoxNumL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.textBoxNumL.BackColor = System.Drawing.Color.White;
+            this.textBoxNumL.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNumL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumL.Location = new System.Drawing.Point(136, 2);
+            this.textBoxNumL.Location = new System.Drawing.Point(102, 140);
             this.textBoxNumL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumL.Name = "textBoxNumL";
-            this.textBoxNumL.Size = new System.Drawing.Size(32, 30);
+            this.textBoxNumL.Size = new System.Drawing.Size(32, 23);
             this.textBoxNumL.TabIndex = 22;
             this.textBoxNumL.Text = "0";
             this.textBoxNumL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -233,20 +238,21 @@ namespace CLIENT
             this.panelPlayerR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelPlayerR.Controls.Add(this.textBoxNumR);
             this.panelPlayerR.Controls.Add(this.labelNameR);
-            this.panelPlayerR.Location = new System.Drawing.Point(671, 68);
+            this.panelPlayerR.Location = new System.Drawing.Point(568, 140);
             this.panelPlayerR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerR.Name = "panelPlayerR";
-            this.panelPlayerR.Size = new System.Drawing.Size(166, 338);
+            this.panelPlayerR.Size = new System.Drawing.Size(144, 165);
             this.panelPlayerR.TabIndex = 29;
             // 
             // textBoxNumR
             // 
-            this.textBoxNumR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.textBoxNumR.BackColor = System.Drawing.Color.White;
+            this.textBoxNumR.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNumR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumR.Location = new System.Drawing.Point(0, 2);
+            this.textBoxNumR.Location = new System.Drawing.Point(112, 143);
             this.textBoxNumR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumR.Name = "textBoxNumR";
-            this.textBoxNumR.Size = new System.Drawing.Size(32, 30);
+            this.textBoxNumR.Size = new System.Drawing.Size(32, 23);
             this.textBoxNumR.TabIndex = 30;
             this.textBoxNumR.Text = "0";
             this.textBoxNumR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -256,7 +262,7 @@ namespace CLIENT
             this.labelNameR.AutoSize = true;
             this.labelNameR.BackColor = System.Drawing.Color.Transparent;
             this.labelNameR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameR.Location = new System.Drawing.Point(95, 7);
+            this.labelNameR.Location = new System.Drawing.Point(38, 122);
             this.labelNameR.Name = "labelNameR";
             this.labelNameR.Size = new System.Drawing.Size(68, 25);
             this.labelNameR.TabIndex = 29;
@@ -267,22 +273,23 @@ namespace CLIENT
             // 
             this.panelPlayerU.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelPlayerU.BackgroundImage")));
             this.panelPlayerU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelPlayerU.Controls.Add(this.textBoxNumU);
             this.panelPlayerU.Controls.Add(this.labelNameU);
-            this.panelPlayerU.Location = new System.Drawing.Point(214, 0);
+            this.panelPlayerU.Controls.Add(this.textBoxNumU);
+            this.panelPlayerU.Location = new System.Drawing.Point(244, 1);
             this.panelPlayerU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPlayerU.Name = "panelPlayerU";
-            this.panelPlayerU.Size = new System.Drawing.Size(433, 146);
+            this.panelPlayerU.Size = new System.Drawing.Size(246, 113);
             this.panelPlayerU.TabIndex = 30;
             // 
             // textBoxNumU
             // 
-            this.textBoxNumU.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.textBoxNumU.BackColor = System.Drawing.Color.White;
+            this.textBoxNumU.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNumU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNumU.Location = new System.Drawing.Point(8, 114);
+            this.textBoxNumU.Location = new System.Drawing.Point(43, 88);
             this.textBoxNumU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumU.Name = "textBoxNumU";
-            this.textBoxNumU.Size = new System.Drawing.Size(32, 30);
+            this.textBoxNumU.Size = new System.Drawing.Size(32, 23);
             this.textBoxNumU.TabIndex = 25;
             this.textBoxNumU.Text = "0";
             this.textBoxNumU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -292,7 +299,7 @@ namespace CLIENT
             this.labelNameU.AutoSize = true;
             this.labelNameU.BackColor = System.Drawing.Color.Transparent;
             this.labelNameU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameU.Location = new System.Drawing.Point(3, 9);
+            this.labelNameU.Location = new System.Drawing.Point(146, 59);
             this.labelNameU.Name = "labelNameU";
             this.labelNameU.Size = new System.Drawing.Size(68, 25);
             this.labelNameU.TabIndex = 24;
@@ -304,7 +311,7 @@ namespace CLIENT
             this.labelName.AutoSize = true;
             this.labelName.BackColor = System.Drawing.Color.Transparent;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(12, 426);
+            this.labelName.Location = new System.Drawing.Point(318, 473);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(68, 25);
             this.labelName.TabIndex = 34;
@@ -313,12 +320,13 @@ namespace CLIENT
             // 
             // textBoxNum
             // 
-            this.textBoxNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.textBoxNum.BackColor = System.Drawing.Color.White;
+            this.textBoxNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNum.Location = new System.Drawing.Point(88, 426);
+            this.textBoxNum.Location = new System.Drawing.Point(426, 463);
             this.textBoxNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNum.Name = "textBoxNum";
-            this.textBoxNum.Size = new System.Drawing.Size(32, 30);
+            this.textBoxNum.Size = new System.Drawing.Size(32, 23);
             this.textBoxNum.TabIndex = 35;
             this.textBoxNum.Text = "0";
             this.textBoxNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -332,16 +340,25 @@ namespace CLIENT
             this.labelTurnOf.TabIndex = 36;
             this.labelTurnOf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // flowLayoutCards
+            // 
+            this.flowLayoutCards.AutoScroll = true;
+            this.flowLayoutCards.Location = new System.Drawing.Point(12, 524);
+            this.flowLayoutCards.Name = "flowLayoutCards";
+            this.flowLayoutCards.Size = new System.Drawing.Size(700, 226);
+            this.flowLayoutCards.TabIndex = 37;
+            // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(830, 730);
+            this.ClientSize = new System.Drawing.Size(724, 753);
+            this.Controls.Add(this.flowLayoutCards);
+            this.Controls.Add(this.panelColors);
             this.Controls.Add(this.labelTurnOf);
             this.Controls.Add(this.textBoxNum);
-            this.Controls.Add(this.panelColors);
             this.Controls.Add(this.textBoxDisplayTest);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.panelPlayerU);
@@ -394,5 +411,6 @@ namespace CLIENT
         private System.Windows.Forms.Label labelTurnOf;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutCards;
     }
 }

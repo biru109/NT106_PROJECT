@@ -362,7 +362,9 @@ namespace CLIENT
 
         public void SettingUpCard()
         {
+            flowLayoutCards.Controls.Clear(); // Xóa bài cũ nếu có
             Card.Add(new List<CardButton>());
+
             foreach (var cd in User.BAI)
             {
                 CardButton cardbtn = new CardButton();
@@ -372,33 +374,20 @@ namespace CLIENT
                 cardbtn.btn.FlatAppearance.BorderSize = 2;
                 cardbtn.btn.BackgroundImageLayout = ImageLayout.Stretch;
                 cardbtn.btn.Size = new Size(80, 120);
-
-                // Nếu số lượng nút trên hàng hiện tại đạt tối đa, chuyển sang hàng mới
-                if (btnCountInRow == maxPerRow)
-                {
-                    Y += 130; // Tăng Y để chuyển xuống dòng mới
-                    i = 0; // Đặt lại biến đếm i
-                    btnCountInRow = 0; // Đặt lại số lượng nút trên hàng mới
-                }
-
-                cardbtn.btn.Location = new Point(X + i * 80, Y);
-                cardbtn.X = X + i * 80;
-                cardbtn.Y = Y;
                 cardbtn.btn.Click += new EventHandler(cardBtn_Click);
-                LoadCard(cardbtn.btn, cd);
-                Card[row].Add(cardbtn);
-                Controls.Add(cardbtn.btn);
 
-                i++;
-                btnCountInRow++;
+                LoadCard(cardbtn.btn, cd);
+                Card[0].Add(cardbtn); // Dùng 1 hàng (hoặc bỏ nếu không cần)
+
+                flowLayoutCards.Controls.Add(cardbtn.btn); // Thêm vào panel
             }
 
             STOPPLAYING();
         }
 
+
         public void ProcessBocBai(string cd)
         {
-
             CardButton THEBAI = new CardButton();
             THEBAI.id = cd;
             THEBAI.btn.Tag = cd;
@@ -407,22 +396,15 @@ namespace CLIENT
             THEBAI.btn.FlatStyle = FlatStyle.Flat;
             THEBAI.btn.BackgroundImageLayout = ImageLayout.Stretch;
             THEBAI.btn.Size = new Size(80, 120);
-            LoadCard(THEBAI.btn, cd);
-            if (btnCountInRow == maxPerRow)
-            {
-                i = 0;
-                Y = Y+130;
-                btnCountInRow = 0;
-            }
-           
-            THEBAI.btn.Location = new Point(X + i * 84, Y);
             THEBAI.btn.Click += new EventHandler(cardBtn_Click);
+
             LoadCard(THEBAI.btn, cd);
-            Card[row].Add(THEBAI);
-            Controls.Add(THEBAI.btn);
-            i++;
-            btnCountInRow++;
+
+            Card[0].Add(THEBAI); // Thêm vào danh sách của người chơi
+
+            flowLayoutCards.Controls.Add(THEBAI.btn); // CHỈNH Ở ĐÂY: Thêm vào flowLayoutPanel
         }
+
 
         public void CARDSYNC(string name, string n)
         {
@@ -473,7 +455,8 @@ namespace CLIENT
             {
                 if (cd.btn.Tag.ToString() == ChosenCard)
                 {
-                    this.Controls.Remove(cd.btn);
+                    flowLayoutCards.Controls.Remove(cd.btn);
+                    break;
                 }
             }
 
