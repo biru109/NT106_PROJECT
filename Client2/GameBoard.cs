@@ -509,7 +509,6 @@ namespace CLIENT
             STOPPLAYING();
         }
 
-
         private void btnRed_Click(object sender, EventArgs e)
         {
             string colormessage = User.ID + ";" + User.SOLUONGBAI;
@@ -605,16 +604,26 @@ namespace CLIENT
         private bool IsPlayable(string selectedCard, string currentCard)
         {
             if (selectedCard.StartsWith("wd") || selectedCard.StartsWith("df"))
-                return true; // wild cards luôn hợp lệ
+                return true; // Wild cards luôn hợp lệ
 
-            string selectedColor = selectedCard.Substring(0, 1); // r, g, b, y
-            string currentColor = currentCard.Substring(0, 1);
+            string selectedColor = GetColor(selectedCard);
+            string currentColor = GetColor(currentCard);
 
             string selectedValue = GetCardValue(selectedCard);
             string currentValue = GetCardValue(currentCard);
 
             return selectedColor == currentColor || selectedValue == currentValue;
         }
+
+        private string GetColor(string cardId)
+        {
+            if (cardId.Contains("_r") || cardId.StartsWith("r")) return "r";
+            if (cardId.Contains("_g") || cardId.StartsWith("g")) return "g";
+            if (cardId.Contains("_b") || cardId.StartsWith("b")) return "b";
+            if (cardId.Contains("_y") || cardId.StartsWith("y")) return "y";
+            return "";
+        }
+
 
         // Trích ra giá trị chính xác của lá bài
         private string GetCardValue(string card)

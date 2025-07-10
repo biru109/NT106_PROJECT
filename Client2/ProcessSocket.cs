@@ -106,18 +106,22 @@ namespace CLIENT
         // Xử lý tin nhắn rút bài
         private static void ProcessRStack(string[] payload)
         {
+            // Bắt đầu từ index 3 để lấy các lá bài được thêm
             for (int i = 3; i < payload.Length; i++)
             {
-                if (payload[i] == "r" || payload[i] == "r" || payload[i] == "r" || payload[i] == "r")
-                    room.currentCard = payload[i];
+                if (payload[i] == "r") // nếu server gửi 1 marker r
+                {
+                    room.currentCard = payload[i]; // có thể bỏ dòng này nếu không cần
+                }
                 else
                 {
                     room.ProcessBocBai(payload[i]);
                 }
             }
 
-            CK();
+            CK(); // Cho phép tiếp tục đánh bài
         }
+
         // Xử lý tin nhắn kết thúc ván chơi
         private static void HandleEndMessage(string[] payload)
         {
@@ -234,9 +238,12 @@ namespace CLIENT
                         }
                     }
 
-                    if (room.currentCard.Contains("s"))
+                    if (room.currentCard.Contains("s") && bt.id.Contains("s"))
                     {
-                        if (bt.id.Contains("s"))
+                        string color1 = GetColor(room.currentCard);
+                        string color2 = GetColor(bt.id);
+
+                        if (color1 == color2)
                         {
                             bt.btn.FlatAppearance.BorderColor = Color.Chartreuse;
                             bt.btn.Enabled = true;
@@ -244,9 +251,12 @@ namespace CLIENT
                         }
                     }
 
-                    if (room.currentCard.Contains("Rv"))
+                    if (room.currentCard.Contains("Rv") && bt.id.Contains("Rv"))
                     {
-                        if (bt.id.Contains("Rv"))
+                        string color1 = GetColor(room.currentCard);
+                        string color2 = GetColor(bt.id);
+
+                        if (color1 == color2)
                         {
                             bt.btn.FlatAppearance.BorderColor = Color.Chartreuse;
                             bt.btn.Enabled = true;
@@ -254,9 +264,14 @@ namespace CLIENT
                         }
                     }
 
-                    if (room.currentCard.Contains("dt"))
+                    // So sánh nếu là cùng loại "dt" và cùng màu
+                    if (room.currentCard.Contains("dt") && bt.id.Contains("dt"))
                     {
-                        if (bt.id.Contains("dt"))
+                        // So màu
+                        string color1 = GetColor(room.currentCard);
+                        string color2 = GetColor(bt.id);
+
+                        if (color1 == color2)
                         {
                             bt.btn.FlatAppearance.BorderColor = Color.Chartreuse;
                             bt.btn.Enabled = true;
@@ -287,6 +302,16 @@ namespace CLIENT
                 }
             }
         }
+        // Lấy màu từ mã lá bài
+        private static string GetColor(string cardId)
+        {
+            if (cardId.Contains("r")) return "r";
+            if (cardId.Contains("g")) return "g";
+            if (cardId.Contains("b")) return "b";
+            if (cardId.Contains("y")) return "y";
+            return "";
+        }
+
 
         private static void GAMEROOM_FormClosed(object sender, EventArgs e)
         {

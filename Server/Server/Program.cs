@@ -23,6 +23,8 @@ namespace UNOServer
         private static bool TakeTurn = true;
         private static int RUT = 0;
         private static string MAU = "";
+        static Random rand = new Random();
+
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -414,19 +416,27 @@ namespace UNOServer
         private static void HandleSpecialCard(string[] Signal, USER User)
         {
             USERLIST[MacDinh - 1].SoLuongBai += RUT;
-            string cardstack = "Case8;" + USERLIST[MacDinh - 1].ID + ";" + USERLIST[MacDinh - 1].SoLuongBai + ";";
-            for (int i = 0; i < RUT; i++)
+
+            List<string> rutCards = new List<string>();
+            List<string> deck = XAPBAI.CardName.ToList();
+
+            int rutCount = Math.Min(RUT, deck.Count);
+            for (int i = 0; i < rutCount; i++)
             {
-                cardstack += XAPBAI.CardName[0] + ";";
-                XAPBAI.CardName = XAPBAI.CardName.Where(val => val != XAPBAI.CardName[0]).ToArray();
+                int pick = rand.Next(deck.Count);
+                string pickedCard = deck[pick];
+                rutCards.Add(pickedCard);
+                deck.RemoveAt(pick); // xóa đúng 1 lá
             }
 
+            XAPBAI.CardName = deck.ToArray();
+
+            string cardstack = "Case8;" + USERLIST[MacDinh - 1].ID + ";" + USERLIST[MacDinh - 1].SoLuongBai + ";" + string.Join(";", rutCards);
             if (Signal[2] == "wd")
-                cardstack += MAU;
+                cardstack += ";" + MAU;
 
             byte[] buff = Encoding.UTF8.GetBytes(cardstack);
             USERLIST[MacDinh - 1].UserSK.Send(buff);
-            RUT = 0;
             Console.WriteLine("Sendback: " + cardstack);
 
             foreach (var user in USERLIST)
@@ -439,13 +449,16 @@ namespace UNOServer
 
                     byte[] data = Encoding.UTF8.GetBytes(SendData);
                     user.UserSK.Send(data);
-
                     Thread.Sleep(100);
                 }
             }
+
+            RUT = 0;
             MAU = "";
             UpdateTurnAndNotifyUsers();
         }
+
+
         private static void UpdateTurnAndNotifyUsers()
         {
             if (TakeTurn == true)
