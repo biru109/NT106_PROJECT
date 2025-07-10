@@ -116,12 +116,30 @@ namespace UNOServer
 
         public static string ShowPileCard()
         {
+            string temp = "";
+            while (true)
+            {
+                temp = XAPBAI.CardName[0];
 
-            string temp = XAPBAI.CardName[0];
-            XAPBAI.CardName = XAPBAI.CardName.Where(val => val != XAPBAI.CardName[0]).ToArray();
+                // kiểm tra nếu KHÔNG phải lá đặc biệt thì break
+                if (!IsSpecialCard(temp))
+                    break;
+
+                // nếu là bài đặc biệt thì bỏ lá đó ra, lấy lá khác
+                XAPBAI.CardName = XAPBAI.CardName.Where(val => val != XAPBAI.CardName[0]).ToArray();
+            }
+
+            XAPBAI.CardName = XAPBAI.CardName.Where(val => val != temp).ToArray();
             MoBai.mobai.Add(temp);
             return temp;
         }
+        public static bool IsSpecialCard(string card)
+        {
+            return card.StartsWith("wd") || card.StartsWith("df") ||
+                   card.Contains("Rv") || card.Contains("s_") || card.Contains("dt");
+        }
+
+
 
         public static bool ISOVER()
         {

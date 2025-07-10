@@ -559,15 +559,34 @@ namespace CLIENT
         }
 
         private int NowDeck = 0;
-       
 
-     
+
+
 
         void cardBtn_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            ChosenCard = btn.Tag.ToString();
+            string selected = btn.Tag.ToString();
+
+            if (IsPlayable(selected, currentCard))
+            {
+                // Reset border cho toàn bộ bài
+                foreach (var card in Card[NowDeck])
+                {
+                    card.btn.FlatAppearance.BorderColor = Color.Black;
+                }
+
+                ChosenCard = selected;
+                btn.FlatAppearance.BorderColor = Color.Red;
+                btnDanhBai.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Không thể đánh lá bài này!", "Lỗi luật UNO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+
 
         private void GAMEROOM_Load(object sender, EventArgs e)
         {
@@ -583,5 +602,42 @@ namespace CLIENT
         {
 
         }
+        private bool IsPlayable(string selectedCard, string currentCard)
+        {
+            if (selectedCard.StartsWith("wd") || selectedCard.StartsWith("df"))
+                return true; // wild cards luôn hợp lệ
+
+            string selectedColor = selectedCard.Substring(0, 1); // r, g, b, y
+            string currentColor = currentCard.Substring(0, 1);
+
+            string selectedValue = GetCardValue(selectedCard);
+            string currentValue = GetCardValue(currentCard);
+
+            return selectedColor == currentColor || selectedValue == currentValue;
+        }
+
+        // Trích ra giá trị chính xác của lá bài
+        private string GetCardValue(string card)
+        {
+            // Xử lý wild và draw four
+            if (card.StartsWith("wd") || card.StartsWith("df"))
+                return card.Substring(0, 2); // "wd", "df"
+
+            // Bỏ hậu tố _X, _Y hoặc _
+            card = card.Replace("_X", "").Replace("_Y", "").Replace("_", "");
+
+            if (card.StartsWith("Rv"))
+                return "Rv";
+            if (card.StartsWith("s"))
+                return "s";
+            if (card.StartsWith("dt"))
+                return "dt";
+
+            // Trường hợp thông thường như r0, g3, b5
+            return card.Substring(1); // trả về giá trị: "0", "1", ..., "9"
+        }
+
+
     }
+
 }
