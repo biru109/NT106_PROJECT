@@ -97,13 +97,18 @@ namespace CLIENT
         // Xử lý tin nhắn lượt chơi
         private static void HandleTurnMessage(string[] payload)
         {
-            if (payload[1] == User.ID)
-                CK();
+            bool myTurn = payload[1] == User.ID;
 
+            // ⬇️  THÊM KHỐI IF NÀY
+            if (myTurn)
+                room.IsForcedDraw = room.currentCard.Contains("dt") ||
+                                    room.currentCard.Contains("df");
+
+            if (myTurn) CK();          // đã có sẵn
             room.NotTurn();
             room.ISTURN(payload[1]);
         }
-        // Xử lý tin nhắn rút bài
+
         private static void ProcessRStack(string[] payload)
         {
             // Bắt đầu từ index 3 để lấy các lá bài được thêm
@@ -346,14 +351,38 @@ namespace CLIENT
                 case "Case7":
                     room.Invoke((MethodInvoker)delegate ()
                     {
-                      for(int i=0;i<room.soluongbaicanrut;i++)
-                        { 
-                        room.ProcessBocBai(arrPayload[2]);}
+                        for (int i = 2; i < arrPayload.Length; i++)
+                        {
+                            room.ProcessBocBai(arrPayload[i]);
+                        }
                     });
                     break;
+
                 case "Case8":
-                    ProcessRStack(arrPayload);
-                    break;
+                    {
+                        string victimId = arrPayload[1];
+                        string newCount = arrPayload[2];
+
+                        if (victimId == User.ID)
+                        {
+                            for (int i = 3; i < arrPayload.Length; i++)
+                                room.Invoke(new MethodInvoker(() => room.ProcessBocBai(arrPayload[i])));
+
+                            User.SOLUONGBAI = int.Parse(newCount);
+                            room.Invoke(new MethodInvoker(() => {
+                                room.IsForcedDraw = false; // ✔️ đã rút xong
+                                CK();                      // bật nút rút/đánh cho lượt mới
+                            }));
+                        }
+
+                        // ⬇️  THÊM DÒNG NÀY để đồng bộ ô đếm bài của mọi người
+                        room.Invoke(new MethodInvoker(() => room.CARDSYNC(victimId, newCount)));
+                        break;
+                    }
+
+
+
+
                 case "Case9":
                     HandleEndMessage(arrPayload);
                     break;

@@ -343,11 +343,23 @@ namespace UNOServer
         private static void AddNewCard(string[] Signal, USER User)
         {
             USERLIST[MacDinh - 1].SoLuongBai = int.Parse(Signal[2]);
-            string mkmsg = "Case7;" + Signal[1] + ";" + XAPBAI.CardName[0];
-            XAPBAI.CardName = XAPBAI.CardName.Where(val => val != XAPBAI.CardName[0]).ToArray();
+
+            List<string> drawnCards = new List<string>();
+
+            // rút 1 lá thường
+            int rutSo = 1;
+            for (int i = 0; i < rutSo; i++)
+            {
+                string card = XAPBAI.CardName[0];
+                drawnCards.Add(card);
+                XAPBAI.CardName = XAPBAI.CardName.Where(val => val != card).ToArray();
+            }
+
+            string mkmsg = "Case7;" + Signal[1] + ";" + string.Join(";", drawnCards);
             byte[] bf = Encoding.UTF8.GetBytes(mkmsg);
             USERLIST[MacDinh - 1].UserSK.Send(bf);
 
+            // cập nhật cho những người khác
             foreach (var user in USERLIST)
             {
                 if (user.Luot != MacDinh)
@@ -355,35 +367,28 @@ namespace UNOServer
                     string SendData = "Case5;" + Signal[1] + ";" + Signal[2];
                     byte[] data = Encoding.UTF8.GetBytes(SendData);
                     user.UserSK.Send(data);
-
                     Thread.Sleep(100);
                 }
             }
 
-            if (TakeTurn == true)
-            {
+            // cập nhật lượt chơi
+            if (TakeTurn)
                 MacDinh++;
-            }
             else
-            {
                 MacDinh--;
-            }
 
-            if (MacDinh > USERLIST.Count)
-                MacDinh = 1;
-
-            if (MacDinh < 1)
-                MacDinh = USERLIST.Count;
+            if (MacDinh > USERLIST.Count) MacDinh = 1;
+            if (MacDinh < 1) MacDinh = USERLIST.Count;
 
             foreach (var user in USERLIST)
             {
                 string SendData_ = "Case6;" + USERLIST[MacDinh - 1].ID;
                 byte[] buffer_ = Encoding.UTF8.GetBytes(SendData_);
                 user.UserSK.Send(buffer_);
-
                 Thread.Sleep(100);
             }
         }
+
 
         private static void HandleSpecialCard(string[] Signal, USER User)
         {
@@ -427,6 +432,8 @@ namespace UNOServer
 
             RUT = 0;
             MAU = "";
+            XAPBAI.currentCard = "";
+
             UpdateTurnAndNotifyUsers();
         }
 
