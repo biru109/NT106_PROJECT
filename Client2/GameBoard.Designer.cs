@@ -390,8 +390,8 @@ namespace CLIENT
         #endregion
 
         private System.Windows.Forms.TextBox textBoxDisplayTest;
-        private System.Windows.Forms.Button btnDanhBai;
-        private System.Windows.Forms.Button btnBocBai;
+        public System.Windows.Forms.Button btnDanhBai;
+        public System.Windows.Forms.Button btnBocBai;
         private System.Windows.Forms.Button btnRed;
         private System.Windows.Forms.Button btnYellow;
         private System.Windows.Forms.Button btnGreen;
