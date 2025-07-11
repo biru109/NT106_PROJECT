@@ -302,58 +302,30 @@ namespace UNOServer
                         RUT += 4;
                     }
 
+                    bool isReverse = Signal[3].Contains("Rv");
+                    bool isSkip = Signal[3].Contains("s") || (isReverse && USERLIST.Count == 2);
+                    // 2 người: Reverse = Skip
 
-                    if (Signal[3].Contains("rv"))
+                    // Đổi chiều khi có Reverse (chỉ áp dụng khi ≥3 người)
+                    if (isReverse && USERLIST.Count > 2)
                     {
-                        if (TakeTurn == true)
-                            TakeTurn = false;
-                        else
-                            TakeTurn = true;
+                        TakeTurn = !TakeTurn;
                     }
 
-
-                    if (TakeTurn == true)
+                    // Tính MacDinh (chỉ số người chơi kế tiếp)
+                    if (TakeTurn)          // Đang đi thuận chiều
                     {
-                        if (Signal[3].Contains("s"))
-                        {
-                            if (MacDinh == USERLIST.Count)
-                            {
-                                MacDinh = 2;
-                            }
-                            else
-                            {
-                                MacDinh = MacDinh + 2;
-                            }
-                        }
-                        else
-                        {
-                            MacDinh++;
-                        }
+                        MacDinh += isSkip ? 2 : 1;
                     }
-                    else
+                    else                    // Đang đi ngược chiều
                     {
-                        if (Signal[3].Contains("s"))
-                        {
-                            if (MacDinh == 1)
-                            {
-                                MacDinh = USERLIST.Count - 1;
-                            }
-                            else
-                            {
-                                MacDinh = MacDinh - 2;
-                            }
-                        }
-                        else
-                        {
-                            MacDinh--;
-                        }
+                        MacDinh -= isSkip ? 2 : 1;
                     }
 
-                    if (MacDinh > USERLIST.Count)
-                        MacDinh = 1;
+                    // Vòng lại đầu/cuối danh sách
+                    if (MacDinh > USERLIST.Count) MacDinh -= USERLIST.Count;
+                    if (MacDinh < 1) MacDinh += USERLIST.Count;
 
-                    if (MacDinh < 1)
-                        MacDinh = USERLIST.Count;
 
                     foreach (var user in USERLIST)
                     {

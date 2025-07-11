@@ -646,7 +646,10 @@ namespace CLIENT
             return card.Substring(1); // trả về giá trị: "0", "1", ..., "9"
         }
 
+        private void panelPlayerU_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 
 }

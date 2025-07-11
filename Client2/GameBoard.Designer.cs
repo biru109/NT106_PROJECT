@@ -48,8 +48,8 @@ namespace CLIENT
             this.textBoxNumR = new System.Windows.Forms.TextBox();
             this.labelNameR = new System.Windows.Forms.Label();
             this.panelPlayerU = new System.Windows.Forms.Panel();
-            this.textBoxNumU = new System.Windows.Forms.TextBox();
             this.labelNameU = new System.Windows.Forms.Label();
+            this.textBoxNumU = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxNum = new System.Windows.Forms.TextBox();
             this.labelTurnOf = new System.Windows.Forms.Label();
@@ -280,6 +280,19 @@ namespace CLIENT
             this.panelPlayerU.Name = "panelPlayerU";
             this.panelPlayerU.Size = new System.Drawing.Size(246, 113);
             this.panelPlayerU.TabIndex = 30;
+            this.panelPlayerU.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPlayerU_Paint);
+            // 
+            // labelNameU
+            // 
+            this.labelNameU.AutoSize = true;
+            this.labelNameU.BackColor = System.Drawing.Color.Transparent;
+            this.labelNameU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNameU.Location = new System.Drawing.Point(146, 59);
+            this.labelNameU.Name = "labelNameU";
+            this.labelNameU.Size = new System.Drawing.Size(68, 25);
+            this.labelNameU.TabIndex = 24;
+            this.labelNameU.Text = "Name";
+            this.labelNameU.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxNumU
             // 
@@ -293,18 +306,6 @@ namespace CLIENT
             this.textBoxNumU.TabIndex = 25;
             this.textBoxNumU.Text = "0";
             this.textBoxNumU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // labelNameU
-            // 
-            this.labelNameU.AutoSize = true;
-            this.labelNameU.BackColor = System.Drawing.Color.Transparent;
-            this.labelNameU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameU.Location = new System.Drawing.Point(146, 59);
-            this.labelNameU.Name = "labelNameU";
-            this.labelNameU.Size = new System.Drawing.Size(68, 25);
-            this.labelNameU.TabIndex = 24;
-            this.labelNameU.Text = "Name";
-            this.labelNameU.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelName
             // 
