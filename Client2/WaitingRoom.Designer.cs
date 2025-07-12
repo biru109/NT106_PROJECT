@@ -38,9 +38,9 @@ namespace CLIENT
             this.labelP2 = new System.Windows.Forms.Label();
             this.pictureBoxP2 = new System.Windows.Forms.PictureBox();
             this.groupBoxP4 = new System.Windows.Forms.GroupBox();
+            this.labelP4 = new System.Windows.Forms.Label();
             this.pictureBoxP4 = new System.Windows.Forms.PictureBox();
             this.labelP3 = new System.Windows.Forms.Label();
-            this.labelP4 = new System.Windows.Forms.Label();
             this.groupBoxP3 = new System.Windows.Forms.GroupBox();
             this.pictureBoxP3 = new System.Windows.Forms.PictureBox();
             this.btnLeave = new System.Windows.Forms.Button();
@@ -159,6 +159,18 @@ namespace CLIENT
             this.groupBoxP4.TabIndex = 3;
             this.groupBoxP4.TabStop = false;
             // 
+            // labelP4
+            // 
+            this.labelP4.AutoSize = true;
+            this.labelP4.BackColor = System.Drawing.Color.Transparent;
+            this.labelP4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP4.Location = new System.Drawing.Point(77, 219);
+            this.labelP4.Name = "labelP4";
+            this.labelP4.Size = new System.Drawing.Size(27, 28);
+            this.labelP4.TabIndex = 1;
+            this.labelP4.Text = "...";
+            this.labelP4.Click += new System.EventHandler(this.labelP4_Click);
+            // 
             // pictureBoxP4
             // 
             this.pictureBoxP4.BackColor = System.Drawing.Color.Transparent;
@@ -180,18 +192,6 @@ namespace CLIENT
             this.labelP3.Size = new System.Drawing.Size(27, 28);
             this.labelP3.TabIndex = 1;
             this.labelP3.Text = "...";
-            // 
-            // labelP4
-            // 
-            this.labelP4.AutoSize = true;
-            this.labelP4.BackColor = System.Drawing.Color.Transparent;
-            this.labelP4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelP4.Location = new System.Drawing.Point(77, 219);
-            this.labelP4.Name = "labelP4";
-            this.labelP4.Size = new System.Drawing.Size(27, 28);
-            this.labelP4.TabIndex = 1;
-            this.labelP4.Text = "...";
-            this.labelP4.Click += new System.EventHandler(this.labelP4_Click);
             // 
             // groupBoxP3
             // 

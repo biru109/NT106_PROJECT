@@ -54,6 +54,7 @@ namespace CLIENT
             this.textBoxNum = new System.Windows.Forms.TextBox();
             this.labelTurnOf = new System.Windows.Forms.Label();
             this.flowLayoutCards = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblCountdown = new System.Windows.Forms.Label();
             this.panelColors.SuspendLayout();
             this.panelPlayerL.SuspendLayout();
             this.panelPlayerR.SuspendLayout();
@@ -349,6 +350,18 @@ namespace CLIENT
             this.flowLayoutCards.Size = new System.Drawing.Size(700, 226);
             this.flowLayoutCards.TabIndex = 37;
             // 
+            // lblCountdown
+            // 
+            this.lblCountdown.AutoSize = true;
+            this.lblCountdown.BackColor = System.Drawing.Color.Transparent;
+            this.lblCountdown.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountdown.Location = new System.Drawing.Point(12, 9);
+            this.lblCountdown.Name = "lblCountdown";
+            this.lblCountdown.Size = new System.Drawing.Size(52, 41);
+            this.lblCountdown.TabIndex = 38;
+            this.lblCountdown.Text = "60";
+            this.lblCountdown.Click += new System.EventHandler(this.lblCountdown_Click);
+            // 
             // GameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,6 +369,7 @@ namespace CLIENT
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(724, 753);
+            this.Controls.Add(this.lblCountdown);
             this.Controls.Add(this.flowLayoutCards);
             this.Controls.Add(this.panelColors);
             this.Controls.Add(this.labelTurnOf);
@@ -413,5 +427,6 @@ namespace CLIENT
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutCards;
+        private System.Windows.Forms.Label lblCountdown;
     }
 }
