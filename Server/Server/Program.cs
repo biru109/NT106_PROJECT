@@ -254,90 +254,67 @@ namespace UNOServer
 
         private static void HandleDanhBai(string[] Signal, USER User)
         {
-            string userId = Signal[1];
-            string playedCard = Signal[3];
-
-            var currentUser = USERLIST.FirstOrDefault(u => u.ID == userId);
-            if (currentUser == null) return;
-
-            int remainingCards = currentUser.SoLuongBai;
-
-            // Nếu cố đánh bài khi đã hết
-            if (remainingCards == 0 && !string.IsNullOrEmpty(playedCard))
+            // ========== 1. Kiểm tra gói tin ==========
+            if (Signal.Length < 3)           // "DanhBai;ID;Card" (>=3 phần tử)
             {
-                SendError(User, "Bạn đã hết bài, không thể đánh tiếp!");
+                SendError(User, "Lỗi: Gói DanhBai không hợp lệ.");
                 return;
             }
 
-            // Nếu không đúng lượt hoặc đang chờ người khác rút
+            string userId = Signal[1];
+            string playedCard = Signal[2];    // [0]=DanhBai, [1]=ID, [2]=Card
+            string overrideColor = (Signal.Length >= 4) ? Signal[3] : "";   // [3] nếu là wd/df
+
+            // ========== 2. Xác thực người chơi / lượt ==========
+            USER currentUser = USERLIST.FirstOrDefault(u => u.ID == userId);
+            if (currentUser == null) return;
+
             if (USERLIST[MacDinh - 1].ID != userId)
             {
                 SendError(User, "Bạn không có lượt!");
                 return;
             }
-
             if (IsWaitingDraw)
             {
                 SendError(User, "Bạn cần chờ người chơi khác rút bài trước!");
                 return;
             }
 
-            // Cập nhật bài
+            // ========== 3. Cập nhật lá bài hiện tại ==========
             XAPBAI.currentCard = playedCard;
             MoBai.mobai.Add(playedCard);
 
-            // TẠM thời không giảm số lượng ở đây
+            // ========== 4. Tính số bài còn lại ==========
+            int newCount = Math.Max(0, currentUser.SoLuongBai - 1);
 
-
-            remainingCards = currentUser.SoLuongBai;
-
-            // Nếu hết bài thì kết thúc
-            if (remainingCards == 0)
-            {
-                foreach (var user in USERLIST)
-                {
-                    string SendData = $"Case9;{userId};{remainingCards};{playedCard}";
-                    user.UserSK.Send(Encoding.UTF8.GetBytes(SendData));
-                    Thread.Sleep(100);
-                }
-                return;
-            }
-            int newCount = currentUser.SoLuongBai - 1;
-
-            // Gửi Case5 cho tất cả
+            // Gửi Case5 cho mọi người (cập nhật số bài & lá trên bàn)
             foreach (var user in USERLIST)
             {
-                string SendData = $"Case5;{userId};{newCount};{playedCard}";
-                if ((playedCard.Contains("df") || playedCard.Contains("wd")) && Signal.Length > 4)
+                string send = $"Case5;{userId};{newCount};{playedCard}";
+                if ((playedCard.Contains("df") || playedCard.Contains("wd")) && !string.IsNullOrEmpty(overrideColor))
                 {
-                    MAU = Signal[4];
-                    SendData += $";{MAU}";
+                    MAU = overrideColor;          // lưu màu override
+                    send += $";{MAU}";
                 }
-                user.UserSK.Send(Encoding.UTF8.GetBytes(SendData));
-                Thread.Sleep(100);
+                user.UserSK.Send(Encoding.UTF8.GetBytes(send));
+                Thread.Sleep(50);
             }
 
+            // Thực sự giảm bài ở server
+            currentUser.SoLuongBai = newCount;
 
-            // Sau khi đã gửi Case5 cho tất cả
-            if (currentUser.SoLuongBai > 0)
-                currentUser.SoLuongBai--;
-
-            remainingCards = currentUser.SoLuongBai;
-
-            // Nếu hết bài thì kết thúc
-            if (remainingCards == 0)
+            // ========== 5. Kiểm tra thắng ==========
+            if (newCount == 0)
             {
                 foreach (var user in USERLIST)
                 {
-                    string SendData = $"Case9;{userId};{remainingCards};{playedCard}";
-                    user.UserSK.Send(Encoding.UTF8.GetBytes(SendData));
-                    Thread.Sleep(100);
+                    string win = $"Case9;{userId};0;{playedCard}";
+                    user.UserSK.Send(Encoding.UTF8.GetBytes(win));
                 }
                 return;
             }
 
-
-            // Bài đặc biệt
+            // ========== 6. Xử lý bài đặc biệt ==========
             bool isDraw2 = playedCard.Contains("dt");
             bool isDraw4 = playedCard.Contains("df");
             bool isReverse = playedCard.Contains("Rv");
@@ -345,49 +322,46 @@ namespace UNOServer
 
             if (isDraw2) RUT += 2;
             if (isDraw4) RUT += 4;
-            if (isReverse && USERLIST.Count > 2)
-                TakeTurn = !TakeTurn;
+            if (isReverse && USERLIST.Count > 2) TakeTurn = !TakeTurn;
 
-            if (isDraw2 || isDraw4)
+            if (isDraw2 || isDraw4)   // ép rút
             {
                 IsWaitingDraw = true;
 
-                int skipstep = (isSkip ? 2 : 1);
-                if (USERLIST.Count == 2 && isReverse) skipstep = 1;
+                int skipStep = isSkip ? 2 : 1;
+                if (USERLIST.Count == 2 && isReverse) skipStep = 1;
 
-                MacDinh = TakeTurn ? MacDinh + skipstep : MacDinh - skipstep;
+                MacDinh = TakeTurn ? MacDinh + skipStep : MacDinh - skipStep;
                 if (MacDinh > USERLIST.Count) MacDinh -= USERLIST.Count;
                 if (MacDinh < 1) MacDinh += USERLIST.Count;
 
                 string waitType = isDraw4 ? "df" : "dt";
-
                 foreach (var user in USERLIST)
                 {
                     string msg = $"Case6;{USERLIST[MacDinh - 1].ID};WAIT_DRAW;{waitType}";
                     user.UserSK.Send(Encoding.UTF8.GetBytes(msg));
-                    Thread.Sleep(100);
                 }
-
                 return;
             }
 
-            // Cập nhật lượt mới
-            int step = (isSkip ? 2 : 1);
+            // ========== 7. Chuyển lượt bình thường ==========
+            int step = isSkip ? 2 : 1;
             if (USERLIST.Count == 2 && isReverse) step = 1;
 
             MacDinh = TakeTurn ? MacDinh + step : MacDinh - step;
             if (MacDinh > USERLIST.Count) MacDinh -= USERLIST.Count;
             if (MacDinh < 1) MacDinh += USERLIST.Count;
 
-            if (!playedCard.Contains("df") && !playedCard.Contains("wd")) MAU = "";
+            if (!playedCard.Contains("df") && !playedCard.Contains("wd"))
+                MAU = "";   // reset màu override nếu không phải wild
 
             foreach (var user in USERLIST)
             {
-                string msg = "Case6;" + USERLIST[MacDinh - 1].ID;
+                string msg = $"Case6;{USERLIST[MacDinh - 1].ID}";
                 user.UserSK.Send(Encoding.UTF8.GetBytes(msg));
-                Thread.Sleep(100);
             }
         }
+
 
 
 
@@ -424,15 +398,12 @@ namespace UNOServer
             string case7 = $"Case7;{userId};{string.Join(";", drawnCards)}";
             currentUser.UserSK.Send(Encoding.UTF8.GetBytes(case7));
 
-            // Gửi Case5 cho những người khác
+            // ✅ Gửi Case5 cho tất cả người chơi
             foreach (var user in USERLIST)
             {
-                if (user.ID != userId)
-                {
-                    string msg = $"Case5;{userId};{currentUser.SoLuongBai};{XAPBAI.currentCard}";
-                    user.UserSK.Send(Encoding.UTF8.GetBytes(msg));
-                    Thread.Sleep(50);
-                }
+                string msg = $"Case5;{userId};{currentUser.SoLuongBai};{XAPBAI.currentCard}";
+                user.UserSK.Send(Encoding.UTF8.GetBytes(msg));
+                Thread.Sleep(50);
             }
 
             // Cập nhật lượt
