@@ -16,12 +16,21 @@ namespace CLIENT
     public partial class GameBoard : Form
     {
         public int soluongbaicanrut=0;
-        public string currentCard = "";
+        
         public List<List<CardButton>> Card;
         public List<Label> IDNAME;
         public List<TextBox> IDNUMS;
         public int row = 0;
-        public bool IsForcedDraw = false;
+        public bool IsForcedDraw { get; set; } = false;   // đang bị ép rút?
+        public string ForcedDrawType { get; set; } = "";      // "dt" hoặc "df"
+        public string currentCard;
+        public string overrideColor;
+
+        public void EnableActionButtons()
+        {
+            btnBocBai.Enabled = true;
+            btnDanhBai.Enabled = true;
+        }
 
         public class CardButton
         {
@@ -254,9 +263,9 @@ namespace CLIENT
             ProcessSocket.otheruser.Sort((x, y) => x.LUOT.CompareTo(y.LUOT));
 
             // Cập nhật thông tin người chơi hiện tại (labelName và textBoxNum).
-            labelName.Text = User.ID;
-            textBoxNum.Text = User.SOLUONGBAI.ToString();
-            textBoxNum.Tag = User.ID;
+            labelName.Text = UserInfo.ID;
+            textBoxNum.Text = UserInfo.SOLUONGBAI.ToString();
+            textBoxNum.Tag = UserInfo.ID;
             IDNAME.Add(labelName);
             IDNUMS.Add(textBoxNum);
 
@@ -277,8 +286,8 @@ namespace CLIENT
                 case 2:
                     {
                         panelPlayerU.Visible = false;
-                        int indexLeft = (User.LUOT == 2) ? 1 : 0;
-                        int indexRight = (User.LUOT == 2) ? 0 : 1;
+                        int indexLeft = (UserInfo.LUOT == 2) ? 1 : 0;
+                        int indexRight = (UserInfo.LUOT == 2) ? 0 : 1;
                         labelNameL.Text = ProcessSocket.otheruser[indexLeft].ID;
                         textBoxNumL.Tag = ProcessSocket.otheruser[indexLeft].ID;
                         textBoxNumL.Text = "7";
@@ -294,13 +303,13 @@ namespace CLIENT
                 case 3:
                     {
                         int indexLeft, indexMiddle, indexRight;
-                        if (User.LUOT == 1 || User.LUOT == 4)
+                        if (UserInfo.LUOT == 1 || UserInfo.LUOT == 4)
                         {
                             indexLeft = 0;
                             indexMiddle = 1;
                             indexRight = 2;
                         }
-                        else if (User.LUOT == 2)
+                        else if (UserInfo.LUOT == 2)
                         {
                             indexLeft = 1;
                             indexMiddle = 2;
@@ -366,7 +375,7 @@ namespace CLIENT
             flowLayoutCards.Controls.Clear(); // Xóa bài cũ nếu có
             Card.Add(new List<CardButton>());
 
-            foreach (var cd in User.BAI)
+            foreach (var cd in UserInfo.BAI)
             {
                 CardButton cardbtn = new CardButton();
                 cardbtn.id = cd;
@@ -385,10 +394,10 @@ namespace CLIENT
 
             STOPPLAYING();
         }
-
-
         public void ProcessBocBai(string cd)
         {
+            if (string.IsNullOrWhiteSpace(cd)) return; // ⚠️ bỏ qua nếu chuỗi rỗng
+
             CardButton THEBAI = new CardButton();
             THEBAI.id = cd;
             THEBAI.btn.Tag = cd;
@@ -399,12 +408,76 @@ namespace CLIENT
             THEBAI.btn.Size = new Size(80, 120);
             THEBAI.btn.Click += new EventHandler(cardBtn_Click);
 
-            LoadCard(THEBAI.btn, cd);
+            try
+            {
+                LoadCard(THEBAI.btn, cd); // 🔄 Load hình từ mã bài
+            }
+            catch
+            {
+                THEBAI.btn.Text = cd; // ❗ fallback nếu không có hình
+            }
 
-            Card[0].Add(THEBAI); // Thêm vào danh sách của người chơi
-
-            flowLayoutCards.Controls.Add(THEBAI.btn); // CHỈNH Ở ĐÂY: Thêm vào flowLayoutPanel
+            Card[0].Add(THEBAI);
+            flowLayoutCards.Controls.Add(THEBAI.btn);
         }
+
+        public void HighlightPlayableCards()
+        {
+            foreach (CardButton cb in Card[0])
+            {
+                if (IsPlayable(cb.id)) // ✅ bạn tự viết hàm này theo luật UNO
+                {
+                    cb.btn.FlatAppearance.BorderColor = Color.Red;
+                    cb.btn.FlatAppearance.BorderSize = 2;
+                }
+                else
+                {
+                    cb.btn.FlatAppearance.BorderColor = Color.Transparent;
+                    cb.btn.FlatAppearance.BorderSize = 0;
+                }
+            }
+        }
+
+        private string EffectiveColor()
+        {
+            return !string.IsNullOrEmpty(ProcessSocket.room.overrideColor)
+                ? ProcessSocket.room.overrideColor
+                : GetColor(ProcessSocket.room.currentCard);
+        }
+
+
+        private bool IsPlayable(string card)
+        {
+            string colorCard = GetColor(card);
+            string colorCurrent = EffectiveColor();
+
+            string numCard = new string(card.Where(char.IsDigit).ToArray());
+            string numCurrent = new string(ProcessSocket.room.currentCard.Where(char.IsDigit).ToArray());
+
+            if (!string.IsNullOrEmpty(numCard) && numCard == numCurrent)
+                return true;
+
+            if (colorCard == colorCurrent)
+                return true;
+
+            if (card.Contains("wd") || card.Contains("df"))
+                return true;
+
+            if (card.Contains("s") && ProcessSocket.room.currentCard.Contains("s") && colorCard == colorCurrent)
+                return true;
+
+            if (card.Contains("Rv") && ProcessSocket.room.currentCard.Contains("Rv") && colorCard == colorCurrent)
+                return true;
+
+            if (card.Contains("dt") && ProcessSocket.room.currentCard.Contains("dt") && colorCard == colorCurrent)
+                return true;
+
+            return false;
+        }
+
+
+
+
 
 
         public void CARDSYNC(string name, string n)
@@ -434,25 +507,153 @@ namespace CLIENT
         public string ChosenCard = ""; // To assign after btn card clicked
 
         private void btnDanhBai_Click(object sender, EventArgs e)
-        {          
-            User.SOLUONGBAI--;
+        {
+            // ✅ Check tính hợp lệ trước
+            if (!IsPlayable(ChosenCard))
+            {
+                MessageBox.Show("Không thể đánh lá bài này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             ProcessSocket.Data = "DanhBai";
+
             if (ChosenCard.Contains("wd") || ChosenCard.Contains("df"))
             {
-                panelColors.Visible = true;
+                panelColors.Visible = true; // ✅ Chờ người chơi chọn màu → mới trừ bài sau
             }
             else
             {
-                string colormessage = User.ID + ";" + User.SOLUONGBAI + ";" + ChosenCard;
+                string colormessage = UserInfo.ID + ";" + (UserInfo.SOLUONGBAI - 1) + ";" + ChosenCard;
                 ProcessSocket.SENDER(colormessage);
+
+                UserInfo.SOLUONGBAI--;
+                UserInfo.BAI.Remove(ChosenCard);
+                RemoveCardFromHand(ChosenCard);
+                UpdateCardCountDisplay();
             }
 
             btnDanhBai.Enabled = false;
             btnBocBai.Enabled = false;
             currentCard = ChosenCard;
             ShowCurrentCard();
+            STOPPLAYING();
+        }
 
+        private void RemoveCardFromHand(string cardId)
+        {
             foreach (var cd in Card[NowDeck])
+            {
+                if (cd.btn.Tag.ToString() == cardId)
+                {
+                    flowLayoutCards.Controls.Remove(cd.btn);
+                    break;
+                }
+            }
+        }
+
+        private void UpdateCardCountDisplay()
+        {
+            foreach (var tb in IDNUMS)
+            {
+                if (tb.Tag.ToString() == UserInfo.ID)
+                {
+                    tb.Text = UserInfo.SOLUONGBAI.ToString();
+                    break;
+                }
+            }
+        }
+
+
+        private void btnBocBai_Click(object sender, EventArgs e)
+        {
+            // BỊ ÉP RÚT
+            if (IsForcedDraw)
+            {
+                string msg = UserInfo.ID + ";" + UserInfo.SOLUONGBAI + ";" + ForcedDrawType;
+                ProcessSocket.Data = "SpecialCardDT";
+                ProcessSocket.SENDER(msg);
+
+                // reset
+                IsForcedDraw = false;
+                ForcedDrawType = "";
+
+                btnBocBai.Enabled = false;
+                STOPPLAYING();
+                return;
+            }
+
+            // RÚT BÌNH THƯỜNG
+            string colormessage = UserInfo.ID + ";" + UserInfo.SOLUONGBAI;
+            ProcessSocket.Data = "AddNewCard";
+            ProcessSocket.SENDER(colormessage);
+
+            btnBocBai.Enabled = false;
+            STOPPLAYING();
+        }
+
+
+
+        private void btnRed_Click(object sender, EventArgs e)
+        {
+            string msg = UserInfo.ID + ";" + (UserInfo.SOLUONGBAI--);
+
+            if (ChosenCard.Contains("df") || ChosenCard.Contains("wd"))
+                msg += ";" + ChosenCard;
+
+            msg += ";r";
+
+            ProcessSocket.Data = "DanhBai";
+            ProcessSocket.SENDER(msg);
+
+            // Cập nhật bài
+            UserInfo.BAI.Remove(ChosenCard);
+            currentCard = ChosenCard;
+            ShowCurrentCard();
+
+            // Xóa lá bài khỏi panel
+            foreach (var cd in Card[0])
+            {
+                if (cd.btn.Tag.ToString() == ChosenCard)
+                {
+                    flowLayoutCards.Controls.Remove(cd.btn);
+                    break;
+                }
+            }
+
+            // Cập nhật số lượng bài
+            foreach (var tb in IDNUMS)
+            {
+                if (tb.Tag.ToString() == UserInfo.ID)
+                {
+                    tb.Text = UserInfo.SOLUONGBAI.ToString();
+                    break;
+                }
+            }
+
+            btnDanhBai.Enabled = false;
+            btnBocBai.Enabled = false;
+            panelColors.Visible = false;
+            STOPPLAYING();
+        }
+
+
+        private void btnYellow_Click(object sender, EventArgs e)
+        {
+            string msg = UserInfo.ID + ";" + (UserInfo.SOLUONGBAI--);
+
+            if (ChosenCard.Contains("df") || ChosenCard.Contains("wd"))
+                msg += ";" + ChosenCard;
+
+            msg += ";y";
+
+            ProcessSocket.Data = "DanhBai";
+            ProcessSocket.SENDER(msg);
+
+            UserInfo.BAI.Remove(ChosenCard);
+            currentCard = ChosenCard;
+            ShowCurrentCard();
+
+            foreach (var cd in Card[0])
             {
                 if (cd.btn.Tag.ToString() == ChosenCard)
                 {
@@ -463,89 +664,99 @@ namespace CLIENT
 
             foreach (var tb in IDNUMS)
             {
-                if (tb.Tag.ToString() == User.ID)
+                if (tb.Tag.ToString() == UserInfo.ID)
                 {
-                    tb.Text = User.SOLUONGBAI.ToString();
+                    tb.Text = UserInfo.SOLUONGBAI.ToString();
                     break;
                 }
             }
 
-            STOPPLAYING();
-        }
-
-        private void btnBocBai_Click(object sender, EventArgs e)
-        {
-            if (IsForcedDraw)
-            {
-                ProcessSocket.Data = "SpecialCardDT";
-                string colorMsg = User.ID + ";" + User.SOLUONGBAI + ";" + GetCardValue(currentCard);
-                ProcessSocket.SENDER(colorMsg);
-                btnBocBai.Enabled = false;
-                STOPPLAYING();
-                IsForcedDraw = false;
-                return;
-            }
-
-
-            string colormessage = User.ID + ";" + User.SOLUONGBAI;
-            ProcessSocket.Data = "AddNewCard";
-            ProcessSocket.SENDER(colormessage);
-
-            // Vô hiệu hóa nút và kết thúc lượt
+            btnDanhBai.Enabled = false;
             btnBocBai.Enabled = false;
+            panelColors.Visible = false;
             STOPPLAYING();
         }
-
-
-        private void btnRed_Click(object sender, EventArgs e)
-        {
-            string msg = User.ID + ";" + User.SOLUONGBAI;
-            if (ChosenCard.Contains("df"))
-                msg += ";" + ChosenCard;
-            msg += ";r";
-
-            ProcessSocket.SENDER(msg);
-            panelColors.Visible = false;
-        }
-
-
-        private void btnYellow_Click(object sender, EventArgs e)
-        {
-            string msg = User.ID + ";" + User.SOLUONGBAI;
-            if (ChosenCard.Contains("df"))
-            {
-                msg += ";" + ChosenCard;
-            }
-            msg += ";y";
-            ProcessSocket.SENDER(msg);
-            panelColors.Visible = false;
-        }
-
 
         private void btnGreen_Click(object sender, EventArgs e)
         {
-            string msg = User.ID + ";" + User.SOLUONGBAI;
-            if (ChosenCard.Contains("df"))
-            {
-                msg += ";" + ChosenCard;
-            }
-            msg += ";g";
-            ProcessSocket.SENDER(msg);
-            panelColors.Visible = false;
-        }
+            string msg = UserInfo.ID + ";" + (UserInfo.SOLUONGBAI--);
 
+            if (ChosenCard.Contains("df") || ChosenCard.Contains("wd"))
+                msg += ";" + ChosenCard;
+
+            msg += ";g";
+
+            ProcessSocket.Data = "DanhBai";
+            ProcessSocket.SENDER(msg);
+
+            UserInfo.BAI.Remove(ChosenCard);
+            currentCard = ChosenCard;
+            ShowCurrentCard();
+
+            foreach (var cd in Card[0])
+            {
+                if (cd.btn.Tag.ToString() == ChosenCard)
+                {
+                    flowLayoutCards.Controls.Remove(cd.btn);
+                    break;
+                }
+            }
+
+            foreach (var tb in IDNUMS)
+            {
+                if (tb.Tag.ToString() == UserInfo.ID)
+                {
+                    tb.Text = UserInfo.SOLUONGBAI.ToString();
+                    break;
+                }
+            }
+
+            btnDanhBai.Enabled = false;
+            btnBocBai.Enabled = false;
+            panelColors.Visible = false;
+            STOPPLAYING();
+        }
 
         private void btnBlue_Click(object sender, EventArgs e)
         {
-            string msg = User.ID + ";" + User.SOLUONGBAI;
-            if (ChosenCard.Contains("df"))
-            {
+            string msg = UserInfo.ID + ";" + (UserInfo.SOLUONGBAI--);
+
+            if (ChosenCard.Contains("df") || ChosenCard.Contains("wd"))
                 msg += ";" + ChosenCard;
-            }
+
             msg += ";b";
+
+            ProcessSocket.Data = "DanhBai";
             ProcessSocket.SENDER(msg);
+
+            UserInfo.BAI.Remove(ChosenCard);
+            currentCard = ChosenCard;
+            ShowCurrentCard();
+
+            foreach (var cd in Card[0])
+            {
+                if (cd.btn.Tag.ToString() == ChosenCard)
+                {
+                    flowLayoutCards.Controls.Remove(cd.btn);
+                    break;
+                }
+            }
+
+            foreach (var tb in IDNUMS)
+            {
+                if (tb.Tag.ToString() == UserInfo.ID)
+                {
+                    tb.Text = UserInfo.SOLUONGBAI.ToString();
+                    break;
+                }
+            }
+
+            btnDanhBai.Enabled = false;
+            btnBocBai.Enabled = false;
             panelColors.Visible = false;
+            STOPPLAYING();
         }
+
 
         private int NowDeck = 0;
 
@@ -557,7 +768,7 @@ namespace CLIENT
             Button btn = (Button)sender;
             string selected = btn.Tag.ToString();
 
-            if (IsPlayable(selected, currentCard))
+            if (IsPlayable(selected))
             {
                 // Reset border cho toàn bộ bài
                 foreach (var card in Card[NowDeck])

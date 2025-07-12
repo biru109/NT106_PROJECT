@@ -32,7 +32,7 @@ namespace CLIENT
             WaitingRoom.ServerIP = ipAddress;
             ProcessSocket.SENDER(textBoxName.Text);
 
-            User.ID = textBoxName.Text;
+            UserInfo.ID = textBoxName.Text;
 
             WaitingRoom.FormClosed += new FormClosedEventHandler(lobby_FormClosed);
             WaitingRoom.ShowStartButton();
@@ -44,7 +44,7 @@ namespace CLIENT
         void lobby_FormClosed(object sender, EventArgs e)
         {
             ProcessSocket.Data = "DISCONNECT";
-            ProcessSocket.SENDER(User.ID);
+            ProcessSocket.SENDER(UserInfo.ID);
             ProcessSocket.SKCL.Shutdown(System.Net.Sockets.SocketShutdown.Both);
             ProcessSocket.SKCL.Close();
             this.Show();
@@ -62,7 +62,7 @@ namespace CLIENT
 
             ProcessSocket.SENDER(textBoxName.Text);
 
-            User.ID = textBoxName.Text;
+            UserInfo.ID = textBoxName.Text;
 
             WaitingRoom.FormClosed += new FormClosedEventHandler(lobby_FormClosed);
             WaitingRoom.ServerIP = ipAddress;
