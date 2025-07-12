@@ -40,11 +40,20 @@ namespace CLIENT
             public Button btn = new Button();
         }
 
+        private Timer gameTimer;
+        private int gameTimerLeft = 60;
+
+        private void GameBoard_Load(object sender, EventArgs e)
+        {
+            StartGameTimer();      
+        }
+
         public GameBoard()
         {
 
             InitializeComponent();
 
+            this.Load += GameBoard_Load;
             CheckForIllegalCrossThreadCalls = false;
             btnDanhBai.Enabled = false;
             btnBocBai.Enabled = false;
@@ -73,8 +82,13 @@ namespace CLIENT
             Card = new List<List<CardButton>>();
             IDNAME = new List<Label>();
             IDNUMS = new List<TextBox>();
+
+            gameTimer = new Timer();
+            gameTimer.Interval = 1000;
+            gameTimer.Tick += GameTimer_Tick;
         }
         
+
         public void CANPLAY()
         {
             btnDanhBai.Enabled = true;
@@ -84,7 +98,7 @@ namespace CLIENT
         {
             btnBocBai.Enabled = true;
         }
-
+        
         
         // Load card image to button(too long)
         public void LoadCard(Button btn, string WhatCard)
@@ -268,7 +282,7 @@ namespace CLIENT
             textBoxNum.Tag = UserInfo.ID;
             IDNAME.Add(labelName);
             IDNUMS.Add(textBoxNum);
-
+            
             // Hiển thị thông tin của người chơi khác, bao gồm tên và số lượng bài của họ.
             switch (ProcessSocket.otheruser.Count)
             {
@@ -537,6 +551,49 @@ namespace CLIENT
             currentCard = ChosenCard;
             ShowCurrentCard();
             STOPPLAYING();
+        }
+
+        private void StartGameTimer()
+        {
+            gameTimerLeft = 60;
+            lblCountdown.Text = $"Thời gian còn: {gameTimerLeft}s";
+            gameTimer.Start();
+        }
+
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+            gameTimerLeft--;
+            lblCountdown.Text = $"Thời gian còn: {gameTimerLeft}s";
+
+            if (gameTimerLeft <= 10)
+                lblCountdown.ForeColor = Color.Red;
+            else
+                lblCountdown.ForeColor = Color.Black;
+
+            if (gameTimerLeft <= 0)
+            {
+                gameTimer.Stop();
+                EndGameByTimeout();
+            }
+        }
+
+        private void EndGameByTimeout()
+        {
+            MessageBox.Show("Hết thời gian! Đang tính toán winner...", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string winner = UserInfo.ID;
+            int minCards = UserInfo.SOLUONGBAI;
+
+            foreach (var tb in IDNUMS)           // IDNUMS là danh sách TextBox bạn đã lưu
+            {
+                if (int.TryParse(tb.Text, out int num) && num < minCards)
+                {
+                    minCards = num;
+                    winner = tb.Tag.ToString(); // Tag chứa ID của người chơi
+                }
+            }
+
+            MessageBox.Show($"Người chiến thắng là: {winner} (còn {minCards} lá)", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void RemoveCardFromHand(string cardId)
@@ -848,6 +905,11 @@ namespace CLIENT
         }
 
         private void panelPlayerU_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblCountdown_Click(object sender, EventArgs e)
         {
 
         }
