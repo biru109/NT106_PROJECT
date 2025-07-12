@@ -13,9 +13,10 @@ namespace UNOClient
 {
     public partial class Loser : Form
     {
-        public Loser()
+        public Loser(string winnerId)
         {
             InitializeComponent();
+            lblLoser.Text = "Bạn đã thua! Người thắng là: " + winnerId;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,4 +31,5 @@ namespace UNOClient
             this.Close();
         }
     }
+
 }

@@ -12,10 +12,10 @@ namespace CLIENT
 {
     public partial class EndForm : Form
     {
-        public string winnername;
-        public EndForm()
+        public EndForm(string winnerName)
         {
             InitializeComponent();
+            lblWinner.Text = "Người chiến thắng: " + winnerName;
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -25,4 +25,6 @@ namespace CLIENT
             this.Close();
         }
     }
+
+
 }

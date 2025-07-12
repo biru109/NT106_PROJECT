@@ -32,6 +32,7 @@ namespace CLIENT
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EndForm));
             this.label1 = new System.Windows.Forms.Label();
             this.btnQuit = new System.Windows.Forms.Button();
+            this.lblWinner = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -60,6 +61,15 @@ namespace CLIENT
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
+            // lblWinner
+            // 
+            this.lblWinner.AutoSize = true;
+            this.lblWinner.Location = new System.Drawing.Point(420, 345);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(44, 16);
+            this.lblWinner.TabIndex = 2;
+            this.lblWinner.Text = "label2";
+            // 
             // EndForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -67,6 +77,7 @@ namespace CLIENT
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(952, 535);
+            this.Controls.Add(this.lblWinner);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
@@ -82,5 +93,6 @@ namespace CLIENT
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Label lblWinner;
     }
 }

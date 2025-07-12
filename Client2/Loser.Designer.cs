@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loser));
             this.button1 = new System.Windows.Forms.Button();
+            this.lblLoser = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -43,6 +44,15 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // lblLoser
+            // 
+            this.lblLoser.AutoSize = true;
+            this.lblLoser.Location = new System.Drawing.Point(675, 267);
+            this.lblLoser.Name = "lblLoser";
+            this.lblLoser.Size = new System.Drawing.Size(44, 16);
+            this.lblLoser.TabIndex = 1;
+            this.lblLoser.Text = "label1";
+            // 
             // Loser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -50,17 +60,20 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(951, 536);
+            this.Controls.Add(this.lblLoser);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.Name = "Loser";
             this.Text = "Form2_Lose";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblLoser;
     }
 }

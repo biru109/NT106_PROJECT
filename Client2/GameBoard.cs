@@ -592,7 +592,7 @@ namespace CLIENT
 
         private void EndGameByTimeout()
         {
-            MessageBox.Show("Hết thời gian! Đang tính toán winner...", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Hết thời gian! Đang tính toán winner...", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             string winner = UserInfo.ID;
             int minCards = UserInfo.SOLUONGBAI;
 

@@ -197,24 +197,33 @@ namespace CLIENT
         // Xử lý tin nhắn kết thúc ván chơi
         private static void HandleEndMessage(string[] payload)
         {
-            string playerId = payload[1];     // người thắng
-            string numCards = payload[2];
+            string playerId = payload[1];
 
-            if (UserInfo.ID == playerId)
+            // Form GameBoard của bạn đã được giữ sẵn trong ProcessSocket
+            if (ProcessSocket.room == null) return;
+
+            ProcessSocket.room.Invoke(new MethodInvoker(() =>
             {
-                EndForm endForm = new EndForm();  // 🎉 Hiện form Win
-                endForm.Show();
-            }
-            else
-            {
-                if (UserInfo.SOLUONGBAI > 0)     // ✅ Chỉ hiện Lose nếu còn bài
+                // Ẩn bàn chơi khi kết thúc
+                ProcessSocket.room.Hide();
+
+                if (UserInfo.ID == playerId)                // mình thắng
                 {
-                    Loser form2_Lose = new Loser();
-                    form2_Lose.Show();
+                    var win = new EndForm(playerId);
+                    win.Show();
                 }
-                // ❌ Nếu mình cũng hết bài (SoLuongBai == 0), không hiện gì cả
-            }
+                else                                        // mình thua
+                {
+                    var lose = new Loser(playerId);
+                    lose.Show();
+                }
+            }));
         }
+
+
+
+
+
 
 
         public static void SENDER(string data)
