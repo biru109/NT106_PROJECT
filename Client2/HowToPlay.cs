@@ -36,7 +36,6 @@ namespace CLIENT
             // Hiện/ẩn nút Prev
             btnPrev.Visible = currentIndex > 0;
 
-            // Hiện/ẩn nút Next
             btnNext.Visible = currentIndex < guideImages.Count - 1;
 
             btnExit.Visible = currentIndex == guideImages.Count - 1;

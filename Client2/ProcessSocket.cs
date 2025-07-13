@@ -60,18 +60,15 @@ namespace CLIENT
 
         private static string EffectiveColor()
         {
-            // Ưu tiên overrideColor nếu có
             if (!string.IsNullOrEmpty(room.overrideColor))
                 return room.overrideColor;
 
-            // Không có override → dùng màu từ currentCard
             return GetColor(room.currentCard);
         }
 
 
 
 
-        // Xử lý tin nhắn khởi tạo
         private static void HandleCase2(string[] payload)
         {
             UserInfo.LUOT = int.Parse(payload[2]);
@@ -82,13 +79,10 @@ namespace CLIENT
                 UserInfo.BAI.Add(payload[i]);
             }
 
-            // Khởi tạo GameBoard trước
             room = new GameBoard();
 
-            // Khởi tạo danh sách người chơi khác
             otheruser = new List<USER2>();
 
-            // Sau đó hiển thị giao diện
             ConnectMenu.WaitingRoom.Invoke((MethodInvoker)delegate ()
             {
                 room.currentCard = payload[11];
@@ -98,7 +92,6 @@ namespace CLIENT
             });
         }
 
-        // Xử lý tin nhắn thông tin người chơi khác
         private static void HandleCase3(string[] payload)
         {
             USER2 otherPlayer = new USER2
@@ -111,12 +104,9 @@ namespace CLIENT
             otheruser.Add(otherPlayer);
         }
 
-        // Xử lý tin nhắn cập nhật
         private static void HandleUpdateMessage(string[] payload)
         {
-            room.CARDSYNC(payload[1], payload[2]);  // Cập nhật số lượng bài
-
-            // ✅ BỔ SUNG nếu là chính mình thì cập nhật luôn
+            room.CARDSYNC(payload[1], payload[2]);  
             if (payload[1] == UserInfo.ID)
             {
                 UserInfo.SOLUONGBAI = int.Parse(payload[2]);
@@ -128,11 +118,10 @@ namespace CLIENT
 
                 if (payload.Length > 4)
                 {
-                    room.overrideColor = payload[4];  // override mới
+                    room.overrideColor = payload[4]; 
                 }
                 else
                 {
-                    // Chỉ reset nếu lá hiện tại là số hoặc đặc biệt không yêu cầu đổi màu
                     string cardColor = GetColor(room.currentCard);
                     if (!room.currentCard.Contains("wd") && !room.currentCard.Contains("df"))
                     {
@@ -140,14 +129,13 @@ namespace CLIENT
                     }
                 }
 
-                room.ShowCurrentCard();  // Cập nhật UI
+                room.ShowCurrentCard();  
             }
         }
 
 
 
 
-        // Xử lý tin nhắn lượt chơi
         private static void HandleTurnMessage(string[] payload)
         {
             bool myTurn = payload[1] == UserInfo.ID;
@@ -158,8 +146,8 @@ namespace CLIENT
                 payload[2] == "WAIT_DRAW")
             {
                 room.IsForcedDraw = true;
-                room.ForcedDrawType = payload[3];   // "dt" hoặc "df"
-                                                    // chỉ bật nút Bốc, không cho đánh
+                room.ForcedDrawType = payload[3];   
+                                                    
                 room.btnBocBai.Enabled = true;
                 room.btnDanhBai.Enabled = false;
                 room.NotTurn();
@@ -167,7 +155,6 @@ namespace CLIENT
                 return;
             }
 
-            // --- Lượt bình thường ---
             if (myTurn) CK();
             room.NotTurn();
             room.ISTURN(payload[1]);
@@ -176,30 +163,10 @@ namespace CLIENT
 
 
 
-        //private static void ProcessRStack(string[] payload)
-        //{
-        //    // Bắt đầu từ index 3 để lấy các lá bài được thêm
-        //    for (int i = 3; i < payload.Length; i++)
-        //    {
-        //        if (payload[i] == "r") // nếu server gửi 1 marker r
-        //        {
-        //            room.currentCard = payload[i]; // có thể bỏ dòng này nếu không cần
-        //        }
-        //        else
-        //        {
-        //            room.ProcessBocBai(payload[i]);
-        //        }
-        //    }
-
-        //    CK(); // Cho phép tiếp tục đánh bài
-        //}
-
-        // Xử lý tin nhắn kết thúc ván chơi
         private static void HandleEndMessage(string[] payload)
         {
             string playerId = payload[1];
 
-            // Form GameBoard của bạn đã được giữ sẵn trong ProcessSocket
             if (ProcessSocket.room == null) return;
 
             ProcessSocket.room.Invoke(new MethodInvoker(() =>
@@ -207,12 +174,12 @@ namespace CLIENT
                 // Ẩn bàn chơi khi kết thúc
                 ProcessSocket.room.Hide();
 
-                if (UserInfo.ID == playerId)                // mình thắng
+                if (UserInfo.ID == playerId) //thắng
                 {
                     var win = new EndForm(playerId);
                     win.Show();
                 }
-                else                                        // mình thua
+                else //thua
                 {
                     var lose = new Loser(playerId);
                     lose.Show();
@@ -289,14 +256,13 @@ namespace CLIENT
             bt.btn.Enabled = false;
         }
 
-        // Xử lý các điều kiện để đánh bài
         public static void CK()
         {
-            room.CANDRAW(); // Kích hoạt nút rút bài
-            room.CANPLAY(); // Kích hoạt nút đánh bài
+            room.CANDRAW(); 
+            room.CANPLAY(); 
 
             string currentCard = room.currentCard;
-            string effectiveColor = EffectiveColor();  // KHÔNG truyền gì
+            string effectiveColor = EffectiveColor();  
 
             string currentNumber = GetCardNumber(currentCard);
 
@@ -308,48 +274,41 @@ namespace CLIENT
                     string cardColor = GetColor(cardId);
                     string cardNumber = GetCardNumber(cardId);
 
-                    // 1. Trùng số
                     if (!string.IsNullOrEmpty(currentNumber) && cardNumber == currentNumber)
                     {
                         Enable(bt);
                         continue;
                     }
 
-                    // 2. Trùng màu
                     if (cardColor == effectiveColor && !string.IsNullOrEmpty(cardColor))
                     {
                         Enable(bt);
                         continue;
                     }
 
-                    // 3. Trùng loại đặc biệt cùng màu (s, Rv, dt)
                     if (IsSpecialMatch(currentCard, cardId))
                     {
                         Enable(bt);
                         continue;
                     }
 
-                    // 4. Lá df luôn hợp lệ
                     if (cardId.Contains("df"))
                     {
                         Enable(bt);
                         continue;
                     }
 
-                    // 5. Lá wd chỉ hợp lệ nếu currentCard không phải df/dt
                     if (cardId.Contains("wd") && !currentCard.Contains("df") && !currentCard.Contains("dt"))
                     {
                         Enable(bt);
                         continue;
                     }
 
-                    // Nếu không hợp lệ
                     Disable(bt);
                 }
             }
         }
 
-        // Lấy màu từ mã lá bài
         private static string GetColor(string cardId)
         {
             if (cardId.Contains("r")) return "r";
@@ -402,15 +361,13 @@ namespace CLIENT
 
                 case "Case8":
                     {
-                        // ====== 1. Đọc dữ liệu ======
-                        string victimId = arrPayload[1];           // ID người bị ép rút
-                        int newCount = int.Parse(arrPayload[2]); // Số lá mới của victim
+                        string victimId = arrPayload[1];          
+                        int newCount = int.Parse(arrPayload[2]); 
 
-                        // ----- 1.1 Lấy danh sách quân bài rút (nếu cần) -----
                         List<string> newCards = new List<string>();
 
                         string last = arrPayload.Last();
-                        bool colorSent = last.Length == 1 && "rgby".Contains(last); // r / g / b / y ?
+                        bool colorSent = last.Length == 1 && "rgby".Contains(last); 
 
                         int lastCardIdx = colorSent ? arrPayload.Length - 2
                                                      : arrPayload.Length - 1;
@@ -419,44 +376,36 @@ namespace CLIENT
                             if (!string.IsNullOrWhiteSpace(arrPayload[i]))
                                 newCards.Add(arrPayload[i]);
 
-                        // ====== 2. Cập nhật dữ liệu người chơi ======
                         if (victimId == UserInfo.ID)
                         {
                             UserInfo.SOLUONGBAI = newCount;
                             UserInfo.BAI.AddRange(newCards);
                         }
 
-                        // ====== 3. Cập nhật giao diện ======
                         room.Invoke((MethodInvoker)(() =>
                         {
-                            // Thêm bài mới vào tay nếu mình là victim
                             if (victimId == UserInfo.ID)
                                 foreach (var c in newCards)
                                     room.ProcessBocBai(c);
 
-                            // 3.1 Xử lý màu override
                             if (colorSent)
                             {
-                                room.currentCard = last;            // last chính là ký tự màu (r/g/b/y)
-                                room.overrideColor = last;           // ghi đè màu
+                                room.currentCard = last;           
+                                room.overrideColor = last; //đè mau2u 
                             }
                             else
                             {
-                                // Chỉ reset nếu currentCard KHÔNG phải wild/draw‑4
                                 if (!room.currentCard.Contains("wd") && !room.currentCard.Contains("df"))
                                     room.overrideColor = "";
                             }
 
                             room.ShowCurrentCard();
 
-                            // 3.2 Đồng bộ số lá bài
                             room.CARDSYNC(victimId, newCount.ToString());
 
-                            // Nếu mình KHÔNG phải victim → tự đồng bộ lại số lá của mình
                             if (victimId != UserInfo.ID)
                                 room.CARDSYNC(UserInfo.ID, UserInfo.SOLUONGBAI.ToString());
 
-                            // 3.3 Bỏ trạng thái bị ép rút & bật nút
                             room.IsForcedDraw = false;
                             room.ForcedDrawType = "";
                             room.EnableActionButtons();
