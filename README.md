@@ -5,7 +5,7 @@
 </div>
 
 ## 📌 Giới thiệu
-UNO Game là một trò chơi được lập trình trên nền tảng Windows, hỗ trợ 2–4 người chơi qua mạng LAN. Đồ án sử dụng C# (WPF) và giao tiếp mạng bằng TCP/IP Socket, giúp tạo trải nghiệm chơi mượt mà và trực quan.
+UNO Game là một trò chơi được lập trình trên nền tảng Windows, hỗ trợ 2–4 người chơi qua mạng LAN. Đồ án sử dụng C# và giao tiếp mạng bằng TCP/IP Socket, giúp tạo trải nghiệm chơi mượt mà và trực quan.
 
 🎮 **Tính năng chính** <br>
 - Tạo & tham gia phòng (Host/Client) qua mạng LAN <br>
