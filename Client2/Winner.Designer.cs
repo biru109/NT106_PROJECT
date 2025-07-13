@@ -64,11 +64,15 @@ namespace CLIENT
             // lblWinner
             // 
             this.lblWinner.AutoSize = true;
-            this.lblWinner.Location = new System.Drawing.Point(420, 345);
+            this.lblWinner.BackColor = System.Drawing.Color.Transparent;
+            this.lblWinner.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinner.ForeColor = System.Drawing.Color.Crimson;
+            this.lblWinner.Location = new System.Drawing.Point(476, 314);
             this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(44, 16);
+            this.lblWinner.Size = new System.Drawing.Size(137, 54);
             this.lblWinner.TabIndex = 2;
             this.lblWinner.Text = "label2";
+            this.lblWinner.Click += new System.EventHandler(this.lblWinner_Click);
             // 
             // EndForm
             // 

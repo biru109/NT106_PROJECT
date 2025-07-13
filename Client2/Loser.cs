@@ -16,7 +16,7 @@ namespace UNOClient
         public Loser(string winnerId)
         {
             InitializeComponent();
-            lblLoser.Text = "Bạn đã thua! Người thắng là: " + winnerId;
+            lblLoser.Text = winnerId;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,6 +29,11 @@ namespace UNOClient
             ConnectMenu menu = new ConnectMenu();
             menu.Show();
             this.Close();
+        }
+
+        private void Loser_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

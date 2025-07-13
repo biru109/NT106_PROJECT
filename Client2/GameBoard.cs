@@ -43,7 +43,7 @@ namespace CLIENT
         }
 
         private Timer gameTimer;
-        private int gameTimerLeft = 60;
+        private int gameTimerLeft = 20;
 
         private void GameBoard_Load(object sender, EventArgs e)
         {
@@ -568,7 +568,7 @@ namespace CLIENT
 
         private void StartGameTimer()
         {
-            gameTimerLeft = 60;
+            gameTimerLeft = 20;
             lblCountdown.Text = $"{gameTimerLeft}s";
             gameTimer.Start();
         }

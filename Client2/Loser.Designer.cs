@@ -47,9 +47,12 @@
             // lblLoser
             // 
             this.lblLoser.AutoSize = true;
-            this.lblLoser.Location = new System.Drawing.Point(675, 267);
+            this.lblLoser.BackColor = System.Drawing.Color.Transparent;
+            this.lblLoser.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoser.ForeColor = System.Drawing.Color.Crimson;
+            this.lblLoser.Location = new System.Drawing.Point(507, 280);
             this.lblLoser.Name = "lblLoser";
-            this.lblLoser.Size = new System.Drawing.Size(44, 16);
+            this.lblLoser.Size = new System.Drawing.Size(137, 54);
             this.lblLoser.TabIndex = 1;
             this.lblLoser.Text = "label1";
             // 
@@ -66,6 +69,7 @@
             this.MaximizeBox = false;
             this.Name = "Loser";
             this.Text = "Form2_Lose";
+            this.Load += new System.EventHandler(this.Loser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -15,7 +15,7 @@ namespace CLIENT
         public EndForm(string winnerName)
         {
             InitializeComponent();
-            lblWinner.Text = "Người chiến thắng: " + winnerName;
+            lblWinner.Text = winnerName;
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
@@ -23,6 +23,11 @@ namespace CLIENT
             ConnectMenu menu = new ConnectMenu();
             menu.Show();
             this.Close();
+        }
+
+        private void lblWinner_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
