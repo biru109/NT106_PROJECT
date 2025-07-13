@@ -43,7 +43,7 @@ namespace CLIENT
         }
 
         private Timer gameTimer;
-        private int gameTimerLeft = 20;
+        private int gameTimerLeft = 60;
 
         private void GameBoard_Load(object sender, EventArgs e)
         {
@@ -568,7 +568,7 @@ namespace CLIENT
 
         private void StartGameTimer()
         {
-            gameTimerLeft = 20;
+            gameTimerLeft = 60;
             lblCountdown.Text = $"{gameTimerLeft}s";
             gameTimer.Start();
         }
@@ -592,22 +592,21 @@ namespace CLIENT
 
         private void EndGameByTimeout()
         {
-            //MessageBox.Show("Hết thời gian! Đang tính toán winner...", " Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // 1. Xác định người ít bài nhất
             string winner = UserInfo.ID;
             int minCards = UserInfo.SOLUONGBAI;
 
-            foreach (var tb in IDNUMS)           // IDNUMS là danh sách TextBox bạn đã lưu
-            {
-                if (int.TryParse(tb.Text, out int num) && num < minCards)
+            foreach (var tb in IDNUMS)
+                if (int.TryParse(tb.Text, out int n) && n < minCards)
                 {
-                    minCards = num;
-                    winner = tb.Tag.ToString(); // Tag chứa ID của người chơi
+                    minCards = n;
+                    winner = tb.Tag.ToString();   // Tag của TextBox chứa ID
                 }
-            }
 
-            MessageBox.Show($"Người chiến thắng là: {winner} (còn {minCards} lá)", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            // 2. Gọi lại cùng cơ chế như khi server báo Case9
+            ProcessSocket.Process($"Case9;{winner}");
         }
+
 
         private void RemoveCardFromHand(string cardId)
         {

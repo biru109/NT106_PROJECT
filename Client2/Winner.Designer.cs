@@ -52,12 +52,14 @@ namespace CLIENT
             this.btnQuit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnQuit.FlatAppearance.BorderSize = 0;
             this.btnQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuit.Location = new System.Drawing.Point(438, 441);
             this.btnQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(74, 69);
             this.btnQuit.TabIndex = 1;
+            this.btnQuit.TabStop = false;
             this.btnQuit.UseVisualStyleBackColor = false;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 

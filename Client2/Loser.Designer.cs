@@ -36,10 +36,15 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(440, 432);
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.Location = new System.Drawing.Point(424, 417);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 77);
+            this.button1.Size = new System.Drawing.Size(105, 107);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
@@ -50,7 +55,7 @@
             this.lblLoser.BackColor = System.Drawing.Color.Transparent;
             this.lblLoser.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoser.ForeColor = System.Drawing.Color.Crimson;
-            this.lblLoser.Location = new System.Drawing.Point(507, 280);
+            this.lblLoser.Location = new System.Drawing.Point(507, 286);
             this.lblLoser.Name = "lblLoser";
             this.lblLoser.Size = new System.Drawing.Size(137, 54);
             this.lblLoser.TabIndex = 1;

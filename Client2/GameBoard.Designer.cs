@@ -229,6 +229,7 @@ namespace CLIENT
             this.textBoxNumL.Location = new System.Drawing.Point(105, 142);
             this.textBoxNumL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumL.Name = "textBoxNumL";
+            this.textBoxNumL.ReadOnly = true;
             this.textBoxNumL.Size = new System.Drawing.Size(32, 23);
             this.textBoxNumL.TabIndex = 22;
             this.textBoxNumL.Text = "0";
@@ -254,6 +255,7 @@ namespace CLIENT
             this.textBoxNumR.Location = new System.Drawing.Point(-1, 143);
             this.textBoxNumR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumR.Name = "textBoxNumR";
+            this.textBoxNumR.ReadOnly = true;
             this.textBoxNumR.Size = new System.Drawing.Size(32, 23);
             this.textBoxNumR.TabIndex = 30;
             this.textBoxNumR.Text = "0";
@@ -304,6 +306,7 @@ namespace CLIENT
             this.textBoxNumU.Location = new System.Drawing.Point(43, 88);
             this.textBoxNumU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNumU.Name = "textBoxNumU";
+            this.textBoxNumU.ReadOnly = true;
             this.textBoxNumU.Size = new System.Drawing.Size(32, 23);
             this.textBoxNumU.TabIndex = 25;
             this.textBoxNumU.Text = "0";
@@ -329,6 +332,7 @@ namespace CLIENT
             this.textBoxNum.Location = new System.Drawing.Point(426, 445);
             this.textBoxNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNum.Name = "textBoxNum";
+            this.textBoxNum.ReadOnly = true;
             this.textBoxNum.Size = new System.Drawing.Size(32, 23);
             this.textBoxNum.TabIndex = 35;
             this.textBoxNum.Text = "0";
