@@ -23,7 +23,7 @@ namespace CLIENT
             guideImages.Add(Properties.Resources.Howtoplay4);
             guideImages.Add(Properties.Resources.Howtoplay5);
             guideImages.Add(Properties.Resources.Howtoplay6);
-            guideImages.Add(Properties.Resources.Howtoplay7);
+            
 
 
             ShowImage();
