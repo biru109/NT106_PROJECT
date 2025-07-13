@@ -83,7 +83,7 @@ namespace UNOServer
         }
 
 
-        //Khởi tạo lượt cho người chơi
+        //tạo lượt cho người chơi
         public static void SettingUpTurn()
         {
             int[] turns = new int[USERLIST.Count];
@@ -131,11 +131,11 @@ namespace UNOServer
             {
                 temp = XAPBAI.CardName[0];
 
-                // kiểm tra nếu KHÔNG phải lá đặc biệt thì break
+                //không phải đặc biệt thì break
                 if (!IsSpecialCard(temp))
                     break;
 
-                // nếu là bài đặc biệt thì bỏ lá đó ra, lấy lá khác
+ 
                 XAPBAI.CardName = XAPBAI.CardName.Where(val => val != XAPBAI.CardName[0]).ToArray();
             }
 
@@ -254,18 +254,18 @@ namespace UNOServer
 
         private static void HandleDanhBai(string[] Signal, USER User)
         {
-            // ========== 1. Kiểm tra gói tin ==========
-            if (Signal.Length < 3)           // "DanhBai;ID;Card" (>=3 phần tử)
+            
+            if (Signal.Length < 3)        
             {
                 SendError(User, "Lỗi: Gói DanhBai không hợp lệ.");
                 return;
             }
 
             string userId = Signal[1];
-            string playedCard = Signal[2];    // [0]=DanhBai, [1]=ID, [2]=Card
-            string overrideColor = (Signal.Length >= 4) ? Signal[3] : "";   // [3] nếu là wd/df
+            string playedCard = Signal[2];    
+            string overrideColor = (Signal.Length >= 4) ? Signal[3] : "";   
 
-            // ========== 2. Xác thực người chơi / lượt ==========
+           
             USER currentUser = USERLIST.FirstOrDefault(u => u.ID == userId);
             if (currentUser == null) return;
 
@@ -280,30 +280,30 @@ namespace UNOServer
                 return;
             }
 
-            // ========== 3. Cập nhật lá bài hiện tại ==========
+            
             XAPBAI.currentCard = playedCard;
             MoBai.mobai.Add(playedCard);
 
-            // ========== 4. Tính số bài còn lại ==========
+            
             int newCount = Math.Max(0, currentUser.SoLuongBai - 1);
 
-            // Gửi Case5 cho mọi người (cập nhật số bài & lá trên bàn)
+            // Gửi Case5 cho tất cả
             foreach (var user in USERLIST)
             {
                 string send = $"Case5;{userId};{newCount};{playedCard}";
                 if ((playedCard.Contains("df") || playedCard.Contains("wd")) && !string.IsNullOrEmpty(overrideColor))
                 {
-                    MAU = overrideColor;          // lưu màu override
+                    MAU = overrideColor;        
                     send += $";{MAU}";
                 }
                 user.UserSK.Send(Encoding.UTF8.GetBytes(send));
                 Thread.Sleep(50);
             }
 
-            // Thực sự giảm bài ở server
+         
             currentUser.SoLuongBai = newCount;
 
-            // ========== 5. Kiểm tra thắng ==========
+           //kiểm tra thắng
             if (newCount == 0)
             {
                 foreach (var user in USERLIST)
@@ -314,7 +314,7 @@ namespace UNOServer
                 return;
             }
 
-            // ========== 6. Xử lý bài đặc biệt ==========
+            //bài đặc biệt
             bool isDraw2 = playedCard.Contains("dt");
             bool isDraw4 = playedCard.Contains("df");
             bool isReverse = playedCard.Contains("Rv");
@@ -344,7 +344,7 @@ namespace UNOServer
                 return;
             }
 
-            // ========== 7. Chuyển lượt bình thường ==========
+          
             int step = isSkip ? 2 : 1;
             if (USERLIST.Count == 2 && isReverse) step = 1;
 
@@ -353,7 +353,7 @@ namespace UNOServer
             if (MacDinh < 1) MacDinh += USERLIST.Count;
 
             if (!playedCard.Contains("df") && !playedCard.Contains("wd"))
-                MAU = "";   // reset màu override nếu không phải wild
+                MAU = "";   
 
             foreach (var user in USERLIST)
             {
@@ -372,14 +372,14 @@ namespace UNOServer
             var currentUser = USERLIST.FirstOrDefault(u => u.ID == userId);
             if (currentUser == null) return;
 
-            // Không đúng lượt
+            //sai lượt
             if (USERLIST[MacDinh - 1].ID != userId)
             {
                 SendError(User, "Bạn không có lượt!");
                 return;
             }
 
-            // Rút 1 lá
+            //rút 1 lá
             List<string> drawnCards = new List<string>();
             int rutSo = 1;
 
@@ -394,11 +394,11 @@ namespace UNOServer
 
             currentUser.SoLuongBai += drawnCards.Count;
 
-            // Gửi Case7 cho người rút
+            //gửi Case7 
             string case7 = $"Case7;{userId};{string.Join(";", drawnCards)}";
             currentUser.UserSK.Send(Encoding.UTF8.GetBytes(case7));
 
-            // ✅ Gửi Case5 cho tất cả người chơi
+            //gửi case 5 tấtc ả
             foreach (var user in USERLIST)
             {
                 string msg = $"Case5;{userId};{currentUser.SoLuongBai};{XAPBAI.currentCard}";
@@ -406,7 +406,7 @@ namespace UNOServer
                 Thread.Sleep(50);
             }
 
-            // Cập nhật lượt
+           
             UpdateTurnAndNotifyUsers();
         }
 
@@ -456,12 +456,10 @@ namespace UNOServer
                 }
             }
 
-            // Chỉ reset trạng thái, KHÔNG tự đổi lượt
             RUT = 0;
             //MAU = "";
             IsWaitingDraw = false;
 
-            // Gọi UpdateTurnAndNotifyUsers() để chuyển lượt và gửi Case6
             UpdateTurnAndNotifyUsers();
         }
 
@@ -546,12 +544,12 @@ namespace UNOServer
             };
     }
 
-    // class để lưu trữ các quân bài mở ra
+    // class lưu trữ các bài mở ra
     class MoBai
     {
         public static List<string> mobai = new List<string>();
     }
-    //class để lưu trữ thông tin người chơi
+    //class lưu trữ thông tin người chơi
     class USER
     {
         public string ID { get; set; }

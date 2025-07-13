@@ -23,8 +23,8 @@ namespace CLIENT
         public List<Label> IDNAME;
         public List<TextBox> IDNUMS;
         public int row = 0;
-        public bool IsForcedDraw { get; set; } = false;   // đang bị ép rút?
-        public string ForcedDrawType { get; set; } = "";      // "dt" hoặc "df"
+        public bool IsForcedDraw { get; set; } = false;  
+        public string ForcedDrawType { get; set; } = "";      
         public string currentCard;
         public string overrideColor;
 
@@ -60,7 +60,7 @@ namespace CLIENT
             btnDanhBai.Enabled = false;
             btnBocBai.Enabled = false;
             panelColors.Visible = false;
-            // Hiển thị chức năng nút khi di chuyển chuột vào nút
+
             ToolTip toolTip1 = new ToolTip();
             toolTip1.AutoPopDelay = 5000;
             toolTip1.InitialDelay = 500;
@@ -68,7 +68,6 @@ namespace CLIENT
             toolTip1.ShowAlways = true;
             toolTip1.SetToolTip(btnBocBai, "Bốc bài");
 
-            // Hiển thị chức năng nút khi di chuyển chuột vào nút
             ToolTip toolTip2 = new ToolTip();
             toolTip2.AutoPopDelay = 5000;
             toolTip2.InitialDelay = 500;
@@ -102,7 +101,7 @@ namespace CLIENT
         }
         
         
-        // Load card image to button(too long)
+       
         public void LoadCard(Button btn, string WhatCard)
         {
             if (WhatCard == "r0")
@@ -275,17 +274,17 @@ namespace CLIENT
         }
         public void SHOW()
         {
-            // Sắp xếp danh sách người chơi theo lượt chơi.
+          
             ProcessSocket.otheruser.Sort((x, y) => x.LUOT.CompareTo(y.LUOT));
 
-            // Cập nhật thông tin người chơi hiện tại (labelName và textBoxNum).
+            //thông tin người chơi hiện tại 
             labelName.Text = UserInfo.ID;
             textBoxNum.Text = UserInfo.SOLUONGBAI.ToString();
             textBoxNum.Tag = UserInfo.ID;
             IDNAME.Add(labelName);
             IDNUMS.Add(textBoxNum);
             
-            // Hiển thị thông tin của người chơi khác, bao gồm tên và số lượng bài của họ.
+            //thông tin của người chơi khác
             switch (ProcessSocket.otheruser.Count)
             {
                 case 1:
@@ -383,12 +382,12 @@ namespace CLIENT
         static int X = 162;
         static int Y = 450;
         static int i = 0;
-        static int maxPerRow = 7; // Số lượng tối đa các nút trên mỗi hàng
-        static int btnCountInRow = 0; // Biến đếm số lượng nút trên hàng hiện tại
+        static int maxPerRow = 7; 
+        static int btnCountInRow = 0; 
 
         public void SettingUpCard()
         {
-            flowLayoutCards.Controls.Clear(); // Xóa bài cũ nếu có
+            flowLayoutCards.Controls.Clear(); 
             Card.Add(new List<CardButton>());
 
             foreach (var cd in UserInfo.BAI)
@@ -403,16 +402,16 @@ namespace CLIENT
                 cardbtn.btn.Click += new EventHandler(cardBtn_Click);
 
                 LoadCard(cardbtn.btn, cd);
-                Card[0].Add(cardbtn); // Dùng 1 hàng (hoặc bỏ nếu không cần)
+                Card[0].Add(cardbtn); 
 
-                flowLayoutCards.Controls.Add(cardbtn.btn); // Thêm vào panel
+                flowLayoutCards.Controls.Add(cardbtn.btn);
             }
 
             STOPPLAYING();
         }
         public void ProcessBocBai(string cd)
         {
-            if (string.IsNullOrWhiteSpace(cd)) return; // ⚠️ bỏ qua nếu chuỗi rỗng
+            if (string.IsNullOrWhiteSpace(cd)) return; 
 
             CardButton THEBAI = new CardButton();
             THEBAI.id = cd;
@@ -426,11 +425,11 @@ namespace CLIENT
 
             try
             {
-                LoadCard(THEBAI.btn, cd); // 🔄 Load hình từ mã bài
+                LoadCard(THEBAI.btn, cd);
             }
             catch
             {
-                THEBAI.btn.Text = cd; // ❗ fallback nếu không có hình
+                THEBAI.btn.Text = cd; 
             }
 
             Card[0].Add(THEBAI);
@@ -441,7 +440,7 @@ namespace CLIENT
         {
             foreach (CardButton cb in Card[0])
             {
-                if (IsPlayable(cb.id)) // ✅ bạn tự viết hàm này theo luật UNO
+                if (IsPlayable(cb.id))
                 {
                     cb.btn.FlatAppearance.BorderColor = Color.Red;
                     cb.btn.FlatAppearance.BorderSize = 2;
@@ -531,11 +530,11 @@ namespace CLIENT
         }
 
 
-        public string ChosenCard = ""; // To assign after btn card clicked
+        public string ChosenCard = ""; 
 
         private void btnDanhBai_Click(object sender, EventArgs e)
         {
-            // ✅ Check tính hợp lệ trước
+            //check hợp lệ
             if (!IsPlayable(ChosenCard))
             {
                 MessageBox.Show("Không thể đánh lá bài này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -546,7 +545,7 @@ namespace CLIENT
 
             if (ChosenCard.Contains("wd") || ChosenCard.Contains("df"))
             {
-                panelColors.Visible = true; // ✅ Chờ chọn màu → xử lý sau
+                panelColors.Visible = true; 
             }
             else
             {
@@ -555,8 +554,8 @@ namespace CLIENT
 
                 UserInfo.BAI.Remove(ChosenCard);
                 RemoveCardFromHand(ChosenCard);
-                UserInfo.SOLUONGBAI--; // ✅ TRỪ BÀI
-                CARDSYNC(UserInfo.ID, UserInfo.SOLUONGBAI.ToString()); // ✅ CẬP NHẬT GIAO DIỆN
+                UserInfo.SOLUONGBAI--; 
+                CARDSYNC(UserInfo.ID, UserInfo.SOLUONGBAI.ToString());
             }
 
             btnDanhBai.Enabled = false;
@@ -592,7 +591,7 @@ namespace CLIENT
 
         private void EndGameByTimeout()
         {
-            // 1. Xác định người ít bài nhất
+            //
             string winner = UserInfo.ID;
             int minCards = UserInfo.SOLUONGBAI;
 
@@ -600,10 +599,10 @@ namespace CLIENT
                 if (int.TryParse(tb.Text, out int n) && n < minCards)
                 {
                     minCards = n;
-                    winner = tb.Tag.ToString();   // Tag của TextBox chứa ID
+                    winner = tb.Tag.ToString();  
                 }
 
-            // 2. Gọi lại cùng cơ chế như khi server báo Case9
+            
             ProcessSocket.Process($"Case9;{winner}");
         }
 
@@ -633,14 +632,14 @@ namespace CLIENT
 
         private void btnBocBai_Click(object sender, EventArgs e)
         {
-            // BỊ ÉP RÚT
+            //bị lá d4 hoặc d2
             if (IsForcedDraw)
             {
-                string msg = UserInfo.ID + ";" + ForcedDrawType; // ❌ Bỏ SOLUONGBAI
+                string msg = UserInfo.ID + ";" + ForcedDrawType; 
                 ProcessSocket.Data = "SpecialCardDT";
                 ProcessSocket.SENDER(msg);
 
-                // reset
+                //reset
                 IsForcedDraw = false;
                 ForcedDrawType = "";
 
@@ -649,8 +648,8 @@ namespace CLIENT
                 return;
             }
 
-            // RÚT BÌNH THƯỜNG
-            string msg2 = UserInfo.ID; // ❌ Bỏ SOLUONGBAI
+            //tự rút
+            string msg2 = UserInfo.ID;
             ProcessSocket.Data = "AddNewCard";
             ProcessSocket.SENDER(msg2);
 
@@ -673,16 +672,15 @@ namespace CLIENT
             ProcessSocket.Data = "DanhBai";
             ProcessSocket.SENDER(msg);
 
-            // ✅ Cập nhật bài và số lượng
+            
             UserInfo.BAI.Remove(ChosenCard);
             RemoveCardFromHand(ChosenCard);
-            UserInfo.SOLUONGBAI--; // ❗️ TRỪ 1 LÁ
-            CARDSYNC(UserInfo.ID, UserInfo.SOLUONGBAI.ToString()); // ❗️ CẬP NHẬT GIAO DIỆN
+            UserInfo.SOLUONGBAI--; 
+            CARDSYNC(UserInfo.ID, UserInfo.SOLUONGBAI.ToString()); 
 
             currentCard = ChosenCard;
             ShowCurrentCard();
 
-            // Tắt các nút và panel
             btnDanhBai.Enabled = false;
             btnBocBai.Enabled = false;
             panelColors.Visible = false;
@@ -724,7 +722,7 @@ namespace CLIENT
 
             if (IsPlayable(selected))
             {
-                // Reset border cho toàn bộ bài
+                
                 foreach (var card in Card[NowDeck])
                 {
                     card.btn.FlatAppearance.BorderColor = Color.Black;
@@ -759,7 +757,7 @@ namespace CLIENT
         private bool IsPlayable(string selectedCard, string currentCard)
         {
             if (selectedCard.StartsWith("wd") || selectedCard.StartsWith("df"))
-                return true; // Wild cards luôn hợp lệ
+                return true; 
 
             string selectedColor = GetColor(selectedCard);
             string currentColor = GetColor(currentCard);
@@ -780,14 +778,14 @@ namespace CLIENT
         }
 
 
-        // Trích ra giá trị chính xác của lá bài
+    
         private string GetCardValue(string card)
         {
-            // Xử lý wild và draw four
+           
             if (card.StartsWith("wd") || card.StartsWith("df"))
-                return card.Substring(0, 2); // "wd", "df"
+                return card.Substring(0, 2); 
 
-            // Bỏ hậu tố _X, _Y hoặc _
+           
             card = card.Replace("_X", "").Replace("_Y", "").Replace("_", "");
 
             if (card.StartsWith("Rv"))
@@ -797,8 +795,8 @@ namespace CLIENT
             if (card.StartsWith("dt"))
                 return "dt";
 
-            // Trường hợp thông thường như r0, g3, b5
-            return card.Substring(1); // trả về giá trị: "0", "1", ..., "9"
+            
+            return card.Substring(1); 
         }
 
         private void panelPlayerU_Paint(object sender, PaintEventArgs e)

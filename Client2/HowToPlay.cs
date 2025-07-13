@@ -33,9 +33,10 @@ namespace CLIENT
         {
             pictureBoxGuide.Image = guideImages[currentIndex];
 
-            // Hiện/ẩn nút Prev
+          
             btnPrev.Visible = currentIndex > 0;
 
+          
             btnNext.Visible = currentIndex < guideImages.Count - 1;
 
             btnExit.Visible = currentIndex == guideImages.Count - 1;
